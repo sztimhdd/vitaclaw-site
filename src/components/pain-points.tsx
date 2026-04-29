@@ -71,18 +71,6 @@ export function PainPoints() {
           ))}
         </div>
 
-        <div className="mt-20 text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 text-sm text-accent mb-6">
-            核心理念
-          </div>
-          <h3 className="text-2xl sm:text-3xl font-bold tracking-tight mb-4">
-            以&ldquo;安全为根、执行为本、兼容为要、易用为纲&rdquo;
-          </h3>
-          <p className="text-muted text-lg max-w-3xl mx-auto">
-            平衡政企客户对 AI 效率与安全合规的需求，打造和定义
-            AI 数字员工时代的工业级架构、能力和技术标准
-          </p>
-        </div>
       </div>
     </section>
   );

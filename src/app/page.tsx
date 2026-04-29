@@ -1,29 +1,31 @@
 import { Hero } from "@/components/hero";
+import { TrustBar } from "@/components/trust-bar";
+import { AudienceBar } from "@/components/audience-bar";
 import { PainPoints } from "@/components/pain-points";
-import { LobsterBox } from "@/components/lobster-box";
 import { IntegrationInterface } from "@/components/integration-interface";
 import { Workflow } from "@/components/workflow";
+import { LobsterBox } from "@/components/lobster-box";
 import { Architecture } from "@/components/architecture";
-import { DevExperience } from "@/components/dev-experience";
 import { Trust } from "@/components/trust";
+import { DevExperience } from "@/components/dev-experience";
 import { Business } from "@/components/business";
 import { CTA } from "@/components/cta";
-import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
     <>
       <Hero />
+      <TrustBar />
+      <AudienceBar />
       <PainPoints />
-      <LobsterBox />
       <IntegrationInterface />
       <Workflow />
+      <LobsterBox />
       <Architecture />
-      <DevExperience />
       <Trust />
+      <DevExperience />
       <Business />
       <CTA />
-      <Footer />
     </>
   );
 }

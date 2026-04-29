@@ -2,7 +2,8 @@ const plans = [
   {
     name: "私有化交付",
     target: "大型国企、头部金融",
-    price: "5,000 元/员工/年",
+    price: "按项目定制报价",
+    priceNote: "参考价格: 从 ¥5 万/年起",
     features: ["私有化部署，数据不出域", "全量功能模块", "专属运维支持", "定制化开发"],
     popular: false,
   },
@@ -10,6 +11,7 @@ const plans = [
     name: "SaaS 订阅",
     target: "中型企业",
     price: "200 元/技能/月",
+    priceNote: "示例: 10 个技能 × 200元 = 2,000元/月",
     features: ["开箱即用", "按需订阅", "自动更新升级", "标准技术支持"],
     popular: true,
   },
@@ -37,7 +39,8 @@ export function Business() {
               )}
               <div className="mb-2 text-xs text-muted">{plan.target}</div>
               <h3 className="text-xl font-bold mb-1">{plan.name}</h3>
-              <div className="text-3xl font-bold mb-6">{plan.price}</div>
+              <div className="text-3xl font-bold mb-1">{plan.price}</div>
+              {plan.priceNote && <div className="text-xs text-muted mb-5">{plan.priceNote}</div>}
               <ul className="space-y-3 mb-8">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-center gap-2 text-sm text-muted">

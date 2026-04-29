@@ -1,3 +1,5 @@
+import { ScreenshotImg } from "@/components/screenshot-img";
+
 export function IntegrationInterface() {
   return (
     <section className="relative py-24 sm:py-32 overflow-hidden">
@@ -158,10 +160,10 @@ export function IntegrationInterface() {
         {/* Screenshot: SkillHub ecosystem */}
         <div className="mt-10 max-w-4xl mx-auto">
           <div className="rounded-2xl border border-card-border overflow-hidden hover:border-accent/30 transition-all duration-300">
-            <img
+            <ScreenshotImg
               src="/screenshots/skillhub-ecosystem.png"
               alt="兼容OpenClaw的SkillHub技能生态"
-              className="w-full h-auto"
+              fallbackText="技能生态截图加载中..."
             />
           </div>
           <p className="text-center text-xs text-muted/50 mt-3">全面兼容 OpenClaw 技能生态 &mdash; 开放标准、私有技能自定义开发与版本管理</p>

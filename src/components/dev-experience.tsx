@@ -1,6 +1,6 @@
 export function DevExperience() {
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="dev-experience" className="relative py-24 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="absolute bottom-0 left-1/3 w-[500px] h-[300px] bg-accent/5 rounded-full blur-[120px]" />
 

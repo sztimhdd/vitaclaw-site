@@ -1,9 +1,3 @@
-const bankLogos = [
-  "中国工商银行", "中国农业银行", "中国银行", "中国建设银行",
-  "交通银行", "招商银行", "浦发银行", "中信银行",
-  "兴业银行", "平安银行", "光大银行", "民生银行",
-];
-
 const badges = [
   {
     title: "五层十六道安全防线",
@@ -24,7 +18,7 @@ const badges = [
 
 export function Trust() {
   return (
-    <section className="relative py-24 sm:py-32 bg-section-alt overflow-hidden">
+    <section id="trust" className="relative py-24 sm:py-32 bg-section-alt overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-30" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -68,31 +62,21 @@ export function Trust() {
           ))}
         </div>
 
-        {/* Logo Wall */}
-        <div>
-          <div className="text-center mb-10">
-            <div className="text-xs text-muted font-medium tracking-widest uppercase">服务客户</div>
-            <div className="text-lg text-muted mt-1">200+ 头部商业银行 &middot; 选用了 VitaClaw</div>
-          </div>
-
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-            {bankLogos.map((bank) => (
-              <div
-                key={bank}
-                className="group rounded-xl border border-card-border bg-card/50 p-4 text-center hover:border-accent/20 hover:bg-accent/[0.02] transition-all duration-300"
-              >
-                <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center mx-auto mb-2 group-hover:bg-accent/20 transition-colors">
-                  <span className="text-xs font-bold text-accent">{bank[0]}</span>
-                </div>
-                <div className="text-xs text-muted leading-tight">{bank}</div>
+        {/* Certifications */}
+        <div className="text-center">
+          <div className="text-xs text-muted font-medium tracking-widest uppercase mb-6">资质认证</div>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              { label: "CMMI5", desc: "软件能力成熟度认证" },
+              { label: "国家高新技术企业", desc: "国家级技术创新认证" },
+              { label: "ISO 27001", desc: "信息安全管理体系" },
+              { label: "信创国产化 100% 适配", desc: "国产芯片/OS/数据库" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl border border-card-border bg-card px-6 py-4 text-center hover:border-accent/30 transition-colors">
+                <div className="text-sm font-semibold text-foreground mb-1">{item.label}</div>
+                <div className="text-xs text-muted">{item.desc}</div>
               </div>
             ))}
-          </div>
-
-          <div className="text-center mt-8">
-            <p className="text-xs text-muted/50">
-              基于隐私保护要求，部分客户信息已脱敏处理。排名不分先后。
-            </p>
           </div>
         </div>
       </div>

@@ -1,7 +1,10 @@
+import { HeroParticles } from "@/components/hero-particles";
+
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0 grid-bg" />
+      <HeroParticles />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/10 rounded-full blur-[150px]" />
       <div className="absolute bottom-1/3 right-1/4 w-[300px] h-[200px] bg-accent-green/5 rounded-full blur-[100px]" />
 
@@ -48,37 +51,36 @@ export function Hero() {
             href="#cta"
             className="inline-flex h-12 w-56 items-center justify-center rounded-xl bg-accent text-base font-medium text-white hover:bg-accent-hover transition-all hover:scale-105 glow"
           >
-            开始试点项目
+            申请试点 &rarr;
           </a>
           <a
             href="#architecture"
-            className="inline-flex h-12 w-56 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-base font-medium text-foreground hover:bg-white/10 transition-all"
+            className="inline-flex h-12 w-56 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-base font-medium text-muted hover:text-foreground hover:bg-white/10 transition-all"
           >
-            阅读技术白皮书
-            <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
+            查看技术架构
           </a>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-4">
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-bold text-foreground mb-1">99.99%</div>
+            <div className="metric-number text-foreground mb-1">99.99%</div>
             <div className="text-sm text-muted">平台可用率</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-bold text-foreground mb-1">&gt;98%</div>
+            <div className="metric-number text-foreground mb-1">&gt;98%</div>
             <div className="text-sm text-muted">任务准确率</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-bold text-foreground mb-1">80%</div>
+            <div className="metric-number text-foreground mb-1">80%</div>
             <div className="text-sm text-muted">落地成本降低</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl sm:text-4xl font-bold text-foreground mb-1">1 周</div>
+            <div className="metric-number text-foreground mb-1">1 周</div>
             <div className="text-sm text-muted">极速部署上线</div>
           </div>
         </div>
+
+        <p className="text-center text-xs text-muted/40 mb-10">基于 200+ 客户实际部署数据</p>
 
         <div className="text-sm text-muted/60 border-t border-white/5 pt-6 max-w-lg mx-auto">
           已为全国 200+ 商业银行提供高可信 AI 执行保障

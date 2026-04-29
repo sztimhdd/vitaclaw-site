@@ -65,6 +65,14 @@ body {
   box-shadow: 0 0 40px rgba(34, 211, 160, 0.15), 0 0 80px rgba(34, 211, 160, 0.05);
 }
 
+.metric-number {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
 .gradient-border {
   position: relative;
 }

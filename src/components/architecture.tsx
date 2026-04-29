@@ -1,3 +1,5 @@
+import { ScreenshotImg } from "@/components/screenshot-img";
+
 const layers = [
   { title: "Rust 企业级安全内核", items: ["内存安全，无GC", "零成本抽象", "原生WebAssembly支持"] },
   { title: "KVM/Wasm 多层沙盒", items: ["宿主机级强隔离", "独立执行空间", "五层十六道安全防线"] },
@@ -32,10 +34,10 @@ export function Architecture() {
 
           {/* Screenshot: Core architecture */}
           <div className="mb-8 rounded-xl border border-card-border overflow-hidden hover:border-accent/20 transition-all duration-300">
-            <img
+            <ScreenshotImg
               src="/screenshots/core-architecture.png"
               alt="VitaClaw自主核心架构图"
-              className="w-full h-auto"
+              fallbackText="架构图加载中..."
             />
           </div>
 

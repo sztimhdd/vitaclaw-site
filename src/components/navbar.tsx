@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { label: "安全哲学", href: "#security" },
   { label: "核心能力", href: "#workflow" },
   { label: "技术架构", href: "#architecture" },
-  { label: "商业模式", href: "#business" },
+  { label: "定价方案", href: "#business" },
   { label: "信任合规", href: "#trust" },
 ];
 
