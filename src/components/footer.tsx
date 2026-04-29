@@ -1,7 +1,27 @@
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black">
+    <footer id="footer" className="border-t border-white/10 bg-black">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        {/* Qualifications Wall */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-muted mb-8">
+           资质与认证
+          </div>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              { label: "CMMI5", desc: "软件能力成熟度认证" },
+              { label: "国家高新技术企业", desc: "国家级技术创新认证" },
+              { label: "信创国产化 100% 适配", desc: "国产芯片/OS/数据库" },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl border border-card-border bg-card px-6 py-4 text-center hover:border-accent/30 transition-colors">
+                <div className="text-sm font-semibold text-foreground mb-1">{item.label}</div>
+                <div className="text-xs text-muted">{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -11,14 +31,14 @@ export function Footer() {
               <span className="font-semibold text-sm">VitaClaw</span>
             </div>
             <p className="text-xs text-muted leading-relaxed">
-              企小勤数字员工平台<br />
-              企业级高可信数字员工底座
+              企业级受控执行运行时<br />
+              定义智能执行时代的工业安全标准
             </p>
           </div>
           <div>
             <h4 className="text-xs font-semibold text-foreground mb-4">产品</h4>
             <ul className="space-y-2">
-              {["安全可控", "能力闭环", "高效落地", "企业级运维", "定价"].map((item) => (
+              {["安全哲学", "核心能力", "技术架构", "灵活部署"].map((item) => (
                 <li key={item}><a href="#" className="text-xs text-muted hover:text-foreground transition-colors">{item}</a></li>
               ))}
             </ul>
@@ -26,7 +46,7 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-semibold text-foreground mb-4">资源</h4>
             <ul className="space-y-2">
-              {["技术文档", "API 参考", "技能生态", "案例研究", "博客"].map((item) => (
+              {["技术文档", "API 参考", "技能生态", "案例研究"].map((item) => (
                 <li key={item}><a href="#" className="text-xs text-muted hover:text-foreground transition-colors">{item}</a></li>
               ))}
             </ul>
@@ -34,20 +54,21 @@ export function Footer() {
           <div>
             <h4 className="text-xs font-semibold text-foreground mb-4">关于</h4>
             <ul className="space-y-2">
-              {["公司介绍", "核心团队", "联系我们", "加入我们", "隐私政策"].map((item) => (
+              {["公司介绍", "联系我们", "隐私政策", "服务条款"].map((item) => (
                 <li key={item}><a href="#" className="text-xs text-muted hover:text-foreground transition-colors">{item}</a></li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted">&copy; {new Date().getFullYear()} 杭州银成信息技术有限公司. All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            {["浙ICP备XXXXXXXX号", "隐私政策", "服务条款"].map((item) => (
-              <a key={item} href="#" className="text-xs text-muted hover:text-foreground transition-colors">{item}</a>
-            ))}
-          </div>
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 pt-8 text-center">
+          <p className="text-sm font-semibold text-foreground mb-2">
+            VitaClaw &mdash; 定义智能执行时代的工业安全标准
+          </p>
+          <p className="text-xs text-muted">
+            &copy; {new Date().getFullYear()} VitaClaw (企小勤). All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

@@ -7,9 +7,8 @@ import { Architecture } from "@/components/architecture";
 import { DevExperience } from "@/components/dev-experience";
 import { Trust } from "@/components/trust";
 import { Business } from "@/components/business";
-import { Team } from "@/components/team";
-import { Financials } from "@/components/financials";
 import { CTA } from "@/components/cta";
+import { Footer } from "@/components/footer";
 
 export default function Home() {
   return (
@@ -23,9 +22,8 @@ export default function Home() {
       <DevExperience />
       <Trust />
       <Business />
-      <Team />
-      <Financials />
       <CTA />
+      <Footer />
     </>
   );
 }

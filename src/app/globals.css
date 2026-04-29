@@ -7,6 +7,8 @@
   --color-muted-foreground: #71717a;
   --color-accent: #2563eb;
   --color-accent-hover: #1d4ed8;
+  --color-accent-green: #22d3a0;
+  --color-accent-green-hover: #14b88a;
   --color-card: #0a0a0a;
   --color-card-border: #18181b;
   --color-section-alt: #050505;
@@ -50,6 +52,17 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.gradient-text-green {
+  background: linear-gradient(135deg, #22d3a0 0%, #14b88a 50%, #0d9488 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow-green {
+  box-shadow: 0 0 40px rgba(34, 211, 160, 0.15), 0 0 80px rgba(34, 211, 160, 0.05);
 }
 
 .gradient-border {
