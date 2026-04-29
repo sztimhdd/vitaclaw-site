@@ -67,7 +67,7 @@ export function PainPoints() {
         <ScrollReveal>
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
-              通用产品水土不服
+              为什么现成的 AI 工具在金融机构落不了地
             </h2>
             <p className="text-lg text-white/50 max-w-2xl mx-auto">
               政企客户有极强的自动化降本刚需，但通用产品不敢用，定制方案用不起，信创监管不让用，自建方案难运营
