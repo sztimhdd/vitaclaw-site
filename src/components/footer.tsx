@@ -1,74 +1,92 @@
+const footerLinks = [
+  {
+    title: "产品",
+    links: [
+      { label: "核心能力", href: "#workflow" },
+      { label: "技术架构", href: "#architecture" },
+      { label: "定价方案", href: "#business" },
+      { label: "信任合规", href: "#trust" },
+    ],
+  },
+  {
+    title: "资源",
+    links: [
+      { label: "技术文档", href: "#" },
+      { label: "API 参考", href: "#" },
+      { label: "技能生态", href: "#" },
+      { label: "案例研究", href: "#" },
+    ],
+  },
+  {
+    title: "关于",
+    links: [
+      { label: "公司介绍", href: "#" },
+      { label: "联系我们", href: "#contact" },
+      { label: "隐私政策", href: "#" },
+      { label: "服务条款", href: "#" },
+    ],
+  },
+];
+
+const badges = ["CMMI5", "国家高新", "信创适配"];
+
 export function Footer() {
   return (
-    <footer id="footer" className="border-t border-white/10 bg-black">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-        {/* Qualifications Wall */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-muted mb-8">
-           资质与认证
-          </div>
-          <div className="flex flex-wrap justify-center gap-4">
-            {[
-              { label: "CMMI5", desc: "软件能力成熟度认证" },
-              { label: "国家高新技术企业", desc: "国家级技术创新认证" },
-              { label: "信创国产化 100% 适配", desc: "国产芯片/OS/数据库" },
-            ].map((item) => (
-              <div key={item.label} className="rounded-xl border border-card-border bg-card px-6 py-4 text-center hover:border-accent/30 transition-colors">
-                <div className="text-sm font-semibold text-foreground mb-1">{item.label}</div>
-                <div className="text-xs text-muted">{item.desc}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-          <div>
+    <footer id="footer" className="border-t border-white/[0.08] pt-16 pb-10 bg-[#080c14]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Top: Logo + 3 link columns */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+          {/* Brand column (spans 2) */}
+          <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="flex items-center justify-center w-7 h-7 rounded-lg bg-accent">
-                <span className="text-xs font-bold text-white">V</span>
+              <div className="w-7 h-7 rounded-md bg-white/90 flex items-center justify-center">
+                <span className="text-[#080c14] font-bold text-sm">V</span>
               </div>
-              <span className="font-semibold text-sm">VitaClaw</span>
+              <span className="font-semibold text-white">VitaClaw</span>
             </div>
-            <p className="text-xs text-muted leading-relaxed">
+            <p className="text-[13px] text-white/40 leading-relaxed max-w-[240px]">
               企业级受控执行运行时<br />
               定义智能执行时代的工业安全标准
             </p>
-          </div>
-          <div>
-            <h4 className="text-xs font-semibold text-foreground mb-4">产品</h4>
-            <ul className="space-y-2">
-              {["安全哲学", "核心能力", "技术架构", "灵活部署"].map((item) => (
-                <li key={item}><a href="#" className="text-xs text-muted hover:text-foreground transition-colors">{item}</a></li>
+            {/* Certification badges */}
+            <div className="flex gap-2 mt-5 flex-wrap">
+              {badges.map((b) => (
+                <span key={b} className="text-[11px] px-2 py-1 rounded border border-white/[0.10] text-white/35">
+                  {b}
+                </span>
               ))}
-            </ul>
+            </div>
           </div>
-          <div>
-            <h4 className="text-xs font-semibold text-foreground mb-4">资源</h4>
-            <ul className="space-y-2">
-              {["技术文档", "API 参考", "技能生态", "案例研究"].map((item) => (
-                <li key={item}><a href="#" className="text-xs text-muted hover:text-foreground transition-colors">{item}</a></li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-xs font-semibold text-foreground mb-4">关于</h4>
-            <ul className="space-y-2">
-              {["公司介绍", "联系我们", "隐私政策", "服务条款"].map((item) => (
-                <li key={item}><a href="#" className="text-xs text-muted hover:text-foreground transition-colors">{item}</a></li>
-              ))}
-            </ul>
-          </div>
+
+          {/* Link columns */}
+          {footerLinks.map((col) => (
+            <div key={col.title}>
+              <h5 className="text-xs font-semibold tracking-widest text-white/30 uppercase mb-4">{col.title}</h5>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className="text-[13px] text-white/50 hover:text-white transition-colors duration-150">
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/10 pt-8 text-center">
-          <p className="text-sm font-semibold text-foreground mb-2">
-            VitaClaw &mdash; 定义智能执行时代的工业安全标准
-          </p>
-          <p className="text-xs text-muted">
+        <div className="border-t border-white/[0.08] pt-8 flex items-center justify-between flex-wrap gap-4">
+          <span className="text-[12px] text-white/25">
             &copy; {new Date().getFullYear()} VitaClaw (企小勤). All rights reserved.
-          </p>
+          </span>
+          <div className="flex gap-5">
+            {["隐私政策", "服务条款"].map((l) => (
+              <a key={l} href="#" className="text-[12px] text-white/25 hover:text-white/50 transition-colors duration-150">
+                {l}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

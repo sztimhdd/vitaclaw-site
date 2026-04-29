@@ -8,9 +8,9 @@ export function TrustBar() {
   const doubled = [...bankLogos, ...bankLogos];
 
   return (
-    <section className="relative py-12 bg-section-alt overflow-hidden border-b border-white/5">
+    <section className="relative py-12 bg-section-alt overflow-hidden border-b border-white/[0.05]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs text-muted/50 mb-6 tracking-widest uppercase">
+        <p className="text-center text-xs text-white/20 mb-6 tracking-widest uppercase">
           已服务 200+ 头部商业银行
         </p>
 
@@ -39,17 +39,10 @@ export function TrustBar() {
           </div>
         </div>
 
-        <p className="text-center text-xs text-muted/30 mt-4">
+        <p className="text-center text-xs text-white/15 mt-4">
           基于隐私保护要求，部分客户信息已脱敏处理
         </p>
       </div>
-
-      <style>{`
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-      `}</style>
     </section>
   );
 }
