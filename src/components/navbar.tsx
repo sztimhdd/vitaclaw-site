@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { label: "产品方案", href: "#capabilities" },
+  { label: "安全哲学", href: "#security" },
+  { label: "核心能力", href: "#workflow" },
   { label: "技术架构", href: "#architecture" },
   { label: "核心团队", href: "#team" },
   { label: "商业模式", href: "#business" },
-  { label: "融资计划", href: "#financials" },
 ];
 
 export function Navbar() {
