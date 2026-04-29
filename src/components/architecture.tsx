@@ -30,6 +30,15 @@ export function Architecture() {
             </div>
           </div>
 
+          {/* Screenshot: Core architecture */}
+          <div className="mb-8 rounded-xl border border-card-border overflow-hidden hover:border-accent/20 transition-all duration-300">
+            <img
+              src="/screenshots/core-architecture.png"
+              alt="VitaClaw自主核心架构图"
+              className="w-full h-auto"
+            />
+          </div>
+
           <div className="space-y-3">
             {layers.map((layer, i) => (
               <div key={layer.title} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 rounded-xl border border-card-border bg-black/40 p-4 hover:border-accent/20 transition-colors">

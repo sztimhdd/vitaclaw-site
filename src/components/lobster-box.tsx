@@ -95,6 +95,18 @@ export function LobsterBox() {
             </div>
           </div>
         </div>
+
+        {/* Screenshot: 5-layer sandbox security */}
+        <div className="mt-10">
+          <div className="rounded-2xl border border-card-border overflow-hidden hover:border-accent/30 transition-all duration-300">
+            <img
+              src="/screenshots/security-sandbox.jpg"
+              alt="五层十六道安全防线架构图"
+              className="w-full h-auto"
+            />
+          </div>
+          <p className="text-center text-xs text-muted/50 mt-3">五层十六道纵深防御体系 &mdash; 从内核到应用层的全链路安全防线</p>
+        </div>
       </div>
     </section>
   );

@@ -154,6 +154,18 @@ export function IntegrationInterface() {
             <span className="text-xs text-muted">无侵入集成中间件 &middot; 不改一行代码 &middot; 最快 1 周上线</span>
           </div>
         </div>
+
+        {/* Screenshot: SkillHub ecosystem */}
+        <div className="mt-10 max-w-4xl mx-auto">
+          <div className="rounded-2xl border border-card-border overflow-hidden hover:border-accent/30 transition-all duration-300">
+            <img
+              src="/screenshots/skillhub-ecosystem.png"
+              alt="兼容OpenClaw的SkillHub技能生态"
+              className="w-full h-auto"
+            />
+          </div>
+          <p className="text-center text-xs text-muted/50 mt-3">全面兼容 OpenClaw 技能生态 &mdash; 开放标准、私有技能自定义开发与版本管理</p>
+        </div>
       </div>
     </section>
   );

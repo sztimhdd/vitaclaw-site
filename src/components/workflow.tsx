@@ -118,6 +118,40 @@ export function Workflow() {
             </div>
           ))}
         </div>
+
+        {/* Screenshots: 3 workflow modules */}
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="rounded-2xl border border-card-border overflow-hidden hover:border-accent/30 transition-all duration-300">
+            <img
+              src="/screenshots/memory-knowledge.png"
+              alt="短期中期长期记忆系统与知识图谱加成的企业知识库"
+              className="w-full h-auto"
+            />
+            <div className="px-4 py-3 border-t border-card-border bg-black/30">
+              <p className="text-xs text-muted text-center">CMA 混合记忆架构 &mdash; 企业知识图谱深度嵌入 AI 决策链</p>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-card-border overflow-hidden hover:border-accent/30 transition-all duration-300">
+            <img
+              src="/screenshots/self-learning.png"
+              alt="自学习自进化的数字员工自主生成技能"
+              className="w-full h-auto"
+            />
+            <div className="px-4 py-3 border-t border-card-border bg-black/30">
+              <p className="text-xs text-muted text-center">自学习自进化 &mdash; 数字员工自主生成业务执行技能</p>
+            </div>
+          </div>
+          <div className="rounded-2xl border border-card-border overflow-hidden hover:border-accent/30 transition-all duration-300">
+            <img
+              src="/screenshots/ops-management.png"
+              alt="企业级智能体运维管理能力"
+              className="w-full h-auto"
+            />
+            <div className="px-4 py-3 border-t border-card-border bg-black/30">
+              <p className="text-xs text-muted text-center">工业级运维 &mdash; Agent 集群监控与算力弹性调度</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
