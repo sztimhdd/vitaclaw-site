@@ -19,11 +19,11 @@ export function Hero() {
           <div className="flex flex-col gap-12">
             <ScrollReveal>
               <div>
-                <h1 className="text-[clamp(40px,5.5vw,72px)] font-bold leading-[1.08] tracking-[-0.03em] mb-4">
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
+                <h1 className="text-[clamp(28px,4vw,52px)] font-bold leading-[1.1] tracking-[-0.02em] mb-4">
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60 whitespace-nowrap">
                     企业级 AI 数字员工
                   </span>
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white/90 to-white/40 mt-2">
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white/90 to-white/40 mt-3 whitespace-nowrap">
                     1 周上线，0 行代码改动
                   </span>
                 </h1>
@@ -66,13 +66,47 @@ export function Hero() {
             </ScrollReveal>
           </div>
 
-          {/* Right: Product screenshot */}
-          <div className="relative h-[500px] hidden lg:flex items-center justify-center">
-            <ProductScreenshot
-              src="/screenshots/core-architecture.png"
-              alt="VitaClaw 核心架构 — 五层纵深防御体系"
-              className="rounded-2xl shadow-2xl border border-white/10 w-full h-full"
-            />
+          {/* Right: Product video */}
+          <div className="relative hidden lg:flex items-center justify-center w-full max-w-[600px] ml-auto">
+            <ScrollReveal delay={200} className="w-full">
+              {/* System Panel / Browser Window Wrapper */}
+              <div className="w-full rounded-xl sm:rounded-2xl border border-white/[0.08] bg-[#0c101a] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden group hover:scale-[1.02] transition-transform duration-500 will-change-transform">
+                {/* Window Header */}
+                <div className="flex items-center px-4 py-3 border-b border-white/[0.05] bg-[#101420]">
+                  <div className="flex gap-2">
+                    <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
+                    <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
+                    <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
+                  </div>
+                  <div className="ml-4 text-[13px] font-medium text-white/40 tracking-wide font-mono">
+                    VitaClaw System
+                  </div>
+                </div>
+                {/* Video Container (16:9 aspect ratio) */}
+                <div className="relative w-full aspect-video bg-[#050810]">
+                  <video 
+                    src="/video-demo.mp4" 
+                    className="absolute inset-0 w-full h-full object-cover"
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.nextElementSibling!.classList.remove('hidden');
+                    }}
+                  />
+                  {/* Fallback screenshot if video fails to load */}
+                  <div className="hidden absolute inset-0 w-full h-full">
+                    <ProductScreenshot
+                      src="/arch.png"
+                      alt="VitaClaw 核心架构"
+                      className="w-full h-full object-cover rounded-none"
+                    />
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

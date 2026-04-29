@@ -41,7 +41,7 @@ export function Architecture() {
           <ScrollReveal delay={100}>
             <div className="mb-8 rounded-xl border border-white/[0.08] overflow-hidden hover:border-white/[0.16] transition-all duration-300">
               <ScreenshotImg
-                src="/screenshots/core-architecture.png"
+                src="/arch.png"
                 alt="VitaClaw自主核心架构图"
                 fallbackText="架构图加载中..."
               />

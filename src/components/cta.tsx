@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 export function CTA() {

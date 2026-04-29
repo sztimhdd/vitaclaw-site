@@ -39,7 +39,8 @@ export function Footer() {
           {/* Brand column (spans 2) */}
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-md bg-white/90 flex items-center justify-center">
+              <img src="/VitaClaw-Logo-v0.png" alt="VitaClaw Logo" className="h-8 w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex'; }} />
+              <div className="hidden w-7 h-7 rounded-md bg-white/90 items-center justify-center">
                 <span className="text-[#080c14] font-bold text-sm">V</span>
               </div>
               <span className="font-semibold text-white">VitaClaw</span>

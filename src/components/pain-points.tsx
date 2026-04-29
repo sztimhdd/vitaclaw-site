@@ -11,7 +11,7 @@ const painPoints = [
     description: "开源漏洞层出不穷，数据上云易泄露、权限无管控、责任难追溯，无法满足金融、政务等强监管行业的合规要求。",
     tags: ["数据泄露", "权限失控", "责任断链"],
     accent: "red",
-    large: true,
+    image: "/Pain-1.png",
   },
   {
     icon: (
@@ -23,7 +23,7 @@ const painPoints = [
     description: "通用产品对接需改造企业老旧系统，改造成本高、落地周期长，复杂多云架构适配性差。",
     tags: ["改造成本高", "周期长", "多云不适配"],
     accent: "amber",
-    large: false,
+    image: "/Pain-2.png",
   },
   {
     icon: (
@@ -35,7 +35,7 @@ const painPoints = [
     description: "缺乏自学习、持续进化、技能泛化能力，无法胜任复杂真实业务场景的端到端长任务需求。",
     tags: ["缺乏自学习", "无法端到端", "任务中断"],
     accent: "purple",
-    large: false,
+    image: "/Pain-3.png",
   },
   {
     icon: (
@@ -47,7 +47,7 @@ const painPoints = [
     description: "缺乏Agent集群监控管理能力，缺乏算力弹性调度、技能集中管理，无法规模化运营管理。",
     tags: ["集群监控弱", "算力调度难", "技能管理散"],
     accent: "teal",
-    large: false,
+    image: "/Pain-4.png",
   },
 ];
 
@@ -75,29 +75,41 @@ export function PainPoints() {
           </div>
         </ScrollReveal>
 
-        {/* Bento Grid: first card spans 2 cols, rest 1 col each */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Bento Grid: 2x2 Layout with images */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {painPoints.map((point, i) => {
             const s = accentStyles[point.accent];
-            const isLarge = point.large;
             return (
               <ScrollReveal key={point.title} delay={i * 80}>
                 <div
-                  className={`rounded-2xl border border-white/[0.08] bg-white/[0.03] p-7 hover:border-white/[0.16] hover:bg-white/[0.05] transition-all duration-300 group ${
-                    isLarge ? "md:col-span-2" : ""
-                  }`}
+                  className={`h-full flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.03] hover:border-white/[0.16] hover:bg-white/[0.05] transition-all duration-300 group`}
                 >
-                  <div className={`w-10 h-10 rounded-lg ${s.bg} ${s.border} flex items-center justify-center mb-5`}>
-                    {point.icon}
+                  {/* Top content area */}
+                  <div className="p-7 grow flex flex-col">
+                    <div className={`w-10 h-10 rounded-lg ${s.bg} ${s.border} flex items-center justify-center mb-5 shrink-0`}>
+                      {point.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-3">{point.title}</h3>
+                    <p className="text-[15px] text-white/50 leading-relaxed mb-6">{point.description}</p>
+                    <div className="flex gap-2 flex-wrap mb-4">
+                      {point.tags.map((tag) => (
+                        <span key={tag} className={`text-xs px-2.5 py-1 rounded-full ${s.tagBg} ${s.tagText} ${s.tagBorder}`}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold text-white mb-3">{point.title}</h3>
-                  <p className="text-[15px] text-white/50 leading-relaxed">{point.description}</p>
-                  <div className="flex gap-2 mt-6 flex-wrap">
-                    {point.tags.map((tag) => (
-                      <span key={tag} className={`text-xs px-2.5 py-1 rounded-full ${s.tagBg} ${s.tagText} ${s.tagBorder}`}>
-                        {tag}
-                      </span>
-                    ))}
+                  
+                  {/* Comparison visual area */}
+                  <div className="bg-[#050810]/50 border-t border-white/[0.05] px-6 py-6 mt-auto">
+                    <div className="w-full flex items-center justify-center">
+                      <img 
+                        src={point.image} 
+                        alt={point.title} 
+                        className="w-full max-w-[600px] h-auto object-contain rounded-xl opacity-90 group-hover:opacity-100 transition-opacity duration-300" 
+                        loading="lazy"
+                      />
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>

@@ -29,7 +29,8 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <a href="#" className="flex items-center gap-2">
-            <div className="flex items-center justify-center w-7 h-7 rounded-md bg-white/90">
+            <img src="/VitaClaw-Logo-v0.png" alt="VitaClaw Logo" className="h-8 w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex'; }} />
+            <div className="hidden items-center justify-center w-7 h-7 rounded-md bg-white/90">
               <span className="text-sm font-bold text-[#080c14]">V</span>
             </div>
             <span className="font-semibold text-sm tracking-tight text-white">

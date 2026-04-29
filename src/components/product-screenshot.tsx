@@ -25,14 +25,14 @@ export function ProductScreenshot({
   return (
     <div className={`relative overflow-hidden ${className}`}>
       {isLoading && (
-        <div className="absolute inset-0 bg-white/5 animate-pulse rounded-2xl" />
+        <div className="absolute inset-0 bg-white/5 animate-pulse" />
       )}
       <img
         src={src}
         alt={alt}
         onLoad={() => setIsLoading(false)}
         onError={() => { setIsLoading(false); setHasError(true); }}
-        className={`w-full h-full object-cover rounded-2xl transition-all duration-500 ${
+        className={`w-full h-full object-cover transition-all duration-500 ${
           isLoading ? "opacity-0" : "opacity-100"
         }`}
         loading="lazy"

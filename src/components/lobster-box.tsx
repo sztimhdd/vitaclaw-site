@@ -38,8 +38,8 @@ export function LobsterBox() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {/* Block A — Active Enforcement (large) */}
-          <ScrollReveal delay={150}>
-            <div className="lg:col-span-2 relative rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 sm:p-12 overflow-hidden hover:border-blue-500/30 transition-all duration-500 group">
+          <ScrollReveal delay={150} className="lg:col-span-2">
+            <div className="h-full relative rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 sm:p-12 overflow-hidden hover:border-blue-500/30 transition-all duration-500 group">
               {/* Hover glow */}
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.06),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               {/* Left accent bar */}

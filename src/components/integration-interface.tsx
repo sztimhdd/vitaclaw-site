@@ -158,18 +158,52 @@ export function IntegrationInterface() {
           </div>
         </div>
 
-        {/* Screenshot */}
+        {/* Video + Screenshot two-column */}
         <ScrollReveal delay={150}>
-          <div className="mt-10 max-w-4xl mx-auto">
-            <div className="rounded-2xl border border-white/[0.08] overflow-hidden hover:border-white/[0.16] transition-all duration-300">
+          <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {/* Left: Integration video */}
+            <div className="rounded-xl sm:rounded-2xl border border-white/[0.08] bg-[#0c101a] shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] overflow-hidden group hover:border-white/[0.16] transition-all duration-300">
+              <div className="flex items-center px-4 py-3 border-b border-white/[0.05] bg-[#101420]">
+                <div className="flex gap-2">
+                  <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
+                  <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
+                  <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
+                </div>
+                <div className="ml-4 text-[13px] font-medium text-white/40 tracking-wide font-mono">
+                  零改动集成演示
+                </div>
+              </div>
+              <div className="relative w-full aspect-video bg-[#050810]">
+                <video
+                  src="/Video 2.mp4"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    (e.currentTarget.nextElementSibling as HTMLElement)?.classList.remove('hidden');
+                  }}
+                />
+                <div className="hidden absolute inset-0 w-full h-full flex items-center justify-center bg-[#050810] text-white/30 text-sm">
+                  视频加载中，请查看下方截图
+                </div>
+              </div>
+            </div>
+
+            {/* Right: SkillHub ecosystem screenshot */}
+            <div className="rounded-xl sm:rounded-2xl border border-white/[0.08] overflow-hidden hover:border-white/[0.16] transition-all duration-300">
               <ScreenshotImg
                 src="/screenshots/skillhub-ecosystem.png"
                 alt="兼容OpenClaw的SkillHub技能生态"
                 fallbackText="技能生态截图加载中..."
+                className="w-full h-full object-cover"
+                minHeight="min-h-[300px]"
               />
             </div>
-            <p className="text-center text-xs text-white/25 mt-3">全面兼容 OpenClaw 技能生态 &mdash; 开放标准、私有技能自定义开发与版本管理</p>
           </div>
+          <p className="text-center text-xs text-white/25 mt-3">左侧：无侵入集成实时演示 &mdash; 右侧：全面兼容 OpenClaw 技能生态，开放标准、私有技能自定义开发与版本管理</p>
         </ScrollReveal>
       </div>
     </section>
