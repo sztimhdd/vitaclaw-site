@@ -1,0 +1,25 @@
+{
+  "mode": "interactive",
+  "granularity": "coarse",
+  "parallelization": false,
+  "commit_docs": true,
+  "model_profile": "inherit",
+  "workflow": {
+    "research": false,
+    "plan_check": true,
+    "verifier": true,
+    "nyquist_validation": false,
+    "auto_advance": false
+  },
+  "planning": {
+    "project_mode": "mvp",
+    "runtime": "codex",
+    "instruction_file": "AGENTS.md",
+    "source_documents": [
+      "AGENTS.md",
+      "CLAUDE.md",
+      "docs/orchestrator/omnigraph-integration-handoff.md",
+      "docs/orchestrator/new-codex-session-kickstarter.md"
+    ]
+  }
+}
