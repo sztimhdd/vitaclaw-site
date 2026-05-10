@@ -1,0 +1,164 @@
+name: Deploy Site
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and deploy to Aliyun
+    runs-on: ubuntu-latest
+    environment: production
+
+    env:
+      DEPLOY_HOST: ${{ vars.ALIYUN_SSH_HOST }}
+      DEPLOY_USER: ${{ vars.ALIYUN_SSH_USER }}
+      DEPLOY_PORT: ${{ vars.ALIYUN_SSH_PORT || '22' }}
+      DEPLOY_PATH: ${{ vars.ALIYUN_DEPLOY_PATH }}
+      PUBLIC_URL: ${{ vars.VITACLAW_PUBLIC_URL }}
+      NODE_PORT: ${{ vars.VITACLAW_NODE_PORT || '3001' }}
+      NODE_SERVICE_NAME: ${{ vars.VITACLAW_NODE_SERVICE_NAME || 'vitaclaw-site' }}
+      SSH_PRIVATE_KEY: ${{ secrets.ALIYUN_SSH_PRIVATE_KEY }}
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+
+    steps:
+      - name: Validate deployment branch
+        run: |
+          case "${GITHUB_REF}" in
+            refs/heads/main|refs/heads/master) ;;
+            *)
+              echo "Manual deployment must run from main or master, got ${GITHUB_REF}."
+              exit 1
+              ;;
+          esac
+
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Validate deployment configuration
+        run: |
+          test -n "$DEPLOY_HOST"
+          test -n "$DEPLOY_USER"
+          test -n "$DEPLOY_PORT"
+          test -n "$DEPLOY_PATH"
+          test -n "$PUBLIC_URL"
+          test -n "$NODE_PORT"
+          test -n "$NODE_SERVICE_NAME"
+          test -n "$SSH_PRIVATE_KEY"
+          test -n "$DEEPSEEK_API_KEY"
+
+      - name: Configure SSH
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -p "$DEPLOY_PORT" -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Back up production files
+        run: |
+          ssh -i ~/.ssh/id_deploy -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "cd '$DEPLOY_PATH' && ts=\$(date +%Y%m%d-%H%M%S) && mkdir -p backups && cp -a dist \"backups/dist.\$ts\" && tar -czf \"backups/runtime.\$ts.tgz\" --ignore-failed-read server.js server docs/product-docs package.json package-lock.json"
+
+      - name: Sync static build
+        run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_deploy -p $DEPLOY_PORT" \
+            dist/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/dist/"
+
+      - name: Sync Node runtime files
+        run: |
+          ssh -i ~/.ssh/id_deploy -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "mkdir -p '$DEPLOY_PATH/server' '$DEPLOY_PATH/docs/product-docs'"
+          rsync -az \
+            -e "ssh -i ~/.ssh/id_deploy -p $DEPLOY_PORT" \
+            server.js package.json package-lock.json "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/"
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_deploy -p $DEPLOY_PORT" \
+            server/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/server/"
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_deploy -p $DEPLOY_PORT" \
+            docs/product-docs/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/docs/product-docs/"
+
+      - name: Write server environment
+        run: |
+          {
+            printf 'NODE_ENV=production\n'
+            printf 'PORT=%s\n' "$NODE_PORT"
+            printf 'DEEPSEEK_API_KEY=%s\n' "$DEEPSEEK_API_KEY"
+          } | ssh -i ~/.ssh/id_deploy -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "install -d -m 750 /etc/vitaclaw && umask 077 && cat > /etc/vitaclaw/vitaclaw-site.env && chgrp vitaclaw /etc/vitaclaw/vitaclaw-site.env && chmod 640 /etc/vitaclaw/vitaclaw-site.env"
+
+      - name: Install production dependencies and restart API service
+        run: |
+          ssh -i ~/.ssh/id_deploy -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "cd '$DEPLOY_PATH' && npm ci --omit=dev && systemctl restart '$NODE_SERVICE_NAME' && systemctl is-active --quiet '$NODE_SERVICE_NAME'"
+
+      - name: Verify production health
+        run: |
+          base_url="${PUBLIC_URL%/}"
+          curl -fsS "$base_url/health"
+          curl -fsS "$base_url/healthz"
+
+      - name: Verify production assistant API
+        run: |
+          base_url="${PUBLIC_URL%/}"
+          curl -fsS \
+            -H 'content-type: application/json' \
+            -d '{"message":" "}' \
+            "$base_url/api/vitaclaw-assistant/chat" | node -e '
+              let input = "";
+              process.stdin.on("data", (chunk) => {
+                input += chunk;
+              });
+              process.stdin.on("end", () => {
+                const data = JSON.parse(input);
+                if (data.type !== "refusal" || data.usedModel !== false) {
+                  throw new Error("Expected assistant API refusal smoke response without model use.");
+                }
+                console.log("Assistant API smoke check passed.");
+              });
+            '
+
+      - name: Verify production Agent news export
+        run: |
+          base_url="${PUBLIC_URL%/}"
+          curl -fsS "$base_url/data/agent-news.json" | node -e '
+            let input = "";
+            process.stdin.on("data", (chunk) => {
+              input += chunk;
+            });
+            process.stdin.on("end", () => {
+              const data = JSON.parse(input);
+              if (data.contractVersion !== 1) {
+                throw new Error("Expected contractVersion 1.");
+              }
+              if (!Array.isArray(data.items) || data.items.length !== 5) {
+                throw new Error("Expected exactly 5 Agent news items.");
+              }
+              if (!data.items.every((item) => item && item.curationStatus === "passed")) {
+                throw new Error("Expected every Agent news item to be passed.");
+              }
+              console.log("Agent news export contract check passed.");
+            });
+          '
