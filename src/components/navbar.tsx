@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 
 const navItems = [
+  { label: "Agent 技术动态", href: "#agent-news" },
   { label: "核心能力", href: "#workflow" },
   { label: "技术架构", href: "#architecture" },
   { label: "定价方案", href: "#business" },

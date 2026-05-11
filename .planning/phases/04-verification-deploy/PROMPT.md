@@ -20,6 +20,8 @@ Verify the completed Product Phase 1 implementation and prepare a deployment han
 
 - Run lint and build.
 - Use Playwright to verify key homepage desktop/mobile behavior after UI work exists.
+- Use both project-required UI skills, `frontend-design` and `ui-ux-pro-max`, when reviewing visual quality, responsive behavior, interaction states, accessibility, or UI consistency.
+- Use installed browser QA skills: `playwright` for scripted verification, `playwright-interactive` for iterative browser debugging when available, and `screenshot` only as an OS-level fallback.
 - Check that Phase 1 did not introduce secrets, server credentials, Phase 2 scope, or external AI/KG calls from the assistant.
 - Document deployment readiness and any risks.
 
@@ -61,6 +63,8 @@ git status --short
 ```
 
 Use Playwright for visual and interaction checks if a runnable UI exists.
+
+Prefer `playwright` skill workflows for browser evidence. If using `playwright-interactive`, confirm the session has `js_repl` enabled; otherwise fall back to `playwright` CLI workflows.
 
 ## Report Back
 

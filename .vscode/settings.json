@@ -1,0 +1,14 @@
+{
+  // Lock this workspace's integrated terminal to WSL (Ubuntu-24.04).
+  // The repo lives under \\wsl.localhost\Ubuntu-24.04\... so a Linux shell
+  // inside WSL is the correct working environment.
+  "terminal.integrated.defaultProfile.windows": "WSL (Ubuntu-24.04)",
+  "terminal.integrated.profiles.windows": {
+    "WSL (Ubuntu-24.04)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": ["-d", "Ubuntu-24.04", "--cd", "~"],
+      "icon": "terminal-ubuntu"
+    }
+  },
+  "remote.WSL.fileWatcher.polling": true
+}

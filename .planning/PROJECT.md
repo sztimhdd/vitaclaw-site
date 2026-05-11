@@ -2,13 +2,23 @@
 
 ## What This Is
 
-VitaClaw is a Chinese-first Vite + React single-page marketing website for presenting enterprise office automation scenarios. This project initializes the GSD planning structure for integrating OmniGraph-curated Agent intelligence into the website without turning the site into the OmniGraph application itself.
+VitaClaw is a Chinese-first Vite + React single-page marketing website for presenting enterprise office automation scenarios. This project integrates OmniGraph-curated Agent intelligence into the website without turning the site into the OmniGraph application itself.
 
-OmniGraph remains the producer of curated Agent intelligence data. The VitaClaw website is the consumer and presentation layer for Phase 1 homepage experiences.
+OmniGraph remains the producer of curated Agent intelligence data. The VitaClaw website is the consumer and presentation layer for homepage intelligence experiences.
 
 ## Core Value
 
 Help visitors quickly understand VitaClaw's enterprise workflow automation value through lightweight public homepage intelligence surfaces.
+
+## Current Milestone: v1.1 OmniGraph Agent 情报数据整合
+
+**Goal:** Replace the `Agent 技术动态` placeholder data with a lightweight, validated OmniGraph export consumption path while keeping the website a static presentation layer.
+
+**Target features:**
+- Define the minimal OmniGraph `Agent 技术动态` export contract for exactly 5 Layer 1/2 passed articles.
+- Update the website to consume a static JSON export with safe fallback to the current typed local data.
+- Prepare the OmniGraph-side export handoff so generated data can be copied or published into the website deploy artifact.
+- Verify the integration locally and on Aliyun after explicit deployment approval.
 
 ## Requirements
 
@@ -16,14 +26,35 @@ Help visitors quickly understand VitaClaw's enterprise workflow automation value
 
 - ✓ Existing Vite + React marketing site renders as a single-page linear homepage — existing repo state.
 - ✓ Existing project instructions define MVP, single-maintainer, and OmniGraph boundary principles — `AGENTS.md` and `CLAUDE.md`.
+- ✓ Foundation planning artifacts and child-session prompts exist for Product Phase 1 — Phase 1 Foundation/docs verification.
+- ✓ `Agent 技术动态` renders after TrustCases with 5 placeholder curated items and original-source links — Phase 2 implementation verification.
+- ✓ `VitaClaw 助手` provides bounded static presales scenario guidance with soft CTA paths — Phase 3 implementation verification.
+- ✓ Product Phase 1 passed lint, build, Playwright, secret/scope, and deployment-readiness checks — Phase 4 verification.
+- ✓ Product Phase 1 was deployed to the Aliyun/Caddy static host — user report with screenshots on 2026-05-09.
+- ✓ Website-facing OmniGraph Agent news export contract is documented at `docs/orchestrator/omnigraph-agent-news-contract.md` — Phase 5 contract verification.
+- ✓ Website `Agent 技术动态` consumes `/data/agent-news.json` with all-or-nothing fallback to the local typed 5-item data — Phase 6 adapter verification.
+- ✓ OmniGraph producer handoff and exporter command are documented without importing OmniGraph code into the website — Phase 7 handoff verification.
+- ✓ Local integration verification passed using real OmniGraph export data, including lint, build, Playwright, fallback, and secret/scope checks — Phase 8 local verification.
+- ✓ v1.1 production deployment passed Aliyun static deploy, health checks, online `agent-news.json`, navbar, and `Agent 技术动态` verification — Phase 8 production verification.
+- ✓ Lightweight GitHub Actions CI/CD exists for CI and manual static deployment with production branch guard and Agent news export health checks — v1.1.1 CI/CD verification.
+- ✓ v1.2 product-document ingestion contract defines source storage, reviewed Markdown, chunk schema, answer boundaries, and extraction verification — v1.2 Phase 1 contract.
+- ✓ v1.2 reviewed product Markdown and retrieval chunks exist with 23 allowed, 13 CTA-only, and 1 internal-only chunk — v1.2 Checkpoint 1 verification.
+- ✓ v1.2 lightweight server-side retrieval/chat API exists at `POST /api/vitaclaw-assistant/chat`, reads chunks server-side, excludes `internal_only`, treats `cta_only` as redirect signal, and keeps DeepSeek keys server-side — v1.2 Checkpoint 2 verification.
+- ✓ v1.2 assistant UI now supports chat messages, input, loading/error states, CTA/refusal/fallback rendering, and calls the server-side product-doc API — v1.2 Checkpoint 3 verification.
+- ✓ v1.2 product-document Q&A MVP is locally verified with tests, lint, build, Node-runtime Playwright flows, and security/scope scans — v1.2 Checkpoint 4 verification.
 
 ### Active
 
-- [ ] Establish durable GSD planning artifacts for the VitaClaw website OmniGraph integration.
-- [ ] Add an early-homepage `Agent 技术动态` section that displays exactly 5 curated OmniGraph Layer 1/2 passed articles.
-- [ ] Add a right-bottom floating `VitaClaw 助手` as a lightly bounded presales scenario consultant.
-- [ ] Verify the Phase 1 website with lint, build, and responsive checks before any deployment.
-- [ ] Keep deployment as an explicit later action, not part of initialization.
+- [x] Define the v1.2 production API runtime plan before deployment; static-only Caddy `dist/` hosting cannot serve `/api/vitaclaw-assistant/chat`.
+- [ ] Complete the approved Aliyun one-time runtime setup and first v1.2.1 deployment run.
+
+### Planned Next
+
+- [ ] v1.1.2: Add optional article image support to `Agent 技术动态`, starting with the main `今日重点` card.
+- [x] v1.2: Upgrade `VitaClaw 助手` from static FAQ to a lightweight product-document Q&A chatbot using user-provided PDF documentation.
+- [x] v1.2 Phase 1: Define product-document ingestion contract before chat API/UI implementation.
+- [ ] v1.3: Add OmniGraph media citation support so assistant answers can reference approved stored images when relevant.
+- [ ] v2: Build `VitaClaw 知识库` as a separate knowledge/research surface backed by LightRAG/Cognee/KG capabilities.
 
 ### Out of Scope
 
@@ -31,12 +62,14 @@ Help visitors quickly understand VitaClaw's enterprise workflow automation value
 - LightRAG, Cognee, or KG Synthesize calls from the homepage assistant — prohibited in Phase 1.
 - Station-side article detail pages — Phase 1 news titles open original source URLs only.
 - Login, tenancy, billing, database, admin review, or enterprise access gates — not needed for public Phase 1 MVP.
-- Production deployment during project initialization — user explicitly said not to deploy.
-- UI or `src` business-code implementation during initialization — user explicitly said not to implement UI or modify `src`.
+- Free-form `VitaClaw 助手` chat — not the current priority; the Phase 1 bounded FAQ widget is accepted for now.
+- Importing OmniGraph code directly into this website repo — keep a file/data contract boundary.
+- Running production deployment commands without explicit approval in the active session.
+- Deploying v1.2 on static-only Caddy hosting without a Node API runtime or Caddy reverse proxy for `/api/vitaclaw-assistant/chat`.
 
 ## Context
 
-The repository is `sztimhdd/vitaclaw-site`, locally checked out at `/home/sztimhdd/vitaclaw-site`. Production is currently served from an Aliyun host at `101.133.154.49` using Caddy static hosting of Vite `dist`, but local development should happen in this repo rather than the production path.
+The repository is `sztimhdd/vitaclaw-site`, locally checked out at `/home/sztimhdd/vitaclaw-site`. Production is served from an Aliyun host at `101.133.154.49` using Caddy static hosting of Vite `dist`, but local development should happen in this repo rather than the production path.
 
 The current site is a pure client-side Vite SPA. `src/App.tsx` renders `<Navbar />`, a linear stack of homepage sections, `<Footer />`, and `<StickyCTABar />`. The stack and visual system are documented in `CLAUDE.md`: Vite 6, React 19, TypeScript 5.8, Tailwind CSS v4, `motion`, and `lucide-react`.
 
@@ -63,11 +96,29 @@ Phase 1 Agent news decisions are already locked:
 - Clicking a title opens the original article URL.
 - The site shows a light caveat that summaries are automatic and source articles remain authoritative.
 
+Milestone v1.1 narrows the next work to the `Agent 技术动态` data pipeline. The current `VitaClaw 助手` is intentionally not a free-form chat surface; it stays as a bounded presales FAQ widget until product docs or a knowledge-base milestone is explicitly assigned.
+
+The planned assistant evolution is staged:
+
+- v1.2 turns the homepage assistant into a narrow product-document Q&A surface based on official VitaClaw PDF documentation and a small server-side chat endpoint.
+- v1.2 Phase 1 contract is documented at `docs/orchestrator/vitaclaw-product-doc-ingestion-contract.md`; first observed source input is `/mnt/d/Downloads/VitaClaw-KB.md`.
+- v1.2 local verification passed on 2026-05-10 using `npm run build` plus `npm start`; production deployment is pending an API runtime/reverse proxy plan because static-only `dist/` hosting cannot serve the chat API.
+- v1.1.2 is planned as a follow-up to the Agent news work: it adds optional
+  static article images to the main `今日重点` card without changing the website
+  into an image-processing or OmniGraph-runtime consumer.
+- v1.3 may let answers show approved OmniGraph images as cited media, but not arbitrary user-provided image URLs.
+- v2 introduces the separate `VitaClaw 知识库` surface with LightRAG/Cognee/KG query and memory capabilities.
+
+The preferred technical direction for the chat UI is `assistant-ui` plus a lightweight AI SDK/server API layer using DeepSeek through an OpenAI-compatible endpoint. This is a direction for future planning, not an implementation commitment in v1.1.
+
 ## Constraints
 
 - **Workspace**: All planning artifacts belong in `/home/sztimhdd/vitaclaw-site` — this is the website repo, not `OmniGraph-Vault`.
 - **Scope**: Product Phase 1 only includes Foundation/docs, `Agent 技术动态`, `VitaClaw 助手`, and verification/deploy readiness.
-- **Implementation**: This initialization must not implement UI, modify `src`, or deploy.
+- **Scope**: Milestone v1.1 focuses on OmniGraph Agent news data integration, not assistant chat or the `VitaClaw 知识库`.
+- **Scope**: v1.2 assistant chat should answer from official product documentation only; it should not introduce customer-system access, enterprise tenancy, or graph memory.
+- **Scope**: OmniGraph image output and Cognee/LightRAG memory are future milestones, not part of the first product-document Q&A MVP.
+- **Implementation**: Keep website changes small and reversible; prefer static JSON and typed adapters over backend services.
 - **Architecture**: Keep code small, explicit, easy to delete, and aligned with existing Vite/React patterns.
 - **Data Boundary**: OmniGraph produces curated data; the website consumes exported data through a minimal contract.
 - **Security**: Do not store server passwords, API keys, or other secrets in the repo.
@@ -77,11 +128,22 @@ Phase 1 Agent news decisions are already locked:
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Use `.planning` as the main orchestrator memory | User wants this Codex session to act as GSD orchestrator for the website repo | Pending |
-| Split Product Phase 1 into four GSD workstreams | Matches the handoff and keeps child sessions bounded | Pending |
-| Start Agent news from a static JSON fixture or typed local contract | Minimizes pipeline complexity until OmniGraph export shape is final | Pending |
-| Keep `VitaClaw 助手` static and bounded in Phase 1 | Product docs/specs are not yet available for real RAG | Pending |
-| Defer deployment to an explicit later task | User said not to deploy during initialization | Pending |
+| Use `.planning` as the main orchestrator memory | User wants this Codex session to act as GSD orchestrator for the website repo | Established |
+| Split Product Phase 1 into four GSD workstreams | Matches the handoff and keeps child sessions bounded | Established in roadmap |
+| Start Agent news from a typed local contract | Minimizes pipeline complexity until OmniGraph export shape is final | Implemented in `src/data/agent-news.ts` |
+| Keep `VitaClaw 助手` static and bounded in Phase 1 | Product docs/specs are not yet available for real RAG | Implemented in `src/components/vitaclaw-assistant.tsx` |
+| Defer deployment to an explicit later task | User said not to deploy during initialization | Adopted for Phase 4 prompt |
+| Use SSH key access for Aliyun deployment work | Avoid repeated password use and keep credentials out of the repo | Configure outside repo in `~/.ssh` |
+| Prioritize OmniGraph data integration over assistant chat for v1.1 | Placeholder Agent news is the bigger product gap after deployment | Adopted for current milestone |
+| Use static JSON as the website integration boundary | Keeps the website static and avoids coupling to OmniGraph internals | Contract and website adapter implemented for v1.1 |
+| Map OmniGraph Layer 2 `ok` to website `passed` | OmniGraph filter code defines Layer 2 pass as `ok`; the website contract uses public-facing `passed` | Exporter emits `layer: "layer2"` and `curationStatus: "passed"` |
+| Stage chatbot evolution before knowledge-base scope | Keeps the public homepage assistant useful without prematurely building an enterprise RAG/KG platform | v1.2 product-doc Q&A, v1.3 OmniGraph media citations, v2 LightRAG/Cognee knowledge base |
+| Keep assistant UI decoupled from knowledge engines | `assistant-ui`/chat API can later call product-doc search, OmniGraph media, LightRAG, or Cognee behind the same frontend surface | Planned architecture direction |
+| Use one checkpointed child agent per milestone by default | User prefers a single child session to carry a milestone while the main session stays as orchestrator/reviewer | Adopted for v1.2 and future milestones unless overridden |
+| Treat Agent news images as optional enhancement | Image scraping quality and availability vary; article validity must not depend on image metadata or image loading | Planned for v1.1.2 |
+| v1.2 requires a server runtime in production | The chat UI calls `/api/vitaclaw-assistant/chat`, which static-only Caddy `dist/` hosting cannot serve | Deployment pending Node process/Caddy reverse proxy or equivalent API runtime plan |
+| Store DeepSeek credentials only as server-side secrets | User configured `DEEPSEEK_API_KEY` as a GitHub Environment `production` secret; it must never enter repo, logs, frontend bundles, or static assets | Future deployment jobs may reference `${{ secrets.DEEPSEEK_API_KEY }}` only with `environment: production` |
+| Use Caddy static hosting plus Node for `/api/*` | This preserves the working static site path and adds the smallest API-capable runtime | v1.2.1 plan documented in `docs/orchestrator/v1.2.1-production-api-runtime.md` |
 
 ## Evolution
 
@@ -101,4 +163,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state.
 
 ---
-*Last updated: 2026-05-08 after initialization*
+*Last updated: 2026-05-10 after v1.2 local verification*

@@ -5,6 +5,7 @@
 
 import { Hero } from "@/components/hero";
 import { TrustCases } from "@/components/trust-cases";
+import { AgentNews } from "@/components/agent-news";
 import { PainPoints } from "@/components/pain-points";
 import { PersonaSplit } from "@/components/persona-split";
 import { IntegrationInterface } from "@/components/integration-interface";
@@ -19,6 +20,7 @@ import { CTA } from "@/components/cta";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { StickyCTABar } from "@/components/sticky-cta-bar";
+import { VitaClawAssistant } from "@/components/vitaclaw-assistant";
 
 export default function App() {
   return (
@@ -27,6 +29,7 @@ export default function App() {
       <main>
         <Hero />
         <TrustCases />
+        <AgentNews />
         <PainPoints />
         <PersonaSplit />
         <IntegrationInterface />
@@ -40,6 +43,7 @@ export default function App() {
       </main>
       <Footer />
       <StickyCTABar />
+      <VitaClawAssistant />
     </div>
   );
 }

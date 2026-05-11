@@ -1,0 +1,23 @@
+:80 {
+	# Health checks for the demo host (must live inside their own handle, otherwise
+	# the catch-all handle below would intercept them at directive order 20).
+	handle /health {
+		respond "vitaclaw demo host ok" 200
+	}
+	handle /healthz {
+		respond "vitaclaw demo host ok" 200
+	}
+
+	# Reverse-proxy the Node API (must be matched BEFORE try_files / file_server,
+	# so put it inside an explicit handle to bypass Caddy's default directive order)
+	handle /api/* {
+		reverse_proxy 127.0.0.1:3001
+	}
+
+	# SPA: serve static assets from the Vite build, fall back to index.html
+	handle {
+		root * /opt/vitaclaw/control-plane/vitaclaw-site/dist
+		try_files {path} /index.html
+		file_server
+	}
+}
