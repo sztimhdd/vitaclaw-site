@@ -80,9 +80,9 @@ jobs:
           ssh -i ~/.ssh/id_deploy -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
             "cd '$DEPLOY_PATH' && ts=\$(date +%Y%m%d-%H%M%S) && mkdir -p backups && cp -a dist \"backups/dist.\$ts\" && tar -czf \"backups/runtime.\$ts.tgz\" --ignore-failed-read server.js server docs/product-docs package.json package-lock.json"
 
-      - name: Sync static build
+      - name: Sync static build (preserve agent-news.json from cron)
         run: |
-          rsync -az --delete \
+          rsync -az --delete --exclude='data/agent-news.json' \
             -e "ssh -i ~/.ssh/id_deploy -p $DEPLOY_PORT" \
             dist/ "$DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH/dist/"
 
