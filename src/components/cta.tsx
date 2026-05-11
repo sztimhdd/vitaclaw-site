@@ -24,12 +24,12 @@ export function CTA() {
         <ScrollReveal>
           <div className="text-center">
             <span className="text-xs font-semibold tracking-widest text-white/40 uppercase">
-              开启数字员工时代
+              免费试点，一周看到效果
             </span>
             <h2 className="text-[clamp(32px,4.5vw,54px)] font-bold text-white mt-4 mb-4">
-              让人人都拥有高可信数字员工
+              从一个业务流程开始，体验企小勤
             </h2>
-            <p className="text-white/50 text-lg">1 周部署 &middot; 0 行代码改动 &middot; 信创全适配</p>
+            <p className="text-white/50 text-lg">不改系统 &middot; 一周上线 &middot; 银行级安全审计</p>
           </div>
         </ScrollReveal>
 
@@ -47,9 +47,9 @@ export function CTA() {
             />
             <button
               type="submit"
-              className="px-7 py-3 rounded-lg bg-white text-[#080c14] font-semibold whitespace-nowrap hover:bg-white/90 transition-colors duration-200"
+              className="px-7 py-3 rounded-lg bg-white text-[#0f172a] font-semibold whitespace-nowrap hover:bg-white/90 transition-colors duration-200"
             >
-              {submitted ? "已提交 ✓" : "申请演示"}
+              {submitted ? "已提交 ✓" : "免费试点"}
             </button>
           </form>
           <p className="text-xs text-white/25 mt-4 text-center">

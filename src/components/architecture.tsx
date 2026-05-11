@@ -2,11 +2,11 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { ScreenshotImg } from "@/components/screenshot-img";
 
 const layers = [
-  { title: "Rust 企业级安全内核", desc: "内存安全无 GC，零成本抽象，原生 WebAssembly 支持", items: [] },
-  { title: "KVM/Wasm 多层沙盒", desc: "宿主机级强隔离，独立执行空间，五层十六道安全防线", items: [] },
-  { title: "eBPF 内核级追踪", desc: "物理层 Syscall 捕获，Merkle Tree 审计日志，不可篡改证据链", items: [] },
-  { title: "受控指令网关", desc: "DSL 栅栏权限校验，Limit 限额检查，控制面与数据面分离", items: [] },
-  { title: "无侵入集成中间件", desc: "ChatKit SDK，不改旧系统代码，最快 1 周场景适配", items: [] },
+  { title: "高性能执行内核", desc: "原生 Rust 架构，7×24 不掉线，支持高并发业务场景", items: [] },
+  { title: "KVM/Wasm 多层沙盒", desc: "独立执行空间，AI 在受限环境运行，操作可验证", items: [] },
+  { title: "eBPF 实时安全监控", desc: "内核级系统调用捕获，异常行为秒级自动阻断", items: [] },
+  { title: "不可篡改审计日志", desc: "Merkle Tree 加密存证，每一步 AI 操作均可法证级回溯", items: [] },
+  { title: "无侵入集成", desc: "ChatKit SDK，不改旧系统代码，最快 1 周场景适配上线", items: [] },
 ];
 
 export function Architecture() {
@@ -20,10 +20,10 @@ export function Architecture() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-white/50 mb-6">技术护城河</div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-400/60">原生 Rust 内核</span> + eBPF 追踪审计 + 自学习自进化 + 无侵入集成
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-400/60">银行级安全</span>，每一步可追溯
             </h2>
             <p className="text-white/50 text-lg max-w-3xl mx-auto">
-              构建&ldquo;做了可查、乱做必断&rdquo;的五层十六道安全防线，定义工业级受控执行运行时标准
+              五层安全防线，从内核级 eBPF 实时监控到不可篡改审计日志，确保 AI 在可控范围内高效执行
             </p>
           </div>
         </ScrollReveal>
