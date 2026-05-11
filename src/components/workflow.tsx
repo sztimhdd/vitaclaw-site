@@ -4,14 +4,14 @@ import { ScreenshotImg } from "@/components/screenshot-img";
 const modules = [
   {
     number: "01",
-    title: "资产化",
-    subtitle: "Skills Platform",
-    description: "将 Know-how 固化为企业数字资产，人员离职能力不流失",
+    title: "技能资产化",
+    subtitle: "Skill Platform",
+    description: "将业务 Know-how 固化为企业数字资产，人员变动能力不流失",
     items: [
-      "全面兼容 OpenSkills 标准",
-      "业务逻辑永久沉淀为可复用 AI 技能包",
-      "私有技能自定义开发与版本管理",
-      "技能应用商店，开箱即用",
+      "50+ 预装业务技能包，即开即用",
+      "业务逻辑永久沉淀为可复用 AI 技能",
+      "企业自主封装专属 SOP 技能",
+      "兼容 OpenSkills 标准，技能跨部门复用",
     ],
     accent: "blue" as const,
   },
@@ -19,25 +19,25 @@ const modules = [
     number: "02",
     title: "闭环执行",
     subtitle: "Agent Loop",
-    description: "长程任务的端到端闭环，基于 CMA 混合记忆架构",
+    description: "长程任务端到端自动完成，Observe-Plan-Act-Reflect",
     items: [
       "多步骤任务自主拆解与规划",
-      "跨系统数据回填与操作执行",
-      "执行思维链 (CoT) 全程可追溯",
+      "跨系统自动数据回填与操作",
+      "执行思维链 (CoT) 全程可视化",
       "准确率超 98%，终结 AI 幻觉",
     ],
     accent: "green" as const,
   },
   {
     number: "03",
-    title: "工业级运维",
-    subtitle: "Sentinel",
-    description: "全链路可观测的&ldquo;数字宪兵&rdquo;，20 年金融级运维经验代码化",
+    title: "安全运维",
+    subtitle: "Security & Ops",
+    description: "银行级安全审计，每一步可追溯，不可篡改",
     items: [
-      "Agent 集群实时监控驾驶舱",
-      "算力弹性调度与故障自愈",
-      "Merkle Tree 法证级审计日志",
+      "AI 操作实时监控，异常秒级阻断",
+      "不可篡改法证级审计日志",
       "多租户权限隔离与配额管理",
+      "7×24 高可用，99.99% 不掉线",
     ],
     accent: "purple" as const,
   },
@@ -61,10 +61,10 @@ export function Workflow() {
               三大战略模块
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
-              从技能构建到闭环执行再到<wbr />工业级运维
+              三大核心能力，让 AI 替你干活
             </h2>
             <p className="text-white/50 text-lg max-w-3xl mx-auto">
-              覆盖数字员工全生命周期，让 AI 在政企场景真正落地
+              不只是聊天——企小勤的 AI 数字员工能真正操作你的业务系统，闭环交付结果
             </p>
           </div>
         </ScrollReveal>
