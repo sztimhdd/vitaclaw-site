@@ -114,6 +114,24 @@ jobs:
           ssh -i ~/.ssh/id_deploy -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
             "cd '$DEPLOY_PATH' && npm ci --omit=dev && systemctl restart '$NODE_SERVICE_NAME' && systemctl is-active --quiet '$NODE_SERVICE_NAME'"
 
+      - name: Wait for API readiness (retry up to 30s)
+        run: |
+          base_url="${PUBLIC_URL%/}"
+          for i in $(seq 1 15); do
+            status=$(curl -sS -o /dev/null -w '%{http_code}' \
+              -X POST -H 'content-type: application/json' \
+              -d '{"message":"ping"}' \
+              "$base_url/api/vitaclaw-assistant/chat" 2>/dev/null || echo "000")
+            if [ "$status" = "200" ]; then
+              echo "API ready after $((i * 2))s"
+              exit 0
+            fi
+            echo "Attempt $i/15: HTTP $status, waiting..."
+            sleep 2
+          done
+          echo "API failed to become ready after 30s"
+          exit 1
+
       - name: Verify production health
         run: |
           base_url="${PUBLIC_URL%/}"
