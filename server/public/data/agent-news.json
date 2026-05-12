@@ -1,0 +1,85 @@
+{
+  "contractVersion": 1,
+  "generatedAt": "2026-05-09T23:30:11.359653Z",
+  "items": [
+    {
+      "originalTitle": "Attention Is All You Need作者再出手：Transformer 99%稀疏，还能更快？",
+      "originalUrl": "http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247720111&idx=1&sn=51b1787077526861948eee26494b6fce&chksm=96e5432fa192ca39d822b2a9b5c6fe6ba373f3ae00e8fcfacfae43c3d70fb8f6ce50c1c796d9#rd",
+      "summaryZh": "稀疏不只省FLOPs",
+      "tags": [
+        "PaperWeekly"
+      ],
+      "sourceDomain": "mp.weixin.qq.com",
+      "layer": "layer2",
+      "curationStatus": "passed",
+      "sourceName": "PaperWeekly",
+      "publishedAt": "2026-05-09T10:03:34Z",
+      "collectedAt": "2026-05-09T08:04:45Z",
+      "curatedAt": "2026-05-09T21:22:53.341759+00:00"
+    },
+    {
+      "originalTitle": "Agent Skill结合知识图谱进展：SkillSynth做数据合成及GraSP将Skill执行变为DAG图",
+      "originalUrl": "http://mp.weixin.qq.com/s?__biz=MzAxMjc3MjkyMg==&mid=2648430664&idx=1&sn=93df32bf7cb7f4d1786ef8c2c3ede969&chksm=8383cb1db4f4420bc5173954ae861f25ddba20f5bf9f3a565c9b60027ddae35ee82dc38dbb77#rd",
+      "summaryZh": "Skill可以和知识图谱如何结合？SkillSynth做数据合成及GraSP将Skill执行搞成DAG图",
+      "tags": [
+        "老刘说NLP",
+        "Agent",
+        "工程化"
+      ],
+      "sourceDomain": "mp.weixin.qq.com",
+      "layer": "layer2",
+      "curationStatus": "passed",
+      "sourceName": "老刘说NLP",
+      "publishedAt": "2026-05-09T00:17:46Z",
+      "collectedAt": "2026-05-09T08:04:14Z",
+      "curatedAt": "2026-05-09T21:22:53.341759+00:00"
+    },
+    {
+      "originalTitle": "LLM之Agent（五十一）｜揭秘 Anthropic Claude思维引擎背后的 62 个核心组件",
+      "originalUrl": "http://mp.weixin.qq.com/s?__biz=Mzg3NDIyMzI0Mw==&mid=2247491538&idx=1&sn=191f151c7e747de63672c6423e87de80&chksm=ced55c36f9a2d5207d9a169e0947db622de903102ecd2f60da2f9ea5afa13697aad82ab1a3fb#rd",
+      "summaryZh": "当 AI 模型不再是瓶颈，真正的较量在\"驾驭层\"。",
+      "tags": [
+        "ArronAI",
+        "Agent"
+      ],
+      "sourceDomain": "mp.weixin.qq.com",
+      "layer": "layer2",
+      "curationStatus": "passed",
+      "sourceName": "ArronAI",
+      "publishedAt": "2026-05-09T06:24:21Z",
+      "collectedAt": "2026-05-09T08:02:16Z",
+      "curatedAt": "2026-05-09T21:22:53.341759+00:00"
+    },
+    {
+      "originalTitle": "RAG代码补全中的文本分块策略有啥？影响几何？如何选择？一项实证分析",
+      "originalUrl": "http://mp.weixin.qq.com/s?__biz=MzAxMjc3MjkyMg==&mid=2648430644&idx=1&sn=9c8eeec781a135e8e825395469017beb&chksm=8383cb61b4f442778635bcf81fc9cc6f1b7b620fcfa614951e406054e39ed4cdd913e983828d#rd",
+      "summaryZh": "代码RAG场景中的文本分块策略有啥、影响几何、如何选择？一项实证分析",
+      "tags": [
+        "老刘说NLP"
+      ],
+      "sourceDomain": "mp.weixin.qq.com",
+      "layer": "layer2",
+      "curationStatus": "passed",
+      "sourceName": "老刘说NLP",
+      "publishedAt": "2026-05-08T03:35:33Z",
+      "collectedAt": "2026-05-08T08:22:54Z",
+      "curatedAt": "2026-05-09T21:13:31.600344+00:00"
+    },
+    {
+      "originalTitle": "SIGIR 2026 | 给RAG装上战略大脑！STRIDE用分层决策重塑多跳问答",
+      "originalUrl": "http://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247720070&idx=2&sn=eb14ea4f4a5af532cde268e07969958a&chksm=96e54306a192ca10d37df255e675c68d3ee65bd1c373f022679d10df798afe0f90892e4c6809#rd",
+      "summaryZh": "别让RAG变流水线",
+      "tags": [
+        "PaperWeekly",
+        "工程化"
+      ],
+      "sourceDomain": "mp.weixin.qq.com",
+      "layer": "layer2",
+      "curationStatus": "passed",
+      "sourceName": "PaperWeekly",
+      "publishedAt": "2026-05-08T07:09:20Z",
+      "collectedAt": "2026-05-08T08:22:28Z",
+      "curatedAt": "2026-05-09T21:13:31.600344+00:00"
+    }
+  ]
+}

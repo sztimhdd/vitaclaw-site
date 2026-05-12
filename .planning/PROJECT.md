@@ -6,19 +6,35 @@ VitaClaw is a Chinese-first Vite + React single-page marketing website for prese
 
 OmniGraph remains the producer of curated Agent intelligence data. The VitaClaw website is the consumer and presentation layer for homepage intelligence experiences.
 
+As of 2026-05-11, a new parallel track was opened: **v2.0 Knowledge Base (SEO吸铁石 + RAG问答引擎)** — a separate knowledge base website that consumes OmniGraph's full article corpus, entity graph, and LightRAG synthesis to drive organic search traffic and attract technical users.
+
 ## Core Value
 
 Help visitors quickly understand VitaClaw's enterprise workflow automation value through lightweight public homepage intelligence surfaces.
 
-## Current Milestone: v1.1 OmniGraph Agent 情报数据整合
+**v2 expanded core value:** Transform OmniGraph's curated knowledge pipeline into a public SEO magnet and RAG Q&A engine, driving organic traffic and product leads.
 
-**Goal:** Replace the `Agent 技术动态` placeholder data with a lightweight, validated OmniGraph export consumption path while keeping the website a static presentation layer.
+## Current Milestone: v2.0 知识库 MVP (SEO文集 + RAG问答)
+
+**Goal:** Build an SEO-optimized knowledge base website (arXiv-style curated article collection) + RAG Q&A engine, consuming OmniGraph's full article corpus, entity graph, and LightRAG synthesis pipeline. The knowledge base is a separate static site (Python+Jinja2) sharing the same server and design language as vitaclaw-site.
+
+**Core design principle:** 极简极轻MVP，假设根本没人用。1周可验证。
 
 **Target features:**
-- Define the minimal OmniGraph `Agent 技术动态` export contract for exactly 5 Layer 1/2 passed articles.
-- Update the website to consume a static JSON export with safe fallback to the current typed local data.
-- Prepare the OmniGraph-side export handoff so generated data can be copied or published into the website deploy artifact.
-- Verify the integration locally and on Aliyun after explicit deployment approval.
+- Static article pages with AI summaries (SSG, Jinja2, zero JS)
+- Entity pages linking articles by canonical entity name (from entity_buffer + canonical_map)
+- Topic cluster pillar pages for SEO
+- RAG Q&A engine wrapping `kg_synthesize.synthesize_response()` as Express API
+- Image serving via Caddy proxy to OmniGraph image server
+- Schema.org structured data (Article, CollectionPage, BreadcrumbList, FAQPage)
+- Sitemap + robots.txt for Baidu/Google
+- Daily content rebuild via cron
+
+**Architecture:** 
+```
+OmniGraph SQLite → export_knowledge_base.py → Jinja2 → static HTML (Caddy serve)
+LightRAG + DeepSeek → kg_synthesize.synthesize_response() → Express /api/kb/synthesize → React QA island
+```
 
 ## Requirements
 

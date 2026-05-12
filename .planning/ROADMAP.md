@@ -2,14 +2,13 @@
 
 **Created:** 2026-05-08
 **Project Mode:** MVP
-**Current Milestone:** v1.2 VitaClaw 助手产品文档问答 MVP
+**Current Milestones:** v1.2 (pending deploy) + v2.0 知识库 (planning)
 
-Product Phase 1 and v1.1 are complete and deployed. Milestone v1.2 is locally verified and upgrades the homepage `VitaClaw 助手` into a product-document Q&A chatbot. v1.2.1 has prepared the production Node API runtime plan and deploy workflow update, but production deployment still requires explicit approval and one-time Aliyun systemd/Caddy setup.
+Product Phase 1 and v1.1 are complete and deployed. Milestone v1.2 is locally verified and upgrades the homepage `VitaClaw 助手` into a product-document Q&A chatbot. v1.2.1 has prepared the production Node API runtime plan and deploy workflow update, but production deployment still requires explicit approval and one-time Aliyun systemd/Caddy setup. A new parallel track was opened: **v2.0 知识库 MVP** — a knowledge base website (SEO文集 + RAG问答) consuming OmniGraph's curated article corpus and LightRAG synthesis.
 
-Future roadmap intent is now staged: v1.1.2 adds optional images to the existing
-`Agent 技术动态` news feed, v1.2 adds a lightweight product-document Q&A chatbot,
-v1.3 may add OmniGraph image citations to assistant answers, and v2 introduces
-the separate LightRAG/Cognee-backed `VitaClaw 知识库`.
+Future roadmap intent now splits into two tracks:
+- **SaaS site** (vitaclaw-site): v1.1.2 images, v1.2 Q&A deploy, v1.3 media citations
+- **Knowledge Base** (new Python+Jinja2 SSG site): v2.0 SEO文集 + RAG问答引擎
 
 ## Phase Summary
 
@@ -23,6 +22,7 @@ the separate LightRAG/Cognee-backed `VitaClaw 知识库`.
 | 6 | Website news adapter | Consume export-backed static data while preserving safe fallback | ADAPTER-01, ADAPTER-02, ADAPTER-03, ADAPTER-04, ADAPTER-05 |
 | 7 | OmniGraph export producer handoff | Prepare the OmniGraph-side generation/copy handoff without coupling repos | EXPORT-01, EXPORT-02, EXPORT-03, EXPORT-04 |
 | 8 | Integration verification/deploy | Verify export-backed news locally and prepare or perform approved deployment | INTVERIFY-01, INTVERIFY-02, INTVERIFY-03, INTVERIFY-04, INTVERIFY-05 |
+| KB | Knowledge Base v2.0 (KB MVP) | SEO文集 + RAG问答引擎 | KB-01, KB-02, KB-03, KB-04 |
 
 ## Phases
 
@@ -291,35 +291,36 @@ fallback safety.
 - No user-uploaded image analysis.
 - No browser rendering of untrusted arbitrary URLs.
 
-### v2: VitaClaw 知识库
+### Knowledge Base v2.0: 企小勤知识库 (SEO文集 + RAG问答)
 
-**Goal:** Build a separate knowledge/research surface that can query LightRAG/Cognee/KG-backed knowledge and produce cited, deeper answers than the homepage presales assistant.
+**Goal:** Build an SEO-optimized knowledge base website with curated articles (SSG) + RAG Q&A engine, consuming OmniGraph's LightRAG + entity pipeline.
 
-**User Story:**
-1. A visitor or operator opens `VitaClaw 知识库` from the website.
-2. They ask detailed questions about VitaClaw product knowledge, Agent engineering trends, or curated OmniGraph intelligence.
-3. The knowledge base retrieves graph-backed context, returns cited answers, and optionally creates a deeper report.
+**Architecture:**
+- Python Jinja2 static HTML (not Astro/Next.js)
+- `kg_synthesize.synthesize_response()` as Express API for Q&A
+- Caddy proxy for images
+- Shared server with vitaclaw-site
 
-**Expected Phases:**
-1. Knowledge-base product spec: define public/private access, citation rules, report mode, and privacy boundaries.
-2. LightRAG/Cognee integration contract: define query API, memory scope, graph source boundaries, and failure behavior.
-3. Knowledge-base UI: build a separate route or new-tab app rather than overloading the homepage assistant.
-4. Report export: optional Markdown/PDF export with citations.
-5. Security/eval/deploy: verify prompt-injection resilience, source attribution, access boundaries, and production deployment.
+**Phases:**
 
-**Non-Goals for Initial v2 Slice:**
-- No customer production data ingestion without a separate security milestone.
-- No hidden persistent user memory without explicit consent, deletion, and retention policy.
-- No automatic public publishing of generated reports.
+| # | Phase | Goal | Duration |
+|---|-------|------|----------|
+| KB-1 | Export脚本 | export_knowledge_base.py: SQLite→Jinja2→HTML | 2 days |
+| KB-2 | 实体索引+SEO | 实体→文章关联, JSON-LD, sitemap | 2 days |
+| KB-3 | RAG问答API | kg_synthesize HTTP包装 + React岛屿 UI | 2 days |
+| KB-4 | 部署+上线 | Caddy配置, cron重建, 上线验证 | 1 day |
+
+**Total MVP timeline:** ~5 working days
 
 ## Coverage
 
 - v1 requirements: 22 total, complete
 - v1.1 requirements: 19 total, complete
 - v1.2 requirements: 11 total, 10 complete, 1 pending API runtime deployment plan
+- KB v2.0 requirements: 4 phases planned
 - Requirements mapped: 52
 - Unmapped: 0
 
 ---
 *Roadmap created: 2026-05-08*
-*Last updated: 2026-05-10 after v1.2 local verification*
+*Last updated: 2026-05-11 after v2.0 Knowledge Base planning*

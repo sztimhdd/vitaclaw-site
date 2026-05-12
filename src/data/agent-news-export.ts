@@ -1,6 +1,6 @@
 import type { AgentNewsItem } from "@/data/agent-news";
 
-const EXPORT_PATH = "/data/agent-news.json";
+const EXPORT_PATH = `/data/agent-news.json?_=${Date.now()}`;
 const EXPECTED_ITEM_COUNT = 5;
 const SUPPORTED_CONTRACT_VERSION = 1;
 const VALID_LAYERS = new Set(["layer1", "layer2"]);
