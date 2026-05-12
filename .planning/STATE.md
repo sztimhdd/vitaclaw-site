@@ -9,7 +9,7 @@
 See: `.planning/PROJECT.md` (updated 2026-05-11)
 
 **Core value:** Help visitors quickly understand VitaClaw's enterprise workflow automation value through lightweight public homepage intelligence surfaces.
-**Current focus:** v2.0 知识库 MVP (planning phase) — PRD written, architecture decisions recorded
+**Current focus:** vitaclaw-site SaaS features (v1.2.1 deploy, v1.1.2 images, v1.3 media citations). KB v2.0 has been transferred to OmniGraph-Vault repo for implementation.
 
 ## Current Status
 
@@ -25,7 +25,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-11)
 | 8. Integration verification/deploy | Complete | INTVERIFY-01 through INTVERIFY-05 satisfied |
 | v1.2. Product-document Q&A MVP | Locally verified | Docs/chunks, server API, chat UI, tests, build, Playwright, and security/scope scans passed |
 | v1.2.1. Production API runtime | Prepared, not deployed | Runtime plan and deploy workflow update prepared; Aliyun systemd/Caddy setup and deployment still require explicit approval |
-| v2.0 Knowledge Base (SEO文集+RAG) | Planning | PRD written, 10 architecture decisions recorded in .sisyphus/notepads/knowledge-base-v2/ |
+| v2.0 Knowledge Base (SEO文集+RAG) | Planning complete, transferred to OmniGraph-Vault | PRD + 20 architecture decisions recorded; implementation docs pushed to OmniGraph-Vault/kb/docs/ |
 
 ## Operating Assumptions
 

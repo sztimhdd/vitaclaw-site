@@ -167,20 +167,23 @@ static assets and `POST /api/vitaclaw-assistant/chat`.
 
 ## v2.0 知识库 MVP (SEO吸铁石 + RAG问答引擎)
 
-**Status:** Planning (PRD drafted 2026-05-11)
+**Status:** Transferred to OmniGraph-Vault repo
 **Started:** 2026-05-11
+**Transferred:** 2026-05-12
 
 **Goal:** Build a knowledge base website with two products in one:
 1. SEO吸铁石文集 — curated article collection from OmniGraph, SSG static pages (Python Jinja2)
 2. RAG问答引擎 — Q&A powered by `kg_synthesize.synthesize_response()` wrapping LightRAG+DeepSeek
+
+**Note:** Implementation has been transferred to OmniGraph-Vault repo (`kb/` directory). All planning docs, phase prompts, and kickoff instructions are in `OmniGraph-Vault/kb/docs/`. vitaclaw-site is responsible only for its own SaaS features (v1.x milestones).
 
 **Architecture decisions (see .sisyphus/notepads/knowledge-base-v2/decisions.md):**
 - D-01: 极简MVP (assume zero traffic)
 - D-02: Only Layer1/2 curationStatus:passed articles
 - D-03: AI摘要+原文链接 (not full article)
 - D-04: Q&A backend = kg_synthesize.synthesize_response() (existing, ~50 lines wrapper)
-- D-05: Independent Python project, same repo
-- D-06: Caddy proxy to local image server
+- D-05: Independent Python project in OmniGraph-Vault repo kb/ directory
+- D-06: FastAPI StaticFiles :8766 (replaces python -m http.server :8765)
 - D-07: Public access, no login
 - D-08: Domain TBD (kb.qixiaoqin.com or /knowledge/)
 - D-09: Daily cron rebuild

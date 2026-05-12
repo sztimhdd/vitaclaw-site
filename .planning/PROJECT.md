@@ -6,7 +6,7 @@ VitaClaw is a Chinese-first Vite + React single-page marketing website for prese
 
 OmniGraph remains the producer of curated Agent intelligence data. The VitaClaw website is the consumer and presentation layer for homepage intelligence experiences.
 
-As of 2026-05-11, a new parallel track was opened: **v2.0 Knowledge Base (SEO吸铁石 + RAG问答引擎)** — a separate knowledge base website that consumes OmniGraph's full article corpus, entity graph, and LightRAG synthesis to drive organic search traffic and attract technical users.
+As of 2026-05-11, a new parallel track was opened: **v2.0 Knowledge Base (SEO吸铁石 + RAG问答引擎)** — a separate knowledge base website that consumes OmniGraph's full article corpus, entity graph, and LightRAG synthesis to drive organic search traffic and attract technical users. **The KB module lives in the OmniGraph-Vault repo as `kb/`**, not in vitaclaw-site.
 
 ## Core Value
 
@@ -16,7 +16,7 @@ Help visitors quickly understand VitaClaw's enterprise workflow automation value
 
 ## Current Milestone: v2.0 知识库 MVP (SEO文集 + RAG问答)
 
-**Goal:** Build an SEO-optimized knowledge base website (arXiv-style curated article collection) + RAG Q&A engine, consuming OmniGraph's full article corpus, entity graph, and LightRAG synthesis pipeline. The knowledge base is a separate static site (Python+Jinja2) sharing the same server and design language as vitaclaw-site.
+**Goal:** Build an SEO-optimized knowledge base website (arXiv-style curated article collection) + RAG Q&A engine, consuming OmniGraph's full article corpus, entity graph, and LightRAG synthesis pipeline. The knowledge base is a separate Python project in OmniGraph-Vault's `kb/` directory, sharing the same server and design language as vitaclaw-site.
 
 **Core design principle:** 极简极轻MVP，假设根本没人用。1周可验证。
 
@@ -24,7 +24,7 @@ Help visitors quickly understand VitaClaw's enterprise workflow automation value
 - Static article pages with AI summaries (SSG, Jinja2, zero JS)
 - Entity pages linking articles by canonical entity name (from entity_buffer + canonical_map)
 - Topic cluster pillar pages for SEO
-- RAG Q&A engine wrapping `kg_synthesize.synthesize_response()` as Express API
+- RAG Q&A engine wrapping `kg_synthesize.synthesize_response()` as FastAPI :8766
 - Image serving via Caddy proxy to OmniGraph image server
 - Schema.org structured data (Article, CollectionPage, BreadcrumbList, FAQPage)
 - Sitemap + robots.txt for Baidu/Google
@@ -33,8 +33,10 @@ Help visitors quickly understand VitaClaw's enterprise workflow automation value
 **Architecture:** 
 ```
 OmniGraph SQLite → export_knowledge_base.py → Jinja2 → static HTML (Caddy serve)
-LightRAG + DeepSeek → kg_synthesize.synthesize_response() → Express /api/kb/synthesize → React QA island
+LightRAG + DeepSeek → kg_synthesize.synthesize_response() → FastAPI /synthesize (:8766) → React QA island
 ```
+
+**Important:** The knowledge base is implemented in the OmniGraph-Vault repo (`kb/` directory), not in vitaclaw-site. vitaclaw-site is only responsible for its own SaaS features (v1.x milestones). The KB planning docs are archived in this repo for reference, but implementation lives in OmniGraph-Vault.
 
 ## Requirements
 

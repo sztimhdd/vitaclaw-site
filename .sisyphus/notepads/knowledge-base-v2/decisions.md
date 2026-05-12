@@ -59,41 +59,44 @@
 **后果:**
 - 知识库问答 = 整个 LightRAG 图谱检索（~700MB），不是37个文档块
 - 答案图文并茂（Markdown + 内嵌图片）
-- 依赖图片服务器运行（`localhost:8765`）
+- 图片通过 FastAPI StaticFiles 在 :8766 上服务（取代原 localhost:8765）
 
 ---
 
 ## D-05: 项目结构
 
-**决策:** 独立Python项目（非扩展现有Vite SPA），与 `vitaclaw-site/` 并列
+**决策:** 独立Python项目，位于OmniGraph-Vault仓库的 `kb/` 目录内
 
 **结构:**
 ```
-vitaclaw-site/
-├── kb/                    # 知识库 Python 项目
-│   ├── export/           # 导出脚本
-│   ├── templates/        # Jinja2 模板
-│   └── output/           # 构建产出 (Caddy直接serve)
-├── server/               # Express (共享)
-│   └── kb_api.py         # kg_synthesize HTTP包装 (新增)
-└── .planning/            # GSD规划
-    └── v2-knowledgebase/ # v2阶段计划
+OmniGraph-Vault/
+├── kb/                        # 知识库 Python 项目
+│   ├── export_knowledge_base.py  # SSG导出脚本
+│   ├── api.py                # FastAPI后端 (:8766)
+│   ├── config.py              # KB配置
+│   ├── templates/             # Jinja2 模板
+│   ├── static/                # CSS/JS
+│   ├── output/               # 构建产出 (Caddy直接serve, gitignored)
+│   └── docs/                  # KB规划文档
+├── kg_synthesize.py           # 问答引擎核心（KB import此模块）
+├── omnigraph_search/query.py  # LightRAG检索（KB import此模块）
+└── config.py                  # OmniGraph配置（BASE_DIR等）
 ```
 
-**不是独立仓库。** 与 vitaclaw-site 同仓库，共享设计语言、域名、部署流程。
+**不是独立仓库。** kb/ 在OmniGraph-Vault仓库内，直接import现有kg_synthesize和omnigraph_search模块。与vitaclaw-site完全解耦——vitaclaw-site只负责自己的营销页面（v1.x），不包含任何KB代码。
 
 ---
 
 ## D-06: 图片服务
 
-**决策:** 本地图片服务器 + Caddy反向代理
+**决策:** FastAPI StaticFiles服务 + Caddy反向代理
 
 **实现:**
 ```
-~/.hermes/omonigraph-vault/images/  →  python -m http.server 8765  →  Caddy /images/*  →  公网
+~/.hermes/omonigraph-vault/images/  →  FastAPI /static/img/ (:8766)  →  Caddy /static/img/*  →  公网
 ```
 
-**理由:** 不复制图片，不嵌入base64。运行时引用但不增加构建体积。
+**理由:** 不复制图片，不嵌入base64。FastAPI统一提供图片和API服务，取代原来的 `python -m http.server 8765`。
 
 ---
 
