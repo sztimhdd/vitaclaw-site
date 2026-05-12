@@ -28,13 +28,13 @@ export default function App() {
         <Hero />
         <ScenarioSelector />
         <TrustBar />
-        <PainPoints />
-        <Workflow />
-        <Architecture />
-        <Business />
-        <ComplianceTrust />
         <TrustCases />
         <AgentNews />
+        <PainPoints />
+        <Workflow />
+        <Business />
+        <Architecture />
+        <ComplianceTrust />
         <CTA />
       </main>
       <Footer />
