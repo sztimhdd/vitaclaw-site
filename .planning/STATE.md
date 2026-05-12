@@ -6,10 +6,10 @@
 
 ## Project Reference
 
-See: `.planning/PROJECT.md` (updated 2026-05-08)
+See: `.planning/PROJECT.md` (updated 2026-05-11)
 
 **Core value:** Help visitors quickly understand VitaClaw's enterprise workflow automation value through lightweight public homepage intelligence surfaces.
-**Current focus:** v1.2.1 production API runtime prepared; deployment pending approval and one-time Aliyun setup
+**Current focus:** v2.0 知识库 MVP (planning phase) — PRD written, architecture decisions recorded
 
 ## Current Status
 
@@ -25,6 +25,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-08)
 | 8. Integration verification/deploy | Complete | INTVERIFY-01 through INTVERIFY-05 satisfied |
 | v1.2. Product-document Q&A MVP | Locally verified | Docs/chunks, server API, chat UI, tests, build, Playwright, and security/scope scans passed |
 | v1.2.1. Production API runtime | Prepared, not deployed | Runtime plan and deploy workflow update prepared; Aliyun systemd/Caddy setup and deployment still require explicit approval |
+| v2.0 Knowledge Base (SEO文集+RAG) | Planning | PRD written, 10 architecture decisions recorded in .sisyphus/notepads/knowledge-base-v2/ |
 
 ## Operating Assumptions
 
@@ -126,4 +127,4 @@ docs/orchestrator/v1.2.1-production-api-runtime.md
 ```
 
 ---
-*Last updated: 2026-05-10 after v1.2.1 runtime planning*
+*Last updated: 2026-05-11 after v2.0 Knowledge Base planning*

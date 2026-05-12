@@ -165,14 +165,33 @@ static assets and `POST /api/vitaclaw-assistant/chat`.
 - Assistant message rendering for image citations.
 - Desktop/mobile visual verification and security checks.
 
-## v2 VitaClaw 知识库
+## v2.0 知识库 MVP (SEO吸铁石 + RAG问答引擎)
 
-**Status:** Planned
+**Status:** Planning (PRD drafted 2026-05-11)
+**Started:** 2026-05-11
 
-**Goal:** Build a separate knowledge/research surface backed by LightRAG/Cognee/KG capabilities.
+**Goal:** Build a knowledge base website with two products in one:
+1. SEO吸铁石文集 — curated article collection from OmniGraph, SSG static pages (Python Jinja2)
+2. RAG问答引擎 — Q&A powered by `kg_synthesize.synthesize_response()` wrapping LightRAG+DeepSeek
 
-**Expected scope:**
-- Separate route or new-tab app, not just a homepage widget expansion.
-- Graph-backed knowledge retrieval and cited answers.
-- Optional deep research report mode.
-- Explicit memory, privacy, retention, and deletion boundaries before persistent Cognee-style memory is enabled.
+**Architecture decisions (see .sisyphus/notepads/knowledge-base-v2/decisions.md):**
+- D-01: 极简MVP (assume zero traffic)
+- D-02: Only Layer1/2 curationStatus:passed articles
+- D-03: AI摘要+原文链接 (not full article)
+- D-04: Q&A backend = kg_synthesize.synthesize_response() (existing, ~50 lines wrapper)
+- D-05: Independent Python project, same repo
+- D-06: Caddy proxy to local image server
+- D-07: Public access, no login
+- D-08: Domain TBD (kb.qixiaoqin.com or /knowledge/)
+- D-09: Daily cron rebuild
+- D-10: Keep dark theme #0f172a
+
+**Requirements listed in:** .planning/MILESTONE-v2-KNOWLEDGEBASE-PRD.md
+
+**Phases:**
+- KB-1: Export脚本 (2 days)
+- KB-2: 实体索引+SEO (2 days)
+- KB-3: RAG问答API (2 days)
+- KB-4: 部署+上线 (1 day)
+
+**Total: ~5 working days MVP**
