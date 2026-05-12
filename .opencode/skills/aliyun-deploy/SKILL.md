@@ -3,7 +3,7 @@ name: aliyun-deploy
 description: >
   本项目（vitaclaw-site）专用的阿里云部署Skill。处理从saas-site分支构建并部署到阿里云ECS的完整流程，
   包括临时修改deploy workflow的branch guard、触发部署、恢复workflow、验证上线状态。
-  Trigger: "deploy to aliyun", "部署到阿里云", "上线", "deploy site", "发布到阿里云"
+  Trigger: "deploy vitaclaw to aliyun", "部署 vitaclaw 到阿里云", "vitaclaw 上线", "deploy vitaclaw site", "发布 vitaclaw 到阿里云"
 ---
 
 # vitaclaw-site 阿里云部署 Skill
@@ -46,7 +46,7 @@ case "${GITHUB_REF}" in
 提交并推送：
 ```bash
 git add .github/workflows/deploy.yml
-git commit -m "chore: allow deploy from saas-site branch"
+git commit -m "chore: [deploy-only] allow deploy from saas-site branch"
 git push origin saas-site
 ```
 
@@ -77,7 +77,7 @@ gh run watch <RUN_ID> --exit-status
 
 ### Step 3: 恢复 workflow
 
-部署成功后立即恢复 branch guard：
+> ⚠️ **无论部署成功或失败，本步骤必须执行。** 临时修改的 workflow 不能留在代码库中。
 
 ```yaml
 # 改回:
@@ -87,7 +87,7 @@ case "${GITHUB_REF}" in
 
 ```bash
 git add .github/workflows/deploy.yml
-git commit -m "chore: restore deploy branch guard to main/master only"
+git commit -m "chore: [deploy-only] restore deploy branch guard to main/master only"
 git push origin saas-site
 ```
 

@@ -30,10 +30,10 @@ type ChatMessage = {
 };
 
 const suggestedQuestions = [
-  "VitaClaw 和普通聊天机器人有什么不同？",
-  "ChatKit 怎么适配没有 API 的老旧 ERP？",
-  "Lobster Box 安全沙箱是什么？",
-  "私有化部署通常怎么评估？",
+  "金融场景：零售信贷审核怎么做？",
+  "制造业：供应链采购如何自动化？",
+  "政务场景：入转调离审批怎么实现？",
+  "通用办公：会议助理能做什么？",
 ];
 
 const initialMessages: ChatMessage[] = [

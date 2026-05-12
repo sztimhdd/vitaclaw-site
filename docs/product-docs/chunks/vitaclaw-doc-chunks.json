@@ -341,6 +341,42 @@
       "keywords": ["VitaClaw 助手", "问答范围", "产品文档", "CTA", "边界"],
       "answerUse": "allowed",
       "ctaHint": null
+    },
+    {
+      "chunkId": "vitaclaw-kb-038",
+      "documentId": "vitaclaw-kb",
+      "headingPath": ["Scenario Library", "Banking", "Retail Credit Review"],
+      "content": "金融零售信贷审核场景：AI 数字员工通过 OPAR 模型实现闭环。观察阶段自动读取信贷申请材料；计划阶段规划多维核查策略；行动阶段跨征信、税务、工商等系统进行多维比对；反思阶段生成合规审核报告并检查合规性。替代 3-5 名基础岗，审核效率提升 70% 以上，全程留痕可审计。",
+      "keywords": ["零售信贷", "金融", "OPAR", "信贷审核", "征信", "税务", "工商", "合规"],
+      "answerUse": "allowed",
+      "ctaHint": null
+    },
+    {
+      "chunkId": "vitaclaw-kb-039",
+      "documentId": "vitaclaw-kb",
+      "headingPath": ["Scenario Library", "Manufacturing", "Supply Chain Procurement"],
+      "content": "制造业供应链采购场景：AI 数字员工监控库存阈值，当库存低于安全线时自动触发采购流程。计划阶段制定询价策略并比对多家供应商报价；行动阶段自动下单并跟踪物流；反思阶段分析成本波动并预警异常价格。实现零库存积压风险，采购响应周期从天级缩短至分钟级。",
+      "keywords": ["供应链", "制造业", "采购", "库存", "询价", "自动下单", "零库存"],
+      "answerUse": "allowed",
+      "ctaHint": null
+    },
+    {
+      "chunkId": "vitaclaw-kb-040",
+      "documentId": "vitaclaw-kb",
+      "headingPath": ["Scenario Library", "Government", "Personnel Transfer"],
+      "content": "政务/国企入转调离审批场景：AI 数字员工处理员工入职、转岗、调任、离职全流程。观察阶段读取流程指令；计划阶段协同多部门（OA、HR、IT）制定执行计划；行动阶段自动变更各系统权限与档案；反思阶段生成完整审计日志。规避人工失误，人力投入降低 60%，确保流程 100% 合规。",
+      "keywords": ["入转调离", "政务", "国企", "OA", "HR", "权限变更", "审计日志", "合规"],
+      "answerUse": "allowed",
+      "ctaHint": null
+    },
+    {
+      "chunkId": "vitaclaw-kb-041",
+      "documentId": "vitaclaw-kb",
+      "headingPath": ["Scenario Library", "General Office", "Meeting Assistant"],
+      "content": "通用办公会议助理场景：AI 数字员工观察日程安排，计划会议物料准备，行动阶段自动预约会议室、发送邀请、拆解会前任务（资料收集、议程生成），反思阶段评估准备准确度。让员工从琐碎行政中解脱，聚焦高价值创造，提升组织敏捷性。",
+      "keywords": ["会议助理", "通用办公", "日程", "会议室", "任务拆解", "行政自动化"],
+      "answerUse": "allowed",
+      "ctaHint": null
     }
   ]
 }
