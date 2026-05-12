@@ -9,7 +9,7 @@
 See: `.planning/PROJECT.md` (updated 2026-05-11)
 
 **Core value:** Help visitors quickly understand VitaClaw's enterprise workflow automation value through lightweight public homepage intelligence surfaces.
-**Current focus:** vitaclaw-site SaaS features (v1.2.1 deploy, v1.1.2 images, v1.3 media citations). KB v2.0 has been transferred to OmniGraph-Vault repo for implementation.
+**Current focus:** Hero conversion enhancement — add social proof badges and dual-CTA to capture small-business visitors immediately. KB v2.0 has been transferred to OmniGraph-Vault repo for implementation.
 
 ## Current Status
 
@@ -24,7 +24,7 @@ See: `.planning/PROJECT.md` (updated 2026-05-11)
 | 7. OmniGraph export producer handoff | Complete | EXPORT-01 through EXPORT-04 satisfied |
 | 8. Integration verification/deploy | Complete | INTVERIFY-01 through INTVERIFY-05 satisfied |
 | v1.2. Product-document Q&A MVP | Locally verified | Docs/chunks, server API, chat UI, tests, build, Playwright, and security/scope scans passed |
-| v1.2.1. Production API runtime | Prepared, not deployed | Runtime plan and deploy workflow update prepared; Aliyun systemd/Caddy setup and deployment still require explicit approval |
+| v1.2.1. Production API runtime | ✅ Deployed 2026-05-12 | systemd + Caddy proxy configured, Node API online, all verification passed |
 | v2.0 Knowledge Base (SEO文集+RAG) | Planning complete, transferred to OmniGraph-Vault | PRD + 20 architecture decisions recorded; implementation docs pushed to OmniGraph-Vault/kb/docs/ |
 
 ## Operating Assumptions
