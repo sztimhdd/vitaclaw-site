@@ -26,10 +26,10 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
+        <ScenarioSelector />
         <TrustBar />
         <PainPoints />
         <Workflow />
-        <ScenarioSelector />
         <Architecture />
         <Business />
         <ComplianceTrust />
