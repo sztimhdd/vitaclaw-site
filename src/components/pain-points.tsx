@@ -11,7 +11,7 @@ const painPoints = [
     description: "通用 AI 纸上谈兵，无法操作你的业务系统。复杂流程仍需人工在中途&ldquo;接棒&rdquo;，缺乏端到端执行能力。",
     tags: ["无法操作业务", "任务中断", "无法端到端"],
     accent: "red" as const,
-    image: "/Pain-1.png",
+    image: "/Pain-4.png",
   },
   {
     icon: (
@@ -47,7 +47,7 @@ const painPoints = [
     description: "通用 AI Agent 存在数据泄露、权限失控、操作误判等致命隐患。缺乏对非人身份的有效隔离与行为审计，企业不敢将核心业务交给 AI。",
     tags: ["数据泄露", "权限失控", "无审计"],
     accent: "cyan" as const,
-    image: "/Pain-4.png",
+    image: "/Pain-1.png",
   },
 ];
 
