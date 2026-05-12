@@ -31,9 +31,9 @@ jobs:
       - name: Validate deployment branch
         run: |
           case "${GITHUB_REF}" in
-            refs/heads/main|refs/heads/master) ;;
+            refs/heads/main|refs/heads/master|refs/heads/saas-site) ;;
             *)
-              echo "Manual deployment must run from main or master, got ${GITHUB_REF}."
+              echo "Manual deployment must run from main, master, or saas-site, got ${GITHUB_REF}."
               exit 1
               ;;
           esac
