@@ -11,7 +11,7 @@ const painPoints = [
     description: "通用 AI 纸上谈兵，无法操作你的业务系统。复杂流程仍需人工在中途&ldquo;接棒&rdquo;，缺乏端到端执行能力。",
     tags: ["无法操作业务", "任务中断", "无法端到端"],
     accent: "red" as const,
-    image: "/Pain-3.png",
+    image: "/Pain-1.png",
   },
   {
     icon: (
@@ -35,7 +35,19 @@ const painPoints = [
     description: "AI 技能无法沉淀为企业数字资产。每次新场景都要从头开发，缺乏统一的运维管控，难以支撑规模化应用。",
     tags: ["技能难沉淀", "运维缺失", "难以规模化"],
     accent: "purple" as const,
-    image: "/Pain-1.png",
+    image: "/Pain-3.png",
+  },
+  {
+    icon: (
+      <svg className="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+      </svg>
+    ),
+    title: "安全不可控，怕 AI 闯祸",
+    description: "通用 AI Agent 存在数据泄露、权限失控、操作误判等致命隐患。缺乏对非人身份的有效隔离与行为审计，企业不敢将核心业务交给 AI。",
+    tags: ["数据泄露", "权限失控", "无审计"],
+    accent: "cyan" as const,
+    image: "/Pain-4.png",
   },
 ];
 
@@ -43,6 +55,7 @@ const accentStyles: Record<string, { bg: string; border: string; tagBg: string; 
   red: { bg: "bg-red-500/10", border: "border-red-500/20", tagBg: "bg-red-500/8", tagBorder: "border-red-500/15", tagText: "text-red-400/70" },
   amber: { bg: "bg-amber-500/10", border: "border-amber-500/20", tagBg: "bg-amber-500/8", tagBorder: "border-amber-500/15", tagText: "text-amber-400/70" },
   purple: { bg: "bg-purple-500/10", border: "border-purple-500/20", tagBg: "bg-purple-500/8", tagBorder: "border-purple-500/15", tagText: "text-purple-400/70" },
+  cyan: { bg: "bg-cyan-500/10", border: "border-cyan-500/20", tagBg: "bg-cyan-500/8", tagBorder: "border-cyan-500/15", tagText: "text-cyan-400/70" },
 };
 
 export function PainPoints() {
@@ -57,7 +70,7 @@ export function PainPoints() {
               你的企业，真的用上了 AI 吗？
             </h2>
             <p className="text-lg text-white/50 max-w-2xl mx-auto">
-              不是不想用——是现成的 AI 不会操作你的系统、部署太复杂、用完没法沉淀
+              不是不想用——是现成的 AI 不会操作你的系统、部署太复杂、安全不可控、用完没法沉淀
             </p>
           </div>
         </ScrollReveal>
