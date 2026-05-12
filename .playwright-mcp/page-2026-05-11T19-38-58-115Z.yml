@@ -1,0 +1,338 @@
+- main [ref=e3]:
+  - generic [ref=e4]:
+    - generic [ref=e5]:
+      - navigation [ref=e6]:
+        - generic [ref=e7]:
+          - link [ref=e8] [cursor=pointer]:
+            - /url: /home/
+            - img [ref=e10]
+            - img [ref=e17]
+          - list [ref=e29]:
+            - listitem [ref=e30]:
+              - button "CodeBuddy" [ref=e32] [cursor=pointer]:
+                - paragraph [ref=e33]:
+                  - generic [ref=e34]: C
+                  - generic [ref=e35]: o
+                  - generic [ref=e36]: d
+                  - generic [ref=e37]: e
+                  - generic [ref=e38]: B
+                  - generic [ref=e39]: u
+                  - generic [ref=e40]: d
+                  - generic [ref=e41]: d
+                  - generic [ref=e42]: "y"
+                - img [ref=e44]
+            - listitem [ref=e46]:
+              - generic [ref=e47]:
+                - link "WorkBuddy" [ref=e48] [cursor=pointer]:
+                  - /url: /work/
+                  - paragraph [ref=e49]:
+                    - generic [ref=e50]: W
+                    - generic [ref=e51]: o
+                    - generic [ref=e52]: r
+                    - generic [ref=e53]: k
+                    - generic [ref=e54]: B
+                    - generic [ref=e55]: u
+                    - generic [ref=e56]: d
+                    - generic [ref=e57]: d
+                    - generic [ref=e58]: "y"
+                - generic [ref=e59]: 公测
+            - listitem [ref=e60]:
+              - link "定价" [ref=e61] [cursor=pointer]:
+                - /url: /pricing/
+                - paragraph [ref=e62]:
+                  - generic [ref=e63]: 定
+                  - generic [ref=e64]: 价
+            - listitem [ref=e65]:
+              - link "文档" [ref=e66] [cursor=pointer]:
+                - /url: /docs/
+                - paragraph [ref=e67]:
+                  - generic [ref=e68]: 文
+                  - generic [ref=e69]: 档
+            - listitem [ref=e70]:
+              - link "博客" [ref=e71] [cursor=pointer]:
+                - /url: /blog/
+                - paragraph [ref=e72]:
+                  - generic [ref=e73]: 博
+                  - generic [ref=e74]: 客
+            - listitem [ref=e75]:
+              - link "API文档" [ref=e76] [cursor=pointer]:
+                - /url: /apiDocs/index.html
+                - paragraph [ref=e77]:
+                  - generic [ref=e78]: A
+                  - generic [ref=e79]: P
+                  - generic [ref=e80]: I
+                  - generic [ref=e81]: 文
+                  - generic [ref=e82]: 档
+          - generic [ref=e83]:
+            - button "中国站" [ref=e85] [cursor=pointer]:
+              - text: 中国站
+              - img [ref=e87]
+            - button "登录" [ref=e89] [cursor=pointer]
+            - button "下载" [ref=e91] [cursor=pointer]:
+              - paragraph [ref=e92]:
+                - generic [ref=e93]: 下
+                - generic [ref=e94]: 载
+      - generic [ref=e95]:
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - img [ref=e99]
+            - img [ref=e106]
+          - button "×" [ref=e118] [cursor=pointer]:
+            - generic [ref=e119]: ×
+        - list [ref=e120]:
+          - listitem [ref=e121]:
+            - generic [ref=e122]:
+              - generic [ref=e123]: CodeBuddy
+              - button "+" [ref=e124] [cursor=pointer]
+          - listitem [ref=e125]:
+            - generic [ref=e126]:
+              - link "WorkBuddy" [ref=e127] [cursor=pointer]:
+                - /url: /work/
+              - generic [ref=e128]: 公测
+          - listitem [ref=e129]:
+            - link "定价" [ref=e130] [cursor=pointer]:
+              - /url: /pricing/
+          - listitem [ref=e131]:
+            - link "文档" [ref=e132] [cursor=pointer]:
+              - /url: /docs/
+          - listitem [ref=e133]:
+            - link "博客" [ref=e134] [cursor=pointer]:
+              - /url: /blog/
+          - listitem [ref=e135]:
+            - link "API文档" [ref=e136] [cursor=pointer]:
+              - /url: /apiDocs/index.html
+        - generic [ref=e137]:
+          - button "中国站" [ref=e139] [cursor=pointer]:
+            - text: 中国站
+            - img [ref=e141]
+          - button "登录" [ref=e143] [cursor=pointer]
+          - generic [ref=e144]:
+            - button "下载 WorkBuddy（腾讯龙虾）" [ref=e145] [cursor=pointer]:
+              - generic [ref=e146]:
+                - text: 下载 WorkBuddy
+                - generic [ref=e147]: （腾讯龙虾）
+            - button "下载 CodeBuddy IDE" [ref=e148] [cursor=pointer]:
+              - generic [ref=e149]: 下载 CodeBuddy IDE
+    - generic [ref=e151]:
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - generic [ref=e154]: Work Smart ，Not Hard
+          - heading "腾讯版🦞 AI 办公助手" [level=1] [ref=e155]
+        - generic [ref=e156]:
+          - paragraph [ref=e157]: WorkBuddy 是 AI 原生的桌面智能体工作台，可在手机主流 IM 下指令，AI 自动干活交付
+          - paragraph [ref=e158]: 免部署·安装即用 ｜ 预集成·模型一站搞定，兼容龙虾 Skills ｜ 高安全·腾讯网关护航
+        - generic [ref=e159]:
+          - button "下载 WorkBuddy" [ref=e161] [cursor=pointer]:
+            - img [ref=e163]
+            - generic [ref=e172]: 下载 WorkBuddy
+            - button [ref=e173]:
+              - generic [ref=e174]:
+                - img [ref=e176]
+                - img [ref=e179]
+          - link "Claw 快捷接入指南" [ref=e181] [cursor=pointer]:
+            - /url: /docs/workbuddy/Claw
+        - generic [ref=e182]:
+          - link "微信" [ref=e183] [cursor=pointer]:
+            - /url: /docs/workbuddy/WeixinBot-Guide
+            - img "微信"
+          - link "企业微信" [ref=e184] [cursor=pointer]:
+            - /url: /docs/workbuddy/Wecom-Guide
+            - img "企业微信"
+          - link "QQ" [ref=e185] [cursor=pointer]:
+            - /url: /docs/workbuddy/QQ-Guide
+            - img "QQ" [ref=e186]
+          - link "飞书" [ref=e187] [cursor=pointer]:
+            - /url: /docs/workbuddy/Feishu-Guide
+            - img "飞书"
+          - link "钉钉" [ref=e188] [cursor=pointer]:
+            - /url: /docs/workbuddy/Dingtalk-Guide
+            - img "钉钉"
+          - generic [ref=e190]:
+            - img "小程序"
+      - generic [ref=e191]:
+        - generic [ref=e193]:
+          - img "WorkBuddy 龙虾猫"
+        - button "00:00" [ref=e195] [cursor=pointer]:
+          - generic [ref=e198]:
+            - generic [ref=e199]: 00:00
+            - img [ref=e201]
+    - generic [ref=e205]:
+      - generic [ref=e207]:
+        - generic:
+          - img "CodeBuddy Logo"
+        - generic [ref=e208]:
+          - generic [ref=e209]: 适用于全角色，下达指令即可自动生成文档、表格、图表及 PPT 等可视化成果
+          - heading "自主规划并交付多模态复杂任务结果" [level=2] [ref=e211]
+          - generic [ref=e212]:
+            - paragraph [ref=e213]: 支持多 Agents 并行工作，极致提效
+            - paragraph [ref=e214]: 内置主流 MCP、Skills 扩展能力边界
+      - generic [ref=e219]:
+        - generic [ref=e220]:
+          - generic [ref=e221]: Work
+          - generic [ref=e222]: Buddy
+        - generic [ref=e223]:
+          - img "WorkBuddy Cat"
+    - generic [ref=e225]:
+      - generic [ref=e226]:
+        - heading "全场景智能体工作搭子" [level=2] [ref=e227]
+        - paragraph [ref=e228]: 开启 AI Agent 办公新范式
+      - generic [ref=e229]:
+        - generic [ref=e230]:
+          - img "本地信息自动化批量处理" [ref=e233]
+          - generic [ref=e234]:
+            - heading "本地信息自动化批量处理" [level=3] [ref=e235]
+            - generic [ref=e236]:
+              - paragraph [ref=e237]: ·推荐用户：所有被文件整理、数据搬运困扰的职场人
+              - paragraph [ref=e238]: ·能力描述：将电脑里已有的、无序的文件和数据，交给 WorkBuddy 自动批量整理、分类和汇总，变成整洁可用的信息
+              - generic [ref=e239]:
+                - generic [ref=e240]: ·典型任务：
+                - list [ref=e241]:
+                  - listitem [ref=e242]: 数据处理：对现有 Excel 批量清洗杂乱数据、自动分类生成统计报表、跨表格数据匹配与整合，并一键导出可视化图表
+                  - listitem [ref=e243]: 票据处理：从本地多格式发票中提取信息，生成报销表
+                  - listitem [ref=e244]: 文件归档：自动整理杂乱的下载文件夹
+        - generic [ref=e245]:
+          - generic [ref=e246]:
+            - generic:
+              - img "外部信息调研与内容生成"
+          - generic [ref=e247]:
+            - heading "外部信息调研与内容生成" [level=3] [ref=e248]
+            - generic [ref=e249]:
+              - paragraph [ref=e250]: ·推荐用户：需市场研究、竞品分析或快速准备汇报材料的人员
+              - paragraph [ref=e251]: ·能力描述：给 WorkBuddy 一个主题或指令，它自动从网络搜集和分析信息，直接为您生成结构清晰的调研报告或 PPT
+              - generic [ref=e252]:
+                - generic [ref=e253]: ·典型任务：
+                - list [ref=e254]:
+                  - listitem [ref=e255]: 行业/竞品调研：自动进行市场分析并生成调研报告
+                  - listitem [ref=e256]: 内容创作：根据主题/模版，自动搜集资料并生成完整的PPT
+        - generic [ref=e257]:
+          - generic [ref=e258]:
+            - generic:
+              - img "业务数据洞察与自动化响应"
+          - generic [ref=e259]:
+            - heading "业务数据洞察与自动化响应" [level=3] [ref=e260]
+            - generic [ref=e261]:
+              - paragraph [ref=e262]: ·推荐用户：运营、客户成功、管理等需对业务数据做出反应的角色
+              - paragraph [ref=e263]: ·能力描述：将业务数据表格/日志交给 WorkBuddy ，自动完成深度分析、提炼问题、总结规律，并生成指导方案
+              - generic [ref=e264]:
+                - generic [ref=e265]: ·典型任务：
+                - list [ref=e266]:
+                  - listitem [ref=e267]: 用户反馈与舆情分析：自动分析用户反馈与评论文档，进行情感归类与问题提炼，生成附带优化建议的周期性洞察报告
+                  - listitem [ref=e268]: 销售与业绩洞察：提供 CRM 中的销售管道与成交数据，自动分析成丢单原因并预测业绩，输出销售策略调整与重点客户跟进建议
+      - generic [ref=e269]: 更多内容即将到来...
+    - generic [ref=e271]:
+      - heading "下载 WorkBuddy" [level=2] [ref=e273]
+      - generic [ref=e274]:
+        - generic [ref=e275]:
+          - heading "macOS 11.0+" [level=3] [ref=e277]
+          - generic [ref=e278]:
+            - img [ref=e280]
+            - heading "MAC" [level=3] [ref=e282]
+          - generic [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e285]: .dmg (Apple 芯片)
+              - button "点击下载" [ref=e286] [cursor=pointer]:
+                - img [ref=e288]
+                - generic [ref=e297]: 点击下载
+                - button [ref=e298]:
+                  - generic [ref=e299]:
+                    - img [ref=e301]
+                    - img [ref=e304]
+            - generic [ref=e306]:
+              - generic [ref=e307]: .dmg (Intel)
+              - button "点击下载" [ref=e308] [cursor=pointer]:
+                - img [ref=e310]
+                - generic [ref=e319]: 点击下载
+                - button [ref=e320]:
+                  - generic [ref=e321]:
+                    - img [ref=e323]
+                    - img [ref=e326]
+        - generic [ref=e328]:
+          - heading "Windows 10, 11" [level=3] [ref=e330]
+          - generic [ref=e331]:
+            - img [ref=e333]
+            - heading "Windows" [level=3] [ref=e335]
+          - generic [ref=e337]:
+            - generic [ref=e338]: Windows x64 (兼容 ARM64)
+            - button "点击下载" [ref=e339] [cursor=pointer]:
+              - img [ref=e341]
+              - generic [ref=e350]: 点击下载
+              - button [ref=e351]:
+                - generic [ref=e352]:
+                  - img [ref=e354]
+                  - img [ref=e357]
+    - generic [ref=e362]:
+      - heading "准备好改变您的工作方式了吗？" [level=2] [ref=e364]:
+        - generic "准备好改变您的工作方式了吗？" [ref=e366]:
+          - generic [ref=e369]: 准备好改变您的工作方式了吗？
+      - paragraph [ref=e370]: 体验 AI Agent 办公新范式
+      - button "立即探索 WorkBuddy" [ref=e372] [cursor=pointer]:
+        - img [ref=e374]
+        - generic [ref=e383]: 立即探索 WorkBuddy
+        - button [ref=e384]:
+          - generic [ref=e385]:
+            - img [ref=e387]
+            - img [ref=e390]
+    - generic [ref=e394]:
+      - generic [ref=e395]:
+        - generic [ref=e396]:
+          - img "Mini Program QR Code" [ref=e397]
+          - generic [ref=e398]: 小程序
+        - generic [ref=e399]:
+          - img "WeChat QR Code" [ref=e400]
+          - generic [ref=e401]: 微信公众号
+        - generic [ref=e402]:
+          - img "Group QR Code" [ref=e403]
+          - generic [ref=e404]: 交流群
+      - generic [ref=e406]:
+        - generic [ref=e407]:
+          - generic [ref=e408]:
+            - heading "服务条款" [level=3] [ref=e409]: 服务条款
+            - list [ref=e411]:
+              - listitem [ref=e412]:
+                - link "用户协议" [ref=e413] [cursor=pointer]:
+                  - /url: /agreement/
+              - listitem [ref=e414]:
+                - link "隐私协议" [ref=e415] [cursor=pointer]:
+                  - /url: /privacy/
+          - generic [ref=e416]:
+            - heading "文档指引" [level=3] [ref=e417]: 文档指引
+            - list [ref=e419]:
+              - listitem [ref=e420]:
+                - link "产品介绍" [ref=e421] [cursor=pointer]:
+                  - /url: https://www.codebuddy.cn/docs/ide/
+              - listitem [ref=e422]:
+                - link "插件使用" [ref=e423] [cursor=pointer]:
+                  - /url: https://www.codebuddy.cn/docs/plugin/
+          - generic [ref=e424]:
+            - heading "产品下载" [level=3] [ref=e425]: 产品下载
+            - list [ref=e427]:
+              - listitem [ref=e428]:
+                - link "IDE 下载" [ref=e429] [cursor=pointer]:
+                  - /url: /ide/
+              - listitem [ref=e430]:
+                - link "插件下载" [ref=e431] [cursor=pointer]:
+                  - /url: /setup/
+          - generic [ref=e432]:
+            - heading "联系我们" [level=3] [ref=e433]: 联系我们
+            - list [ref=e435]:
+              - listitem [ref=e436]:
+                - link "建议反馈" [ref=e437] [cursor=pointer]:
+                  - /url: /docs/ide/Support/Contact
+              - listitem [ref=e438]:
+                - link "售前咨询" [ref=e439] [cursor=pointer]:
+                  - /url: https://cloud.tencent.com/document/product/1749/104249#73ad7ad1-3370-44a9-8089-4a47ff274905
+        - generic [ref=e440]:
+          - img [ref=e441]
+          - generic [ref=e446]:
+            - img [ref=e447]
+            - img [ref=e449]
+            - img [ref=e451]
+            - img [ref=e453]
+            - img [ref=e456]
+            - img [ref=e458]
+            - img [ref=e460]
+            - img [ref=e462]
+            - img [ref=e464]
+        - generic [ref=e467]:
+          - generic [ref=e468]: 版权 © 2026 腾讯云计算（北京）有限责任公司丨腾讯科技（深圳）有限公司 版权所有
+          - generic [ref=e469]: 粤公网安备 44030502008569号 | 粤B2-20090059
