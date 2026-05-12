@@ -53,12 +53,14 @@
 │  用户浏览器 ←→ Caddy (443/80)                             │
 │                  │                                        │
 │                  ├── /* → kb/output/ (静态文件)             │
-│                  ├── /images/* → localhost:8765 (图片)     │
-│                  └── /api/kb/* → Express:3001 (问答API)    │
+│                  ├── /static/img/* → FastAPI:8766 (图片) │
+│                  └── /kb/* → FastAPI:8766 (问答API)    │
 │                                     │                     │
 │                          ┌──────────┘                     │
 │                          ▼                                │
-│                    kb_api.py (~50行)                       │
+│                    kb/api.py (FastAPI)                    │
+│                    /synthesize → BackgroundTasks          │
+│                    /search → FTS5 或 LightRAG             │
 │                    synthesize_response(query)              │
 │                    → LightRAG 深度检索+合成                 │
 └──────────────────────────────────────────────────────────┘
@@ -106,9 +108,9 @@ export_knowledge_base.py
 ```
 用户在 ask 页提问
   ↓
-React岛屿 → Express POST /api/kb/ask { question: "..." }
+React岛屿 → FastAPI POST /synthesize { question: "..." }
   ↓
-subprocess/child_process → python kb_api.py
+BackgroundTasks → job_id 返回 202
   ↓
 synthesize_response(question)
   ├─ LightRAG hybrid retrieval
@@ -118,7 +120,7 @@ synthesize_response(question)
   ↓
 Markdown 答案
   ↓
-Express → 返回 { answer_md, sources, entities }
+FastAPI GET /synthesize/{job_id} → { status: "done", result: { answer_md, sources, entities } }
   ↓
 React岛屿 → Markdown渲染 → 图文显示 → 来源链接(→文章页)
 ```

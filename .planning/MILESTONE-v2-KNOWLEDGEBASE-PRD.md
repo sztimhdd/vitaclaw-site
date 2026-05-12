@@ -1,8 +1,8 @@
 # 企小勤知识库 Milestone v2 — 产品需求文档 (PRD)
 
-**版本:** 2.0 Draft
+**版本:** 2.0 Draft (vitaclaw-site归档版)
 **日期:** 2026-05-11
-**状态:** 待审阅 — 用户决策门
+**状态:** 已移交 — 实施已转移至OmniGraph-Vault仓库。本文档为归档参考，最终实现规范见 `OmniGraph-Vault/kb/docs/00-KB-KICKOFF-PROMPT.md`。
 **作者:** Sisyphus orchestrator，基于 omniscient context synthesis
 
 ---
@@ -292,56 +292,39 @@ Caddy 443:
 
 ### 3.7 项目结构
 
+> **注意:** 最终项目结构以 `OmniGraph-Vault/kb/docs/00-KB-KICKOFF-PROMPT.md` 为准。
+> 以下为当前定稿的Python+Jinja2结构（非Astro）。
+
 ```
-kb/                          # 知识库Astro项目 (与vitaclaw-site并列)
-├── astro.config.mjs
-├── package.json
-├── src/
-│   ├── content/
-│   │   ├── config.ts            # Astro content collection schema
-│   │   ├── articles/            # 文章MD/MDX (构建时从OmniGraph生成)
-│   │   │   ├── ai-agent-what-is.md
-│   │   │   ├── agent-framework-comparison.md
-│   │   │   └── ...
-│   │   ├── entities/            # 实体页 (构建时从OmniGraph生成)
-│   │   │   ├── openai.md
-│   │   │   ├── langchain.md
-│   │   │   └── ...
-│   │   └── topics/              # 主题集群定义
-│   │       ├── ai-agent.md
-│   │       ├── enterprise-automation.md
-│   │       └── ...
-│   ├── layouts/
-│   │   ├── BaseLayout.astro      # 基础布局 (SEO head, nav, footer)
-│   │   ├── ArticleLayout.astro   # 文章页布局 (面包屑, 侧边栏, CTA)
-│   │   ├── EntityLayout.astro    # 实体页布局
-│   │   ├── TopicLayout.astro     # 主题集群布局 (pillar page)
-│   │   └── AskLayout.astro       # 问答页布局
-│   ├── components/
-│   │   ├── SearchWidget.tsx      # React island: 搜索框
-│   │   ├── QAEngine.tsx          # React island: RAG问答引擎
-│   │   ├── RelatedArticles.astro # 相关文章推荐
-│   │   ├── EntityCard.astro      # 实体卡片
-│   │   ├── BreadcrumbNav.astro  # 面包屑导航
-│   │   ├── TopicGrid.astro       # 主题网格
-│   │   ├── ArticleCard.astro    # 文章卡片
-│   │   └── CTABanner.astro      # 转化CTA横幅
-│   ├── pages/
-│   │   ├── index.astro          # 知识库首页
-│   │   ├── topic/[slug].astro   # 主题集群页
-│   │   ├── article/[slug].astro # 文章页
-│   │   ├── entity/[slug].astro  # 实体页
-│   │   ├── source/[slug].astro  # 来源页
-│   │   ├── ask/index.astro      # 问答入口
-│   │   └── ask/answer.astro     # 问答结果
-│   └── styles/
-│       └── global.css            # 继承vitaclaw-site设计语言
-├── scripts/
-│   └── export_knowledge_base.py # OmniGraph→Content Collections 导出
-└── public/
-    ├── robots.txt
-    ├── sitemap.xml              # 构建时生成
-    └── favicon.ico
+OmniGraph-Vault/kb/          # 知识库Python项目（在OmniGraph-Vault仓库内）
+├── pyproject.toml            # 独立Python项目配置
+├── requirements.txt          # FastAPI, Jinja2, uvicorn, python-markdown等
+├── config.py                 # KB配置（路径、端口、DB路径等）
+├── export_knowledge_base.py  # SSG导出脚本
+├── api.py                    # FastAPI后端 (:8766)
+├── templates/                # Jinja2 HTML模板
+│   ├── base.html             # 基模板：顶栏+导航+页脚+CTA
+│   ├── index.html            # 首页
+│   ├── article.html          # 文章详情页
+│   ├── topic.html            # 主题Pillar页
+│   ├── entity.html           # 实体页
+│   └── ask.html              # 问答页
+├── static/                   # CSS/JS静态资源
+│   └── style.css
+├── output/                   # SSG构建产出（Caddy直接serve，gitignored）
+│   ├── index.html
+│   ├── articles/{hash}.html
+│   ├── topics/{slug}.html
+│   ├── entities/{slug}.html
+│   ├── ask/index.html
+│   ├── assets/style.css
+│   ├── sitemap.xml
+│   └── robots.txt
+├── docs/                     # KB规划文档（已推送到GitHub）
+│   ├── 00-KB-KICKOFF-PROMPT.md
+│   ├── 01-PRD.md
+│   └── ...                   # 架构、决策、Phase prompts等
+└── README.md
 ```
 
 ---
@@ -356,7 +339,7 @@ kb/                          # 知识库Astro项目 (与vitaclaw-site并列)
 | **ICP备案** | 必须备案 | 域名需备案才能被百度正常收录 |
 | **HTTPS** | 必须HTTPS | Caddy自动TLS (需域名指向) |
 | **URL结构** | 短且含关键词 | `/ai-agent/what-is-ai-agent` 而非 `/post?id=123` |
-| **Sitemap** | 自动生成 | Astro @astrojs/sitemap 集成 |
+| **Sitemap** | 自动生成 | `export_knowledge_base.py` 生成 sitemap.xml |
 | **结构化数据** | Schema.org | 每篇文章 `Article`, `FAQPage`; 实体页 `Thing`; 面包屑 `BreadcrumbList` |
 | **百度推送** | 主动推送API | 新内容发布后推送URL到百度 |
 | **关键词密度** | 自然分布 | 标题含1次核心词，正文分布2-3%，不堆砌 |
@@ -368,9 +351,9 @@ kb/                          # 知识库Astro项目 (与vitaclaw-site并列)
 |------|------|
 | **结构化数据** | `Article`, `HowTo`, `FAQPage`, `BreadcrumbList`, `Organization` |
 | **OG Tags** | 每页面完整 `og:title`, `og:description`, `og:image`, `og:type` |
-| **页面速度** | Astro零JS默认 + 岛屿按需加载 → 极快的LCP |
+| **页面速度** | 纯静态HTML，零JS | 纯Jinja2 SSG，LCP极快 |
 | **移动适配** | 移动优先设计，`viewport` + 响应式 |
-| **Core Web Vitals** | LCP < 2.5s, FID < 100ms, CLS < 0.1 (Astro天然达标) |
+| **Core Web Vitals** | LCP < 2.5s, FID < 100ms, CLS < 0.1 (纯静态HTML天然达标) |
 
 ### 4.3 关键词矩阵
 
@@ -590,13 +573,13 @@ kb/                          # 知识库Astro项目 (与vitaclaw-site并列)
 
 ### 基础设施 (INFRA)
 
-- [ ] **INFRA-01**: 创建独立Astro 5项目`kb/`，与`vitaclaw-site/`并列存放
-- [ ] **INFRA-02**: Astro配置Content Collections：`articles`、`entities`、`topics`三个集合
-- [ ] **INFRA-03**: 配置`@astrojs/sitemap`自动生成`sitemap.xml`
-- [ ] **INFRA-04**: 配置`@astrojs/react`实现岛屿交互
+- [ ] **INFRA-01**: 在OmniGraph-Vault仓库创建`kb/`目录，独立Python项目（pyproject.toml + requirements.txt）
+- [ ] **INFRA-02**: `export_knowledge_base.py`从SQLite导出文章→Jinja2模板→静态HTML
+- [ ] **INFRA-03**: 生成`sitemap.xml`和`robots.txt`
+- [ ] **INFRA-04**: FastAPI :8766实现搜索/问答API（`api.py`）
 - [ ] **INFRA-05**: 设计语言继承：复用vitaclaw-site的#0f172a配色、Inter+Noto Sans SC字体、卡片样式
-- [ ] **INFRA-06**: Caddy反向代理配置：`kb.qixiaoqin.com` → Astro SSG + FastAPI :8766
-- [ ] **INFRA-07**: GitHub Actions CI/CD：手动触发部署到阿里云ECS
+- [ ] **INFRA-06**: Caddy反向代理配置：`/kb/*` → :8766 (FastAPI)，`/static/img/*` → :8766
+- [ ] **INFRA-07**: systemd service配置 + 每日cron触发export重建
 
 ### 数据导出 (EXPORT)
 
@@ -605,7 +588,7 @@ kb/                          # 知识库Astro项目 (与vitaclaw-site并列)
 - [ ] **EXPORT-03**: 导出实体规范化数据到JSON（canonical_name, entity_type, aliases, description, related_article_slugs）
 - [ ] **EXPORT-04**: 导出主题集群定义到JSON（topic_id, nameZh, nameEn, slug, pillar_keywords, subtopic_slugs）
 - [ ] **EXPORT-05**: 导出来源索引到JSON（source_id, name, platform, article_count, latest_articles）
-- [ ] **EXPORT-06**: 构建时将JSON转换为Astro Content Collections Markdown文件
+- [ ] **EXPORT-06**: export脚本直接从SQLite+模板生成HTML（Python Jinja2 SSG，不是Astro Content Collections）
 
 ### SEO (SEO)
 
@@ -656,11 +639,11 @@ kb/                          # 知识库Astro项目 (与vitaclaw-site并列)
 
 ### 部署 (DEPLOY)
 
-- [ ] **DEPLOY-01**: Caddy配置：`kb.qixiaoqin.com`路由到Astro SSG + FastAPI :8766
+- [ ] **DEPLOY-01**: Caddy配置：`/kb/*` → FastAPI :8766（SSG静态+API），`/static/img/*` → FastAPI :8766（图片）
 - [ ] **DEPLOY-02**: HTTPS：Caddy自动TLS（需域名DNS指向）
 - [ ] **DEPLOY-03**: FastAPI `/kb/*` 路由通过Caddy反向代理 :8766，与vitaclaw-site :3001 共存
-- [ ] **DEPLOY-04**: GitHub Actions手动触发构建+部署
-- [ ] **DEPLOY-05**: 内容更新流程：OmniGraph cron → export脚本 → Astro rebuild → 部署
+- [ ] **DEPLOY-04**: systemd service + 每日cron触发export重建
+- [ ] **DEPLOY-05**: 内容更新流程：OmniGraph cron → export脚本 → Jinja2 rebuild → 部署
 
 ---
 
@@ -688,7 +671,7 @@ kb/                          # 知识库Astro项目 (与vitaclaw-site并列)
 | D-02 | 内容来源范围 | 仅Layer1/2 curationStatus:passed | 质量优先 |
 | D-03 | 文章内容形式 | AI摘要+原文链接 | 版权安全 |
 | D-04 | 问答后端 | `kg_synthesize.synthesize_response()` (~50行包装) | 已有生产验证，不等Agentic-RAG |
-| D-05 | 项目结构 | 独立Python项目同仓库 | 与vitaclaw-site并列 |
+| D-05 | 项目结构 | 独立Python项目在OmniGraph-Vault仓库kb/内 | 与vitaclaw-site解耦，直接import kg_synthesize等模块 |
 | D-06 | 图片服务 | FastAPI StaticFiles挂载 :8766/static/img/ | FastAPI统一管理，删除独立的:8765图片服务器 |
 | D-07 | 问答登录 | 完全公开 | 降低门槛 |
 | D-08 | 框架 | Python Jinja2（不是Astro/Next.js） | 极简MVP，1周上线 |

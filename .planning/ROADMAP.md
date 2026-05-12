@@ -297,7 +297,7 @@ fallback safety.
 
 **Architecture:**
 - Python Jinja2 static HTML (not Astro/Next.js)
-- `kg_synthesize.synthesize_response()` as Express API for Q&A
+- RAG Q&A engine wrapping `kg_synthesize.synthesize_response()` as FastAPI :8766
 - Caddy proxy for images
 - Shared server with vitaclaw-site
 
