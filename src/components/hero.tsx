@@ -34,8 +34,8 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left: Copy + Badges + CTA + Metrics */}
-          <div className="flex flex-col gap-8 pt-4">
+          {/* Left: Copy + Badges + CTA */}
+          <div className="flex flex-col gap-6 sm:gap-8 pt-4">
             <ScrollReveal>
               <div>
                 <h1 className="text-[clamp(28px,4vw,52px)] font-bold leading-[1.1] tracking-[-0.02em] mb-4">
@@ -74,15 +74,6 @@ export function Hero() {
                 >
                   观看30秒演示
                 </a>
-              </div>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200}>
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <MetricCard value={99.99} suffix="%" label="平台可用率" />
-                <MetricCard value={98} suffix="+" label="任务准确率" />
-                <MetricCard value={80} suffix="%" label="人力成本降低" />
-                <MetricCard value="1 周" label="极速部署上线" />
               </div>
             </ScrollReveal>
           </div>
@@ -138,6 +129,16 @@ export function Hero() {
             </ScrollReveal>
           </div>
         </div>
+
+        {/* Full-width metrics row — balanced below the two columns */}
+        <ScrollReveal delay={250}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-16 lg:mt-24">
+            <MetricCard value={99.99} suffix="%" label="平台可用率" />
+            <MetricCard value={98} suffix="+" label="任务准确率" />
+            <MetricCard value={80} suffix="%" label="人力成本降低" />
+            <MetricCard value="1 周" label="极速部署上线" />
+          </div>
+        </ScrollReveal>
       </div>
 
       {/* Fullscreen video modal */}
