@@ -14,6 +14,14 @@
 		reverse_proxy 127.0.0.1:3001
 	}
 
+	# KB-v2 static HTML (Phase 1: export output; Phase 2: reverse-proxy to FastAPI)
+	handle /kb/* {
+		root * /opt/vitaclaw/OmniGraph-Vault/kb/output
+		uri strip_prefix /kb
+		try_files {path} {path}/index.html /index.html
+		file_server
+	}
+
 	# SPA: serve static assets from the Vite build, fall back to index.html
 	handle {
 		root * /opt/vitaclaw/control-plane/vitaclaw-site/dist

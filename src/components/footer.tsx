@@ -11,9 +11,9 @@ const footerLinks = [
   {
     title: "资源",
     links: [
+      { label: "技术知识库", href: "/kb/" },
       { label: "技术文档", href: "#" },
       { label: "部署指南", href: "#" },
-      { label: "技能市场", href: "#" },
       { label: "客户案例", href: "#" },
     ],
   },

@@ -2,7 +2,7 @@
 
 > **基于 OmniGraph-Vault `kb/` 目录实际代码的分析。**  
 > **日期：** 2026-05-13  
-> **状态：** 待审阅 — 用户决策门
+> **状态：** 已锁定 D-21/22/23 — Phase 1 静态集成实施中
 
 ---
 
@@ -80,34 +80,36 @@ vitaclaw-site        OmniGraph-Vault/kb/
 
 ## 3. 集成方案建议
 
-### 方案 A：子目录集成（`/knowledge/`）⭐ 推荐
+### 方案 A：子目录集成（`/kb/`）✅ 已决策并实施
 
-**架构：**
+**架构（Phase 1 — 静态文件，KB-3 已延期）：**
 ```
 ohca.ddns.net/
 ├── /                    → vitaclaw-site :3001
 ├── /api/*              → vitaclaw-site :3001（助手API）
-└── /knowledge/*        → KB :8766
+└── /kb/*               → Caddy file_server → kb/output/（静态HTML）
     ├── /               → KB首页
     ├── /articles/      → 文章列表
     ├── /articles/{hash} → 文章详情
-    └── /ask/           → 问答页
+    └── /ask/           → 问答页（静态模板，搜索需等KB-3）
 ```
 
 **优势：**
 - 零新增域名，无需ICP备案
 - 品牌一致（同一域名）
 - SEO权重共享（子目录继承主域权威）
-- Caddy配置简单（加一条反代规则）
+- Caddy配置简单（file_server 即可，无需反代）
 
 **劣势：**
 - KB和vitaclaw-site共享域名，如果KB出问题可能影响主站感知
-- URL较长（`/knowledge/articles/xxx`）
+- URL较短但语义清晰（`/kb/articles/xxx`）
 
-**实施步骤：**
-1. 在vitaclaw-site navbar添加"知识库"链接 → `/knowledge/`
-2. Caddy增加：`reverse_proxy /knowledge/* localhost:8766`
-3. KB的base模板中品牌链接回vitaclaw-site首页
+**实施步骤（已完成）：**
+1. ✅ vitaclaw-site navbar添加"知识库"按钮（外部链接图标，新标签页打开）→ `/kb/`
+2. ✅ vitaclaw-site Hero添加"浏览技术文章"次CTA → `/kb/`
+3. ✅ vitaclaw-site Footer添加"技术知识库"链接 → `/kb/`
+4. ✅ Caddy增加：`handle /kb/*` → `file_server` 静态文件（kb/output/）
+5. ⏳ KB的base模板中品牌链接回vitaclaw-site首页（等OmniGraph更新）
 
 ---
 
@@ -185,63 +187,79 @@ KB模板已引用vitaclaw-site的logo和favicon：
 
 ### 当前部署状态
 
-| 服务 | 端口 | 状态 |
-|------|------|------|
-| vitaclaw-site | :3001 | ✅ 已部署 |
-| KB FastAPI | :8766 | ❌ 未启动（api.py不存在） |
-| Caddy | :443 | ✅ 运行中 |
+| 服务 | 端口 | 状态 | 说明 |
+|------|------|------|------|
+| vitaclaw-site | :3001 | ✅ 已部署 | Node.js API + 静态SPA |
+| KB static | — | ⏳ 待生成 | export运行后Caddy直接serve |
+| KB FastAPI | :8766 | ❌ 未启动 | KB-3延期，api.py不存在 |
+| Caddy | :443 | ✅ 运行中 | 新增 `/kb/*` → file_server |
 
-### 部署KB所需步骤
+### 部署KB所需步骤（Phase 1 — 静态优先）
 
-1. **OmniGraph侧完成KB-3**（FastAPI后端）
-2. **OmniGraph侧运行export**生成静态HTML到`kb/output/`
-3. **vitaclaw侧更新Caddy配置**添加`/knowledge/*`反代
-4. **vitaclaw侧更新导航**添加KB链接
-5. **部署vitaclaw-site**（GitHub Actions）
-6. **启动KB服务**（systemd + uvicorn）
+1. ✅ **vitaclaw侧更新导航** — navbar + Hero + Footer 链接已添加
+2. ✅ **vitaclaw侧更新Caddy配置** — `/kb/*` → `file_server` 已配置
+3. ⏳ **OmniGraph侧运行export** — 生成静态HTML到 `kb/output/`（**必须在Hermes执行**，DB仅存在于服务器）
+4. ⏳ **OmniGraph侧同步output到部署目录** — rsync `kb/output/` → `/opt/vitaclaw/OmniGraph-Vault/kb/output/`
+5. ⏳ **部署vitaclaw-site** — GitHub Actions build + Caddy reload
+
+### Phase 2 后续（KB-3完成后）
+
+1. OmniGraph侧完成 `api.py`（FastAPI后端）
+2. Caddy `/kb/*` 从 `file_server` 切为 `reverse_proxy localhost:8766`
+3. 启动 systemd + uvicorn 服务
+4. 设置 cron 每日 export + reload
 
 ---
 
 ## 6. 关键决策点
 
-### D-21: 集成路径选择
+### D-21: 集成路径选择 ✅ 已决策
 
-| 选项 | 工作量 | SEO影响 | 品牌一致性 | 推荐 |
+| 选项 | 工作量 | SEO影响 | 品牌一致性 | 状态 |
 |------|--------|---------|-----------|------|
-| A: `/knowledge/`子目录 | 1天 | ✅ 权重共享 | ✅ 同一域名 | ⭐ |
-| B: `kb.qixiaoqin.com`子域名 | +14天(ICP) | ⚠️ 独立权重 | ✅ 品牌清晰 | |
+| A: `/kb/`子目录 | 1天 | ✅ 权重共享 | ✅ 同一域名 | ✅ **已实施** |
+| B: `kb.qixiaoqin.com`子域名 | +14天(ICP) | ⚠️ 独立权重 | ✅ 品牌清晰 | ⏳ 未来可选 |
 
-**建议：先A后B。** v2.0用子目录快速上线验证，v2.1再考虑切子域名。
+**决策理由：** 当前未配置主站域名和HTTPS，先用 `/kb/` 零成本集成，后续域名就绪后可无缝迁移。
 
-### D-22: 导航入口策略
+### D-22: 导航入口策略 ✅ 已实施
 
-| 位置 | 链接文案 | 目标 |
-|------|---------|------|
-| Navbar | "知识库" | `/knowledge/` |
-| Hero次CTA | "浏览技术文章" | `/knowledge/articles/` |
-| Footer | "知识库 / API文档" | `/knowledge/` + `/knowledge/ask/` |
+| 位置 | 链接文案 | 目标 | 样式 |
+|------|---------|------|------|
+| Navbar | "知识库" | `/kb/` | 独立按钮（边框+书图标+外部链接图标），新标签页打开 |
+| Hero次CTA | "浏览技术文章" | `/kb/` | 三级按钮（淡边框+书图标+外部链接图标），flex-wrap自动换行 |
+| Footer | "技术知识库" | `/kb/` | 普通链接，资源列首位 |
 
-### D-23: KB和vitaclaw的品牌边界
+**设计意图：** Navbar按钮使用 `border + hover:border-accent/30` 区分于普通文本链接，书图标+外部链接图标明确表示这是跳转到另一个子系统。不竞争主CTA "免费试用" 的视觉层级。
 
-- **共享：** Logo、Favicon、配色、字体
-- **独立：** KB有自己的导航（首页/文章/问答）、页脚、SEO meta
-- **回链：** KB页脚添加"回到企小勤官网"链接到 `/`
+### D-23: 集成时机决策 ✅ 已实施
+
+**决策：现在集成 Phase 1（静态SSG），后续迭代 KB-2/KB-3。**
+
+- **已集成（vitaclaw侧）：** 导航链接、CTA、Footer、Caddy配置
+- **已延期（OmniGraph侧）：** KB-2 实体/主题页、KB-3 FastAPI/搜索/问答
+- **当前交付物：** 静态HTML文集（SEO吸铁石），无需后端即可运行
+- **回链：** KB页脚应添加"回到企小勤官网"链接到 `/`（等OmniGraph更新模板）
 
 ---
 
 ## 7. 实施优先级
 
-### Phase 1: 最小集成（1天）
+### Phase 1: 最小集成（1天）✅ 已完成
 
 **目标：** 让vitaclaw-site用户能点击跳转到KB首页
 
 **任务：**
-- [ ] vitaclaw navbar添加"知识库"链接
-- [ ] vitaclaw Hero CTA添加"浏览技术文章"选项
-- [ ] Caddy配置`/knowledge/*` → :8766（先指向静态文件）
-- [ ] KB页脚添加回链到vitaclaw
+- [x] vitaclaw navbar添加"知识库"链接（外部图标，新标签页）
+- [x] vitaclaw Hero CTA添加"浏览技术文章"选项（三级按钮）
+- [x] vitaclaw Footer添加"技术知识库"链接
+- [x] Caddy配置`/kb/*` → `file_server`（kb/output/静态文件）
+- [ ] KB页脚添加回链到vitaclaw（等OmniGraph更新模板）
+- [ ] OmniGraph运行export生成`kb/output/`（必须在Hermes执行）
+- [ ] rsync `kb/output/` 到服务器部署目录
+- [ ] 部署vitaclaw-site并reload Caddy
 
-**阻塞：** 需OmniGraph完成KB-3（api.py）或先用SSG静态文件serve
+**阻塞解除：** 无需KB-3，静态文件直接Caddy serve。
 
 ### Phase 2: 深度集成（2-3天）
 
@@ -268,7 +286,7 @@ KB模板已引用vitaclaw-site的logo和favicon：
 
 | 风险 | 概率 | 影响 | 缓解 |
 |------|------|------|------|
-| KB开发进度延迟 | 中 | 集成计划推迟 | Phase 1可以先用占位页（"知识库建设中"） |
+| KB-3开发延迟 | 中 | 高 | ✅ **已缓解** — Phase 1用静态文件直接serve，无需等api.py |
 | Caddy配置冲突 | 低 | 高 | 先在staging测试 `/knowledge/*` 反代 |
 | 设计不一致 | 中 | 中 | 建立共享CSS变量文件（`design-tokens.css`） |
 | SEO重复内容 | 低 | 中 | vitaclaw和KB内容不重复，KB是vitaclaw内容的扩展 |
@@ -279,15 +297,22 @@ KB模板已引用vitaclaw-site的logo和favicon：
 
 ### 立即可以做（不依赖OmniGraph）
 
-1. **Decision D-21**: 确认采用子目录 `/knowledge/` 还是子域名
-2. **准备Caddy配置**: 写好`/knowledge/*`反代规则，等待KB ready
-3. **vitaclaw导航更新**: 添加"知识库"链接（可以先指向占位页）
+1. ✅ **Decision D-21/22/23**: 全部已确认并实施
+2. ✅ **vitaclaw导航更新**: navbar + Hero + Footer 链接已添加
+3. ✅ **Caddy配置**: `/kb/*` → file_server 已写好（`.deploy/Caddyfile.new`）
 
-### 等待OmniGraph完成
+### 需要OmniGraph执行（Hermes服务器）
 
-1. **KB-3完成**: FastAPI api.py实现
-2. **Export运行**: 生成`kb/output/`静态HTML
-3. **KB部署**: systemd服务启动
+1. **运行export**: `cd /opt/vitaclaw/OmniGraph-Vault && python kb/export_knowledge_base.py`
+   - 依赖：`kol_scan.db` 仅在Hermes本地（`~/.hermes/data/kol_scan.db`）
+   - 输出：`kb/output/` → 需要rsync到部署目录
+2. **（可选）更新KB模板**: base.html页脚添加"回到企小勤官网"链接
+
+### 延期到后续迭代
+
+1. **KB-3**: FastAPI api.py（搜索+问答动态功能）
+2. **KB-2**: 实体/主题 pillar 页（SEO增强）
+3. **Caddy切换**: `/kb/*` 从 file_server 改为 reverse_proxy localhost:8766
 
 ### 协调点
 
