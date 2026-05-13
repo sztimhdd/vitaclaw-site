@@ -41,7 +41,7 @@ const scenarios: Scenario[] = [
     process: "观察流程指令 → 规划多部门协同 → 行动自动权限变更 → 反思日志审计",
     roi: "人力投入降低 60%，流程 100% 合规",
     detail: "企小勤自动处理员工入职、转岗、调任、离职全流程，跨 OA、HR、IT 系统自动同步权限与档案。每一次操作均生成不可篡改审计日志。",
-    demoVideo: "/demo/demo-1-v1.mp4",
+    demoVideo: "/demo/Demo-2-HR.mp4",
   },
   {
     id: "office",
