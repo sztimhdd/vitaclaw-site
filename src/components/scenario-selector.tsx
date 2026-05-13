@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 interface Scenario {
@@ -57,7 +57,25 @@ const scenarios: Scenario[] = [
 
 export function ScenarioSelector() {
   const [active, setActive] = useState(scenarios[0].id);
+  const [showModal, setShowModal] = useState(false);
   const current = scenarios.find((s) => s.id === active)!;
+
+  const openModal = useCallback(() => setShowModal(true), []);
+  const closeModal = useCallback(() => setShowModal(false), []);
+
+  useEffect(() => {
+    if (!showModal) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeModal();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [showModal, closeModal]);
+
+  useEffect(() => {
+    document.body.style.overflow = showModal ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [showModal]);
 
   return (
     <section id="scenarios" className="relative py-24 sm:py-32 overflow-hidden bg-section-alt">
@@ -116,27 +134,44 @@ export function ScenarioSelector() {
               </div>
             </div>
 
-            {/* Video / Demo placeholder */}
-            <div className="flex flex-col gap-4">
+            {/* Video / Demo column — self-stretch to match text height */}
+            <div className="flex flex-col self-stretch">
               {current.demoVideo ? (
-                <div className="rounded-2xl border border-white/[0.08] bg-[#0a0f1e] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
-                  <div className="flex items-center px-4 py-2.5 border-b border-white/[0.05] bg-[#0f172a]">
+                <div className="flex flex-col flex-1 rounded-2xl border border-white/[0.08] bg-[#0a0f1e] overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)] cursor-pointer group" onClick={openModal}>
+                  {/* Terminal title bar */}
+                  <div className="flex items-center px-4 py-2.5 border-b border-white/[0.05] bg-[#0f172a] shrink-0">
                     <div className="flex gap-1.5">
                       <div className="w-2.5 h-2.5 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
                       <div className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
                       <div className="w-2.5 h-2.5 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
                     </div>
                     <div className="ml-3 text-xs text-white/40 font-mono tracking-wide">场景演示 · {current.label}</div>
+                    {/* Expand hint */}
+                    <svg className="ml-auto w-4 h-4 text-white/20 group-hover:text-white/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
+                    </svg>
                   </div>
-                  <video
-                    src={current.demoVideo}
-                    controls
-                    className="w-full aspect-video object-cover bg-[#050810]"
-                    playsInline
-                  />
+                  {/* Video fills remaining height */}
+                  <div className="flex-1 bg-[#050810] relative overflow-hidden">
+                    <video
+                      src={current.demoVideo}
+                      className="w-full h-full object-contain pointer-events-none"
+                      muted
+                      playsInline
+                      preload="metadata"
+                    />
+                    {/* Play overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-colors">
+                      <div className="w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center group-hover:bg-white/20 group-hover:scale-110 transition-all duration-300">
+                        <svg className="w-7 h-7 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               ) : (
-                <div className="rounded-2xl border border-dashed border-white/[0.10] bg-white/[0.02] flex flex-col items-center justify-center p-10 lg:p-14 text-center h-full min-h-[260px] lg:min-h-[360px]">
+                <div className="rounded-2xl border border-dashed border-white/[0.10] bg-white/[0.02] flex flex-col items-center justify-center p-10 lg:p-14 text-center flex-1 min-h-[260px] lg:min-h-[360px]">
                   <svg className="w-12 h-12 text-white/[0.15] mb-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
                   </svg>
@@ -148,6 +183,50 @@ export function ScenarioSelector() {
           </div>
         </ScrollReveal>
       </div>
+
+      {/* Fullscreen video modal */}
+      {showModal && current.demoVideo && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80"
+          onClick={closeModal}
+          style={{ animation: "fadeIn 200ms ease forwards" }}
+        >
+          <div
+            className="relative w-[92vw] sm:w-[80vw] max-w-[1200px] h-[75vh] max-h-[800px] rounded-2xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6)]"
+            onClick={(e) => e.stopPropagation()}
+            style={{ animation: "scaleIn 200ms ease forwards" }}
+          >
+            {/* Title bar */}
+            <div className="flex items-center px-4 py-3 border-b border-white/[0.08] bg-[#0f172a]">
+              <div className="flex gap-1.5">
+                <div className="w-3 h-3 rounded-full bg-[#FF5F56] border border-[#E0443E]" />
+                <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
+                <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
+              </div>
+              <div className="ml-3 text-sm text-white/50 font-mono tracking-wide">场景演示 · {current.label}</div>
+              <button
+                onClick={closeModal}
+                className="ml-auto w-8 h-8 rounded-lg flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] transition-all"
+                aria-label="关闭"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            {/* Video */}
+            <div className="h-[calc(100%-52px)] bg-black flex items-center justify-center">
+              <video
+                src={current.demoVideo}
+                className="w-full h-full object-contain"
+                controls
+                autoPlay
+                playsInline
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
