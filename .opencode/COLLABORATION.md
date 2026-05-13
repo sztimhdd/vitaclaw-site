@@ -262,6 +262,25 @@ STATE.md 格式：
 | 需要新依赖 | 停下来问 Planner，不要自己加 |
 | 发现更好的实现方式 | 先按提示词做，然后在检查点报告里提建议 |
 
+### 部署陷阱（必读）
+
+**陷阱 1：deploy 前没 push 到 origin**
+```
+错误：本地 commit → 直接 deploy → GitHub Actions 构建旧代码
+正确：本地 commit → git push origin <branch> → 确认远程分支最新 → 再 deploy
+
+检查：git fetch origin && git log origin/<branch> --oneline -1
+```
+
+**陷阱 2：部署成功但页面没更新**
+```
+排查 1：先确认不是浏览器缓存（Ctrl+F5 / Cmd+Shift+R）
+排查 2：curl 服务器 HTML，对比 JS 文件名是否和本地 dist/ 一致
+排查 3：如果服务器还是旧文件名，回到陷阱 1 检查是否 push 成功
+```
+
+> 📚 详细部署流程见 `.opencode/skills/aliyun-deploy/SKILL.md`
+
 ---
 
 ## 8. 文档索引

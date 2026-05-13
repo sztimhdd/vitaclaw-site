@@ -22,10 +22,25 @@ git branch --show-current  # 应为: saas-site
 # 2. 所有修改已提交
 git status --short  # 应为空或只有.gitignore等无关文件
 
-# 3. 构建通过
+# 3. 代码已 push 到 origin（关键！）
+git fetch origin
+git log origin/saas-site --oneline -1  # 确认远程分支包含最新 commit
+# 如果显示 "behind 1" 或远程 commit 不是最新的，说明没 push 成功，先 push 再 deploy
+
+# 4. 构建通过
 npm run lint
 npm run build
 ```
+
+> ⚠️ **关键教训（2026-05-12）**：GitHub Actions 从 `origin` 拉取代码构建，不是从你的本地仓库。如果你在本地 commit 但没有 push 到 origin，deploy workflow 会构建旧代码，导致页面刷新后内容不更新。
+>
+> 遇到 "部署成功但页面没更新" 时，先检查：
+> ```bash
+> git fetch origin
+> git log origin/saas-site --oneline -3  # 远程分支
+> git log --oneline -3                   # 本地分支
+> ```
+> 如果两者不一致，说明 commit 没 push 到 origin。
 
 ## 标准部署流程（3步法）
 
@@ -156,6 +171,36 @@ cp -a backups/dist.<timestamp> dist
 ```
 
 ## 常见问题
+
+### Q: 部署成功但页面刷新后内容没更新
+**这是最常见的问题。**
+
+A: GitHub Actions 从 `origin` 拉取代码构建，不是本地仓库。如果本地 commit 但没 push 到 origin，deploy 会构建旧代码。
+
+**排查步骤：**
+```bash
+# 1. 确认本地 commit 已 push
+git fetch origin
+git log origin/saas-site --oneline -3  # 远程分支
+git log --oneline -3                    # 本地分支
+# 如果两者不一致，先 push 再重新 deploy
+
+# 2. 确认服务器上的 JS 文件名是否更新
+curl -fsS http://101.133.154.49/ | grep -o 'src="[^"]*"'
+# 如果文件名和本地 dist/ 中的不一致，说明部署的还是旧版本
+
+# 3. 强制刷新浏览器
+# Windows: Ctrl + F5
+# Mac: Cmd + Shift + R
+```
+
+**根因时间线（2026-05-12 实例）：**
+1. 本地 commit `8468bf3`（更新 assistant 问题）
+2. 未 push 到 origin，直接触发 deploy
+3. GitHub Actions checkout 的是旧的 `c4ea9da`
+4. 构建产物还是旧的 `index-D-c_fgI8.js`
+5. 服务器部署了旧代码 → 页面刷新后内容不更新
+6. 解决：git push origin saas-site → 重新 deploy → 构建新的 `index-YJRTzxEi.js`
 
 ### Q: deploy workflow 报 "Manual deployment must run from main or master"
 A: 忘记 Step 1 的临时修改，或修改后没推送。重新执行 Step 1。
