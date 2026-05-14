@@ -21,7 +21,7 @@ const scenarios: Scenario[] = [
     process: "观察申请材料 → 规划多维核查 → 行动跨系统比对 → 反思合规性",
     roi: "替代 3-5 名基础岗，审核效率提升 70%+",
     detail: "企小勤自动读取信贷申请材料，跨征信、税务、工商等系统进行多维核查比对，生成合规审核报告。全程留痕，每一步可审计。",
-    demoVideo: "/demo/demo-1-v1.mp4",
+    demoVideo: "/demo/Demo-4-finance.mp4",
   },
   {
     id: "manufacturing",
