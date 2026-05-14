@@ -31,7 +31,7 @@ const scenarios: Scenario[] = [
     process: "观察库存阈值 → 规划询价策略 → 行动自动下单 → 反思成本波动",
     roi: "采购响应周期从天级缩短至分钟级，零库存积压风险",
     detail: "企小勤实时监控库存数据，自动触发询价、比价、下单流程。异常价格波动秒级预警，采购全链路自动化。",
-    demoVideo: "/demo/demo-1-v1.mp4",
+    demoVideo: "/demo/Demo-3-procurement.mp4",
   },
   {
     id: "gov",
