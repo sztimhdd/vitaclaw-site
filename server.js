@@ -26,6 +26,10 @@ app.post("/api/vitaclaw-assistant/chat", async (req, res) => {
   }
 });
 
+app.get(["/b2b", "/b2b/"], (_req, res) => {
+  res.sendFile("dist/b2b/index.html", { root: process.cwd() });
+});
+
 app.use(express.static("dist"));
 
 // SPA fallback — serve index.html for all non-file routes

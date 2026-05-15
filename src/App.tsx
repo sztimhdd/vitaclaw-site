@@ -7,7 +7,7 @@ import { Hero } from "@/components/hero";
 import { TrustBar } from "@/components/trust-bar";
 import { PainPoints } from "@/components/pain-points";
 import { Workflow } from "@/components/workflow";
-import { ScenarioSelector } from "@/components/scenario-selector";
+import { IndustryScenarios } from "@/components/industry-scenarios";
 import { Architecture } from "@/components/architecture";
 import { Business } from "@/components/business";
 import { ComplianceTrust } from "@/components/compliance-trust";
@@ -26,15 +26,15 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <ScenarioSelector />
         <TrustBar />
         <TrustCases />
-        <AgentNews />
         <PainPoints />
+        <IndustryScenarios />
         <Workflow />
         <Business />
         <Architecture />
         <ComplianceTrust />
+        <AgentNews />
         <CTA />
       </main>
       <Footer />

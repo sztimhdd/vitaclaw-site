@@ -8,11 +8,19 @@ import { agentNewsItems, type AgentNewsItem } from "@/data/agent-news";
 import { loadAgentNewsExport } from "@/data/agent-news-export";
 
 function sourceHost(item: AgentNewsItem) {
+  if (item.sourceName) {
+    return item.sourceName;
+  }
+
   if (item.sourceDomain) {
     return item.sourceDomain.replace(/^www\./, "");
   }
 
-  return new URL(item.url).hostname.replace(/^www\./, "");
+  try {
+    return new URL(item.url, window.location.origin).hostname.replace(/^www\./, "") || "VitaClaw KB";
+  } catch {
+    return "VitaClaw KB";
+  }
 }
 
 function NewsTags({ tags }: { tags: AgentNewsItem["tags"] }) {
@@ -36,6 +44,7 @@ function NewsTitleLink({ item, className = "" }: { item: AgentNewsItem; classNam
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={`在新标签页打开知识库文章：${item.title}`}
       className={`group/link inline-flex items-start gap-2 text-white transition-colors duration-200 hover:text-blue-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${className}`}
     >
       <span>{item.title}</span>
@@ -99,13 +108,13 @@ export function AgentNews() {
           <div className="mb-12 max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-white/50">
               <Newspaper className="h-4 w-4 text-accent-green" />
-              Agent 技术动态
+              技术知识库精选
             </div>
             <h2 className="text-[clamp(28px,3.5vw,42px)] font-bold tracking-tight text-white">
-              追踪 Agent 工程化、协议与企业落地信号
+              把 Agent 工程化进展沉淀为可检索知识
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-white/50">
-              从 OmniGraph 关注的 Layer 1 / Layer 2 来源中整理近期 Agent 技术趋势，帮助团队快速判断哪些能力正在进入可用阶段。
+              从知识库近期入库文章中选取 5 篇技术线索，帮助研发、架构与合规团队快速浏览 Agent、RAG 与企业知识工程的新进展。
             </p>
           </div>
         </ScrollReveal>
@@ -115,12 +124,12 @@ export function AgentNews() {
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5">
               <div className="mb-4 flex items-center justify-between gap-4">
                 <span className="rounded-full border border-accent-green/20 bg-accent-green/[0.08] px-3 py-1 text-xs font-medium text-accent-green">
-                  5 条精选动态
+                  5 篇精选文章
                 </span>
                 <span className="text-xs font-medium text-white/35">默认收起</span>
               </div>
               <p className="text-sm leading-6 text-white/50">
-                先保留首页主线叙事，只在需要时展开查看 Agent 工程化、协议与企业落地动态。
+                先保留首页主线叙事，只在需要时展开查看知识库中的 Agent 工程化与企业知识工程文章。
               </p>
               <button
                 type="button"
@@ -129,7 +138,7 @@ export function AgentNews() {
                 onClick={() => setIsMobileExpanded(true)}
                 className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/[0.1] bg-white/[0.06] px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:border-blue-400/30 hover:bg-blue-400/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                展开技术动态
+                展开知识库精选
                 <ChevronDown className="h-4 w-4" />
               </button>
             </div>
@@ -143,7 +152,7 @@ export function AgentNews() {
                 <div>
                   <div className="mb-6 flex items-center justify-between gap-4">
                     <span className="rounded-full border border-accent-green/20 bg-accent-green/[0.08] px-3 py-1 text-xs font-medium text-accent-green">
-                      今日重点
+                      KB 重点
                     </span>
                     <span className="text-xs font-medium text-white/35">{sourceHost(leadItem)}</span>
                   </div>
@@ -186,7 +195,7 @@ export function AgentNews() {
                   onClick={() => setIsMobileExpanded(false)}
                   className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/[0.1] bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-white/80 transition-colors duration-200 hover:border-white/[0.18] hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  收起技术动态
+                  收起知识库精选
                   <ChevronUp className="h-4 w-4" />
                 </button>
               </ScrollReveal>
@@ -196,7 +205,7 @@ export function AgentNews() {
 
         <ScrollReveal delay={420}>
           <p className="mt-8 max-w-3xl text-xs leading-6 text-white/35">
-            摘要由自动化流程整理，仅用于快速浏览和检索便利；技术细节、发布时间与立场判断以原始来源文章为准。
+            摘要由自动化流程整理，仅用于快速浏览和检索便利；技术细节、发布时间与立场判断以知识库页面和原始来源文章为准。
           </p>
         </ScrollReveal>
       </div>

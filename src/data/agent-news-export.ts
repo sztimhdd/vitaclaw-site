@@ -4,6 +4,7 @@ const EXPORT_PATH = `/data/agent-news.json?_=${Date.now()}`;
 const EXPECTED_ITEM_COUNT = 5;
 const SUPPORTED_CONTRACT_VERSION = 1;
 const VALID_LAYERS = new Set(["layer1", "layer2"]);
+const FALLBACK_KB_URL = "/kb/";
 
 type ExportResult =
   | {
@@ -41,6 +42,25 @@ function isHttpUrl(value: unknown): value is string {
     return url.protocol === "http:" || url.protocol === "https:";
   } catch {
     return false;
+  }
+}
+
+function readKbUrl(value: unknown) {
+  if (!isNonEmptyString(value)) {
+    return FALLBACK_KB_URL;
+  }
+
+  const url = value.trim();
+
+  if (url === "/kb/" || url.startsWith("/kb/")) {
+    return url;
+  }
+
+  try {
+    const parsed = new URL(url);
+    return parsed.pathname === "/kb/" || parsed.pathname.startsWith("/kb/") ? url : FALLBACK_KB_URL;
+  } catch {
+    return FALLBACK_KB_URL;
   }
 }
 
@@ -97,9 +117,11 @@ export function adaptAgentNewsExport(value: unknown): ExportResult {
 
     items.push({
       title: item.originalTitle.trim(),
-      url: item.originalUrl.trim(),
+      url: readKbUrl(item.kbUrl),
+      originalUrl: item.originalUrl.trim(),
       summary: item.summaryZh.trim(),
       tags,
+      sourceName: isNonEmptyString(item.sourceName) ? item.sourceName.trim() : undefined,
       sourceDomain: item.sourceDomain.trim(),
     });
   }

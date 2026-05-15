@@ -30,9 +30,11 @@ assert.deepEqual(adaptAgentNewsExport(validExport), {
   ok: true,
   items: validItems.map((item) => ({
     title: item.originalTitle,
-    url: item.originalUrl,
+    url: "/kb/",
+    originalUrl: item.originalUrl,
     summary: item.summaryZh,
     tags: item.tags,
+    sourceName: item.sourceName,
     sourceDomain: item.sourceDomain,
   })),
 });

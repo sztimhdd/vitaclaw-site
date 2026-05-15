@@ -326,9 +326,9 @@ export function VitaClawAssistant() {
           aria-controls="vitaclaw-assistant-panel"
           aria-expanded={isOpen}
           onClick={() => setIsOpen(true)}
-          className="group inline-flex min-h-14 items-center gap-3 rounded-2xl border border-white/[0.1] bg-[#080c14]/90 px-4 py-3 text-left shadow-[0_20px_60px_-24px_rgba(34,211,160,0.65)] backdrop-blur-xl transition-all duration-200 hover:border-accent-green/35 hover:bg-[#0d1117]/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-green focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="group inline-flex min-h-12 w-12 items-center justify-center rounded-2xl border border-white/[0.1] bg-[#080c14]/90 px-2 py-2 text-left shadow-[0_20px_60px_-24px_rgba(34,211,160,0.65)] backdrop-blur-xl transition-all duration-200 hover:border-accent-green/35 hover:bg-[#0d1117]/95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-green focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:min-h-14 sm:w-auto sm:justify-start sm:gap-3 sm:px-4 sm:py-3"
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-green/[0.12] text-accent-green transition-colors duration-200 group-hover:bg-accent-green/[0.16]">
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-accent-green/[0.12] text-accent-green transition-colors duration-200 group-hover:bg-accent-green/[0.16] sm:h-10 sm:w-10">
             <Sparkles className="h-5 w-5" aria-hidden="true" />
           </span>
           <span className="hidden flex-col sm:flex">

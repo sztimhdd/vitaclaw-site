@@ -2,9 +2,9 @@ const footerLinks = [
   {
     title: "产品",
     links: [
-      { label: "核心能力", href: "#capabilities" },
       { label: "行业场景", href: "#scenarios" },
-      { label: "定价方案", href: "#pricing" },
+      { label: "核心能力", href: "#workflow" },
+      { label: "技术架构", href: "#architecture" },
       { label: "信任合规", href: "#trust" },
     ],
   },
@@ -21,7 +21,7 @@ const footerLinks = [
     title: "关于",
     links: [
       { label: "公司介绍", href: "#" },
-      { label: "联系我们", href: "#contact" },
+      { label: "联系我们", href: "#cta" },
       { label: "隐私政策", href: "#" },
       { label: "服务条款", href: "#" },
     ],
@@ -32,22 +32,22 @@ const badges = ["CMMI5", "ISO 27001", "ISO 20000", "信创适配"];
 
 export function Footer() {
   return (
-    <footer id="footer" className="border-t border-white/[0.08] pt-16 pb-10 bg-[#0f172a]">
+    <footer id="footer" className="border-t border-white/[0.08] pt-16 pb-10 bg-[#080c14]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Top: Logo + 3 link columns */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
           {/* Brand column (spans 2) */}
           <div className="col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img src="/VitaClaw-Logo-v0.png" alt="企小勤 Logo" className="h-8 w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex'; }} />
-              <div className="hidden w-7 h-7 rounded-md bg-accent items-center justify-center">
-                <span className="text-white font-bold text-sm">企</span>
+              <img src="/VitaClaw-Logo-v0.png" alt="VitaClaw Logo" className="h-8 w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex'; }} />
+              <div className="hidden w-7 h-7 rounded-md bg-white/90 items-center justify-center">
+                <span className="text-[#080c14] font-bold text-sm">V</span>
               </div>
-              <span className="font-semibold text-white">VitaClaw 企小勤</span>
+              <span className="font-semibold text-white">VitaClaw</span>
             </div>
             <p className="text-[13px] text-white/40 leading-relaxed max-w-[240px]">
-              AI 数字员工平台<br />
-              不改系统，一周上线，银行级安全审计
+              企业级受控执行运行时<br />
+              定义智能执行时代的工业安全标准
             </p>
             {/* Certification badges */}
             <div className="flex gap-2 mt-5 flex-wrap">
