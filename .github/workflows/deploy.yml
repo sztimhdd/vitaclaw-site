@@ -56,6 +56,18 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      - name: Download large static video assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p dist/demo
+          gh release download vitaclaw-hero-assets \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'hero.mp4' \
+            --dir dist/demo \
+            --clobber
+          test -s dist/demo/hero.mp4
+
       - name: Validate deployment configuration
         run: |
           test -n "$DEPLOY_HOST"

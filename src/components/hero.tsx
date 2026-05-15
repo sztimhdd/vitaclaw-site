@@ -3,7 +3,7 @@ import { MetricCard } from "@/components/metric-card";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ProductScreenshot } from "@/components/product-screenshot";
 
-const heroDemoVideoSrc = "/video-demo.mp4";
+const heroDemoVideoSrc = "/demo/hero.mp4";
 
 export function Hero() {
   return (
