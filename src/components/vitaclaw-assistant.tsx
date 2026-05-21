@@ -61,7 +61,7 @@ function responseTone(type?: VitaClawAssistantResponseType) {
 }
 
 function ctaHref(cta: VitaClawAssistantResponse["cta"]) {
-  return cta === "获取方案" ? "#cta" : "#cta";
+  return cta ? "/trial/select" : "#cta";
 }
 
 export function VitaClawAssistant() {
@@ -298,23 +298,23 @@ export function VitaClawAssistant() {
 
             <div className="mt-3 grid grid-cols-3 gap-2">
               <a
-                href="#cta"
+                href="/trial/select"
                 className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.04] px-2 py-2 text-xs font-semibold text-white/62 transition-colors duration-200 hover:border-white/[0.18] hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                预约演示
+                试用入口
               </a>
               <a
-                href="#cta"
+                href="/trial/select"
                 className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-blue-400/20 bg-blue-400/[0.08] px-2 py-2 text-xs font-semibold text-blue-100 transition-colors duration-200 hover:border-blue-300/30 hover:bg-blue-400/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 获取方案
               </a>
               <a
-                href="#cta"
+                href="/trial/select"
                 className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.04] px-2 py-2 text-xs font-semibold text-white/62 transition-colors duration-200 hover:border-white/[0.18] hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-                邮箱
+                试用
               </a>
             </div>
           </div>

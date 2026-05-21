@@ -1,11 +1,11 @@
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 const securityLayers = [
-  { title: "基础设施层", desc: "全私有化部署，数据不出域，适配信创国产化生态" },
-  { title: "隔离执行层", desc: "独立运行沙盒，AI 操作在受限环境完成，代码级调用可验证" },
-  { title: "核心引擎层", desc: "eBPF 动态监控，异常行为秒级自动识别与阻断" },
-  { title: "能力平台层", desc: "SPIFFE 身份认证 + mTLS 加密传输，细粒度权限管控" },
-  { title: "交互接入层", desc: "不可篡改审计日志，基于 Merkle Tree 的法证级追溯" },
+  { title: "本地 / 私有化边界", desc: "正式试点前确认数据、模型、日志是否需要留在客户环境内" },
+  { title: "受限执行空间", desc: "AI Agent 在被授权的任务范围内操作，不能绕过企业流程" },
+  { title: "实时监控与阻断", desc: "异常行为需要能被发现、暂停，并交给负责人处理" },
+  { title: "身份与权限管理", desc: "按角色、系统、流程定义非人身份能访问和能执行的动作" },
+  { title: "审计与复盘", desc: "每次关键操作保留记录，支持后续复核和责任追踪" },
 ];
 
 export function ComplianceTrust() {
@@ -18,10 +18,10 @@ export function ComplianceTrust() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-white/50 mb-6">信任合规</div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
-              银行级安全，每一步可追溯
+              可信不是口号，而是边界、确认和审计
             </h2>
             <p className="text-white/50 text-lg max-w-3xl mx-auto">
-              继承浙江优创 20 年金融监管科技基因，五层安全防线，确保 AI 在可控范围内高效执行
+              SaaS 首页只承诺当前可验证的 demo 与试点路径。生产级接入需要结合客户环境确认权限、数据和审计要求。
             </p>
           </div>
         </ScrollReveal>
@@ -30,20 +30,20 @@ export function ComplianceTrust() {
         <ScrollReveal delay={50}>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 text-center">
-              <div className="text-3xl font-bold text-accent-green mb-1">0.3s</div>
-              <div className="text-xs text-white/40">执行级反馈</div>
+              <div className="text-3xl font-bold text-accent-green mb-1">人审</div>
+              <div className="text-xs text-white/40">关键节点确认</div>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 text-center">
-              <div className="text-3xl font-bold text-accent mb-1">98%</div>
-              <div className="text-xs text-white/40">检索准确率</div>
+              <div className="text-3xl font-bold text-accent mb-1">留痕</div>
+              <div className="text-xs text-white/40">执行过程记录</div>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 text-center">
-              <div className="text-3xl font-bold text-accent-green mb-1">99.99%</div>
-              <div className="text-xs text-white/40">平台可用率</div>
+              <div className="text-3xl font-bold text-accent-green mb-1">隔离</div>
+              <div className="text-xs text-white/40">试点环境边界</div>
             </div>
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 text-center">
               <div className="text-3xl font-bold text-accent mb-1">200+</div>
-              <div className="text-xs text-white/40">银行服务网络</div>
+              <div className="text-xs text-white/40">金融政企服务经验</div>
             </div>
           </div>
         </ScrollReveal>
@@ -52,7 +52,7 @@ export function ComplianceTrust() {
         <ScrollReveal delay={100}>
           <div className="text-center mb-10">
             <div className="inline-block rounded-xl border border-accent/30 bg-accent/[0.06] px-6 py-3">
-              <span className="text-sm font-semibold text-accent">五层安全防线</span>
+              <span className="text-sm font-semibold text-accent">正式试点前的五类核查</span>
             </div>
           </div>
         </ScrollReveal>
@@ -78,7 +78,7 @@ export function ComplianceTrust() {
         {/* Compliance Standards */}
         <ScrollReveal delay={300}>
           <div className="mt-12 pt-10 border-t border-white/[0.08] text-center">
-            <p className="text-xs text-white/30 mb-3">深度合规遵从</p>
+            <p className="text-xs text-white/30 mb-3">可按这些治理框架准备核查材料，具体合规结论需结合项目范围确认</p>
             <div className="flex justify-center gap-3 flex-wrap">
               {["EU AI Act", "ISO 42001", "NIST AI RMF", "等保 2.0", "信创适配"].map((std) => (
                 <span key={std} className="text-[11px] px-3 py-1.5 rounded-full border border-white/[0.08] text-white/35">
