@@ -3,9 +3,9 @@ const footerLinks = [
     title: "产品",
     links: [
       { label: "核心能力", href: "#capabilities" },
-      { label: "行业场景", href: "#scenarios" },
-      { label: "定价方案", href: "#pricing" },
-      { label: "信任合规", href: "#trust" },
+      { label: "业务场景", href: "#scenarios" },
+      { label: "试用入口", href: "#trial" },
+      { label: "可信证明", href: "#trust" },
     ],
   },
   {
@@ -46,8 +46,8 @@ export function Footer() {
               <span className="font-semibold text-white">VitaClaw 企小勤</span>
             </div>
             <p className="text-[13px] text-white/40 leading-relaxed max-w-[240px]">
-              AI 数字员工平台<br />
-              不改系统，一周上线，银行级安全审计
+              AI Agent 执行平台<br />
+              从一个业务流程开始，验证可控自动执行
             </p>
             {/* Certification badges */}
             <div className="flex gap-2 mt-5 flex-wrap">

@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 
 const navItems = [
+  { label: "适用团队", href: "#audiences" },
+  { label: "业务场景", href: "#scenarios" },
   { label: "核心能力", href: "#capabilities" },
-  { label: "行业场景", href: "#scenarios" },
-  { label: "技术架构", href: "#architecture" },
-  { label: "定价方案", href: "#pricing" },
-  { label: "信任合规", href: "#trust" },
+  { label: "可信证明", href: "#trust-cases" },
+  { label: "试用入口", href: "#trial" },
 ];
 
 export function Navbar() {
@@ -70,16 +70,16 @@ export function Navbar() {
               </svg>
             </a>
             <a
-              href="#pricing"
+              href="#trial"
               className="hidden sm:inline-flex text-sm text-white/50 hover:text-white transition-colors duration-150"
             >
-              查看定价
+              试用说明
             </a>
             <a
-              href="#cta"
+              href="/trial/select"
               className="inline-flex h-9 items-center justify-center rounded-lg bg-white text-[#0f172a] px-4 text-sm font-semibold hover:bg-white/90 transition-colors duration-200"
             >
-              免费试点
+              申请试用
             </a>
           </div>
         </div>

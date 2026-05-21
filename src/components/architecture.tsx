@@ -20,10 +20,10 @@ export function Architecture() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-white/50 mb-6">技术护城河</div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-blue-400 to-blue-400/60">银行级安全</span>，每一步可追溯
+              技术细节下沉，但关键边界讲清楚
             </h2>
             <p className="text-white/50 text-lg max-w-3xl mx-auto">
-              五层安全防线，从内核级 eBPF 实时监控到不可篡改审计日志，确保 AI 在可控范围内高效执行
+              前面的页面先讲业务结果；这里集中说明 IT 与安全团队会关心的执行隔离、监控、审计和本地环境边界。
             </p>
           </div>
         </ScrollReveal>
@@ -32,7 +32,7 @@ export function Architecture() {
           <ScrollReveal delay={50}>
             <div className="text-center mb-8">
               <div className="inline-block rounded-xl border border-blue-500/30 bg-blue-500/[0.06] px-6 py-3 mb-6">
-                <span className="text-sm font-semibold text-blue-400">五层十六道安全防线</span>
+                <span className="text-sm font-semibold text-blue-400">面向正式试点的技术核查项</span>
               </div>
             </div>
           </ScrollReveal>
@@ -90,13 +90,13 @@ export function Architecture() {
           </div>
         </div>
 
-        {/* Stats — unified with Hero: >98% 任务准确率 */}
+        {/* Trust boundaries */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { value: "99.99%", label: "平台可用率" },
-            { value: ">98%", label: "任务准确率" },
-            { value: "80%", label: "落地成本降低" },
-            { value: "1 周", label: "场景适配周期" },
+            { value: "本地", label: "可评估私有环境" },
+            { value: "隔离", label: "执行空间受限" },
+            { value: "审计", label: "关键动作留痕" },
+            { value: "确认", label: "高风险动作人工介入" },
           ].map((stat) => (
             <ScrollReveal key={stat.label} delay={100}>
               <div className="text-center rounded-xl border border-white/[0.08] bg-white/[0.03] p-5 hover:border-white/[0.16] hover:bg-white/[0.05] transition-all duration-300">

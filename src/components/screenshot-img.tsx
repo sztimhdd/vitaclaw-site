@@ -31,7 +31,7 @@ export function ScreenshotImg({
     <img
       src={src}
       alt={alt}
-      className={className}
+      className={`${className} ${minHeight}`}
       onError={() => setError(true)}
       loading="lazy"
     />

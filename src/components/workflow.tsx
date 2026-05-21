@@ -4,40 +4,40 @@ import { ScreenshotImg } from "@/components/screenshot-img";
 const modules = [
   {
     number: "01",
-    title: "技能资产化",
-    subtitle: "Skill Platform",
-    description: "将业务 Know-how 固化为企业数字资产，人员变动能力不流失",
+    title: "企业知识沉淀",
+    subtitle: "Knowledge Asset",
+    description: "把流程规则、表格口径和岗位经验沉淀为可复用的企业知识",
     items: [
-      "50+ 预装业务技能包，即开即用",
-      "业务逻辑永久沉淀为可复用 AI 技能",
-      "企业自主封装专属 SOP 技能",
-      "兼容 OpenSkills 标准，技能跨部门复用",
+      "从会议、表格、制度中提取可执行规则",
+      "按企业自己的 SOP 组织步骤和边界",
+      "人员变动时，流程经验不跟着流失",
+      "新场景复用已有知识，而不是每次重讲",
     ],
     accent: "blue" as const,
   },
   {
     number: "02",
-    title: "闭环执行",
-    subtitle: "Agent Loop",
-    description: "长程任务端到端自动完成，Observe-Plan-Act-Reflect",
+    title: "AI 自主执行",
+    subtitle: "Autonomous Execution",
+    description: "让 AI Agent 拆任务、调用工具、推进流程，并把结果交回给人确认",
     items: [
-      "多步骤任务自主拆解与规划",
-      "跨系统自动数据回填与操作",
-      "执行思维链 (CoT) 全程可视化",
-      "准确率超 98%，终结 AI 幻觉",
+      "把一句业务指令拆成可检查的步骤",
+      "跨系统读取、汇总、填写和生成报告",
+      "执行状态可见，异常节点可追踪",
+      "关键动作暂停，等待负责人确认",
     ],
     accent: "green" as const,
   },
   {
     number: "03",
-    title: "安全运维",
-    subtitle: "Security & Ops",
-    description: "银行级安全审计，每一步可追溯，不可篡改",
+    title: "企业级治理",
+    subtitle: "Governance",
+    description: "把 AI 的能力限制在企业允许的范围内，做到可观测、可阻断、可审计",
     items: [
-      "AI 操作实时监控，异常秒级阻断",
-      "不可篡改法证级审计日志",
-      "多租户权限隔离与配额管理",
-      "7×24 高可用，99.99% 不掉线",
+      "按角色和流程定义 AI 可以做什么",
+      "每一步操作都有记录，方便复盘",
+      "私有化或本地环境可承接更高安全要求",
+      "试用阶段明确边界，不替代生产审批",
     ],
     accent: "purple" as const,
   },
@@ -51,20 +51,20 @@ const accentMap = {
 
 export function Workflow() {
   return (
-    <section id="workflow" className="relative py-24 sm:py-32 bg-section-alt overflow-hidden">
+    <section id="capabilities" className="relative py-24 sm:py-32 bg-section-alt overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-50" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-white/50 mb-6">
-              三大战略模块
+              核心能力
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">
-              三大核心能力，让 AI 替你干活
+              不是多一个聊天框，而是多一组可治理的执行能力
             </h2>
             <p className="text-white/50 text-lg max-w-3xl mx-auto">
-              不只是聊天——企小勤的 AI 数字员工能真正操作你的业务系统，闭环交付结果
+              VitaClaw 把业务知识、Agent 执行和企业治理放在同一个闭环里，适合从一个高频流程开始验证。
             </p>
           </div>
         </ScrollReveal>
@@ -116,9 +116,9 @@ export function Workflow() {
         {/* Screenshots */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
           {[
-            { src: "/screenshots/memory-knowledge.png", alt: "短期中期长期记忆系统与知识图谱加成的企业知识库", fallback: "记忆系统截图加载中...", caption: "CMA 混合记忆架构 — 企业知识图谱深度嵌入 AI 决策链" },
-            { src: "/screenshots/self-learning.png", alt: "自学习自进化的数字员工自主生成技能", fallback: "自学习截图加载中...", caption: "自学习自进化 — 数字员工自主生成业务执行技能" },
-            { src: "/screenshots/ops-management.png", alt: "企业级智能体运维管理能力", fallback: "运维管理截图加载中...", caption: "工业级运维 — Agent 集群监控与算力弹性调度" },
+            { src: "/screenshots/memory-knowledge.png", alt: "企业知识与流程记忆界面", fallback: "知识沉淀截图加载中...", caption: "企业知识沉淀 — 把制度、SOP 与历史记录转成可执行上下文" },
+            { src: "/screenshots/self-learning.png", alt: "AI Agent 执行流程与技能生成界面", fallback: "执行流截图加载中...", caption: "执行流可视化 — 任务拆解、工具调用、结果复核集中展示" },
+            { src: "/screenshots/ops-management.png", alt: "企业级 Agent 治理与运维管理能力", fallback: "治理界面截图加载中...", caption: "治理看板 — 权限、状态、日志与人工确认统一管理" },
           ].map((img, i) => (
             <ScrollReveal key={img.alt} delay={200 + i * 80}>
               <div className="rounded-2xl border border-white/[0.08] overflow-hidden hover:border-white/[0.16] transition-all duration-300">

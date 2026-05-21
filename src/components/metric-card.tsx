@@ -53,7 +53,7 @@ export function MetricCard({
       ref={ref}
       className="flex flex-col gap-1 px-6 py-5 rounded-xl border border-white/[0.08] bg-white/[0.03] hover:bg-white/[0.06] hover:border-white/[0.15] transition-all duration-300"
     >
-      <span className="text-[clamp(2rem,4vw,3.25rem)] font-bold tracking-[-0.03em] text-white tabular-nums">
+      <span className="text-[clamp(2rem,4vw,3.25rem)] font-bold tracking-normal text-white tabular-nums">
         {isNumber ? `${display}${suffix}` : value}
       </span>
       <span className="text-sm text-white/45 font-medium">{label}</span>

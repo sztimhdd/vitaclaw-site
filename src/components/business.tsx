@@ -2,45 +2,45 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 
 const plans = [
   {
-    name: "免费试点",
-    target: "了解企小勤能做什么",
-    price: "¥0",
-    priceNote: "14 天免费体验",
-    features: ["1 个业务技能包", "1 个 AI 数字员工", "基础场景验证", "在线文档支持"],
-    cta: "免费开始",
+    name: "本地 Demo",
+    target: "先看 AI Agent 如何执行任务",
+    price: "PlanB",
+    priceNote: "M1 本地演示入口",
+    features: ["进入 tenantA / tenantB", "验证会议、HR、采购等流程演示", "不创建账号、不自动开通生产环境", "适合内部评审和演示"],
+    cta: "选择试用环境",
     popular: false,
   },
   {
-    name: "标准版",
-    target: "中小团队日常运营",
-    price: "¥299",
-    priceNote: "/月，年付享 8 折",
-    features: ["3 个业务技能包", "1 个 AI 数字员工", "ChatKit 无侵入集成", "标准技术支持（8h 响应）"],
-    cta: "立即试用",
+    name: "流程试点",
+    target: "选一个高频流程验证业务价值",
+    price: "1 个",
+    priceNote: "流程先行",
+    features: ["梳理当前 SOP 与人工确认节点", "定义可执行任务边界", "复用本地 demo 体验做试点范围确认", "输出后续接入建议"],
+    cta: "申请试点",
     popular: true,
   },
   {
-    name: "专业版",
-    target: "多部门规模化部署",
-    price: "¥799",
-    priceNote: "/月，年付享 8 折",
-    features: ["5 个业务技能包", "3 个 AI 数字员工", "ChatKit 无侵入集成", "专属技术顾问（2h 响应）", "私有技能定制开发", "多租户权限管理"],
-    cta: "联系销售",
+    name: "安全评估",
+    target: "IT / 安全团队核查部署边界",
+    price: "边界",
+    priceNote: "治理与审计确认",
+    features: ["确认私有化或本地环境诉求", "梳理权限、日志和数据边界", "明确哪些动作必须人工确认", "评估后续正式环境方案"],
+    cta: "查看入口",
     popular: false,
   },
 ];
 
 export function Business() {
   return (
-    <section id="pricing" className="relative py-24 sm:py-32 overflow-hidden">
+    <section id="trial" className="relative py-24 sm:py-32 overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-50" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-white/50 mb-6">定价方案</div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">从免费开始，按需升级</h2>
-            <p className="text-white/50 text-lg max-w-3xl mx-auto">无需大额投入，先试用再决定，随时升级或取消</p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-white/50 mb-6">试用路径</div>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mb-4">先进入本地 demo，再决定试点范围</h2>
+            <p className="text-white/50 text-lg max-w-3xl mx-auto">当前入口连接本地 PlanB M1 演示，不包含完整 control plane、注册、计费或自动开通。</p>
           </div>
         </ScrollReveal>
 
@@ -74,7 +74,7 @@ export function Business() {
                   ))}
                 </ul>
                 <a
-                  href="#cta"
+                  href="/trial/select"
                   className={`block w-full text-center py-2.5 rounded-lg font-semibold text-sm transition-colors duration-200 ${
                     plan.popular
                       ? "bg-white text-[#0f172a] hover:bg-white/90"

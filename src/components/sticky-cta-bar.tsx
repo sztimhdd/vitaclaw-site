@@ -19,15 +19,15 @@ export function StickyCTABar() {
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-[#0f172a]/95 backdrop-blur-lg border-t border-white/[0.08] transition-all duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         <div className="flex flex-col gap-0.5">
-          <span className="text-xs font-semibold tracking-widest text-white/50 uppercase">免费试点</span>
-          <span className="text-[13px] text-white/40">不改系统，一周上线</span>
+          <span className="text-xs font-semibold tracking-widest text-white/50 uppercase">本地 PlanB M1 试用</span>
+          <span className="text-[13px] text-white/40">先看真实流程，再评估正式试点</span>
         </div>
         <div className="flex gap-2 ml-auto items-center">
           <a
-            href="#cta"
+            href="/trial/select"
             className="px-5 py-2 rounded-lg bg-white text-[#0f172a] font-semibold text-sm whitespace-nowrap hover:bg-white/90 transition-colors duration-200"
           >
-            立即体验
+            选择试用环境
           </a>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

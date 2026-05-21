@@ -1,18 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 export function CTA() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
-
   return (
     <section id="cta" className="relative py-32 overflow-hidden">
       {/* Background */}
@@ -24,49 +14,47 @@ export function CTA() {
         <ScrollReveal>
           <div className="text-center">
             <span className="text-xs font-semibold tracking-widest text-white/40 uppercase">
-              免费试点，一周看到效果
+              从本地 demo 开始
             </span>
             <h2 className="text-[clamp(32px,4.5vw,54px)] font-bold text-white mt-4 mb-4">
-              从一个业务流程开始，体验企小勤
+              选择一个试用环境，看看 VitaClaw 如何执行流程
             </h2>
-            <p className="text-white/50 text-lg">不改系统 &middot; 一周上线 &middot; 银行级安全审计</p>
+            <p className="text-white/50 text-lg">当前连接本地 PlanB M1 demo。正式试点前，再确认流程范围、权限边界和人工确认节点。</p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <form onSubmit={handleSubmit} className="mt-12 flex flex-col sm:flex-row gap-3">
-            <label htmlFor="cta-email" className="sr-only">企业邮箱</label>
-            <input
-              id="cta-email"
-              type="email"
-              placeholder="请输入企业邮箱"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="flex-1 px-5 py-3 rounded-lg bg-white/5 border border-white/15 text-white placeholder-white/40 focus:outline-none focus:border-white/30 focus:bg-white/[0.08] transition-all"
-            />
-            <button
-              type="submit"
-              className="px-7 py-3 rounded-lg bg-white text-[#0f172a] font-semibold whitespace-nowrap hover:bg-white/90 transition-colors duration-200"
+          <div className="mt-12 flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="/trial/select"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg bg-white px-7 py-3 text-[#0f172a] font-semibold whitespace-nowrap hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              {submitted ? "已提交 ✓" : "免费试点"}
-            </button>
-          </form>
+              进入试用环境选择
+            </a>
+            <a
+              href="/kb/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-white/20 px-7 py-3 text-white/75 font-semibold whitespace-nowrap hover:border-white/40 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              查看技术知识库
+            </a>
+          </div>
           <p className="text-xs text-white/25 mt-4 text-center">
-            我们将在 24 小时内与您联系。
+            试用页只保留 tenantA / tenantB 两个本地入口，不新增注册、计费或自动开通。
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
           <div className="mt-16 pt-12 border-t border-white/[0.08] text-center">
-            <p className="text-sm text-white/40 mb-6">受信于中国领先的金融机构</p>
+            <p className="text-sm text-white/40 mb-6">正式落地前重点确认这些边界</p>
             <div className="flex items-center justify-center gap-6 flex-wrap">
-              {["中国工商银行", "招商银行", "浦发银行", "平安银行"].map((bank) => (
+              {["数据是否出域", "哪些动作需人工确认", "审计日志如何留存", "是否需要本地/私有化环境"].map((item) => (
                 <span
-                  key={bank}
+                  key={item}
                   className="text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/50"
                 >
-                  {bank}
+                  {item}
                 </span>
               ))}
             </div>
