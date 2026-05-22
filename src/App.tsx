@@ -4,15 +4,9 @@
  */
 
 import { Hero } from "@/components/hero";
-import { AudienceBar } from "@/components/audience-bar";
-import { TrustBar } from "@/components/trust-bar";
-import { PainPoints } from "@/components/pain-points";
-import { Workflow } from "@/components/workflow";
+import { ScenarioPortfolio } from "@/components/scenario-portfolio";
 import { ScenarioSelector } from "@/components/scenario-selector";
-import { Architecture } from "@/components/architecture";
-import { Business } from "@/components/business";
-import { ComplianceTrust } from "@/components/compliance-trust";
-import { TrustCases } from "@/components/trust-cases";
+import { Pricing } from "@/components/pricing";
 import { AgentNews } from "@/components/agent-news";
 import { CTA } from "@/components/cta";
 
@@ -32,17 +26,11 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <AudienceBar />
+        <ScenarioPortfolio />
         <ScenarioSelector />
-        <PainPoints />
-        <Workflow />
-        <TrustCases />
-        <TrustBar />
-        <Business />
-        <Architecture />
-        <ComplianceTrust />
-        <AgentNews />
+        <Pricing />
         <CTA />
+        <AgentNews />
       </main>
       <Footer />
       <StickyCTABar />

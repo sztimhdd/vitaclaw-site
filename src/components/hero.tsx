@@ -2,41 +2,6 @@ import { useState, useCallback, useEffect } from "react";
 import { HeroParticles } from "@/components/hero-particles";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
-const heroWorkflows = [
-  {
-    id: "meeting",
-    title: "会议与协同推进",
-    users: "运营、行政、项目负责人",
-    description: "把会议内容、决策和待办自动整理成可确认的执行清单，减少会后人工追踪。",
-    tasks: ["会议纪要与待办拆解", "责任人和截止时间识别", "结果同步到协作流程"],
-    image: "/screenshots/use-cases/meeting.png",
-  },
-  {
-    id: "procurement",
-    title: "采购比价与供应链响应",
-    users: "采购、供应链、运营团队",
-    description: "自动汇总库存、历史价格和供应商条款，生成待确认采购建议。",
-    tasks: ["库存与采购记录读取", "供应商报价对比", "异常价格与条款标记"],
-    image: "/screenshots/use-cases/supplychain.png",
-  },
-  {
-    id: "hr",
-    title: "HR 入转调离流程",
-    users: "HR、行政、IT 协同团队",
-    description: "按企业 SOP 检查材料、推动跨系统录入，并在权限变更前等待人工确认。",
-    tasks: ["入转调离清单匹配", "OA 与权限节点同步", "流程状态和操作留痕"],
-    image: "/screenshots/use-cases/hr.png",
-  },
-  {
-    id: "finance",
-    title: "财务对账与异常复核",
-    users: "财务、审计、运营支持",
-    description: "读取票据、表格和流水记录，输出可复核的异常清单与处理建议。",
-    tasks: ["发票与流水核对", "差异项自动标记", "复核说明生成"],
-    image: "/screenshots/use-cases/finance.png",
-  },
-];
-
 export function Hero() {
   const [showVideoModal, setShowVideoModal] = useState(false);
   const [heroVideoSrc, setHeroVideoSrc] = useState("/demo/hero.mp4");
@@ -109,23 +74,6 @@ export function Hero() {
                 >
                   观看真实 Demo
                 </button>
-                <a
-                  href="/kb/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-5 py-3 rounded-lg border border-white/[0.08] text-white/50 font-medium text-[15px] hover:border-accent/30 hover:text-white/80 transition-all duration-200 inline-flex items-center gap-2"
-                  title="企小勤 AI 技术知识库"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-60">
-                    <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
-                  </svg>
-                  浏览技术文章
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-40">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                    <polyline points="15 3 21 3 21 9"/>
-                    <line x1="10" y1="14" x2="21" y2="3"/>
-                  </svg>
-                </a>
               </div>
             </ScrollReveal>
           </div>
@@ -181,65 +129,6 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Scenario cards — replace abstract metric banner with product-facing use cases */}
-        <ScrollReveal delay={250}>
-          <div className="mt-20 lg:mt-28">
-            <div className="mb-10 text-center">
-              <h2 className="text-[clamp(32px,5vw,64px)] font-black leading-tight tracking-normal text-white">
-                全场景 AI Agent 工作搭子
-              </h2>
-              <p className="mt-4 text-base text-white/55 sm:text-lg">
-                从会议、采购到财务对账，让用户先看到“AI 正在替我处理真实办公流程”。
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 xl:grid-cols-4">
-              {heroWorkflows.map((workflow) => (
-                <a
-                  key={workflow.title}
-                  href="#scenarios"
-                  onClick={() => {
-                    window.dispatchEvent(new CustomEvent("vitaclaw-scenario-change", { detail: workflow.id }));
-                  }}
-                  className="group overflow-hidden rounded-2xl border border-white/[0.10] bg-white/[0.055] shadow-[0_24px_90px_-54px_rgba(34,211,160,0.55)] transition-all duration-300 hover:border-accent-green/35 hover:bg-white/[0.075] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-green focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                  aria-label={`查看${workflow.title}场景演示`}
-                >
-                  <div className="relative aspect-[16/10] bg-[#050810]">
-                    <img
-                      src={workflow.image}
-                      alt={`${workflow.title} 产品截图`}
-                      className="absolute inset-0 h-full w-full object-cover object-left-top opacity-90 transition-transform duration-500 group-hover:scale-[1.025] group-hover:opacity-100"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#050810]/70 via-transparent to-transparent" />
-                    <div className="absolute left-4 top-4 rounded-full border border-accent-green/20 bg-accent-green/[0.12] px-3 py-1 text-xs font-semibold text-accent-green backdrop-blur">
-                      真实录屏截图
-                    </div>
-                    <div className="absolute bottom-4 right-4 rounded-full border border-white/15 bg-black/50 px-3 py-1 text-xs font-semibold text-white/75 opacity-0 backdrop-blur transition-opacity duration-300 group-hover:opacity-100">
-                      查看执行过程
-                    </div>
-                  </div>
-                  <div className="p-6 sm:p-7">
-                    <h3 className="text-2xl font-black leading-tight tracking-normal text-white">{workflow.title}</h3>
-                    <div className="mt-4 text-sm font-semibold text-white/45">推荐用户：{workflow.users}</div>
-                    <p className="mt-4 text-sm leading-7 text-white/58">{workflow.description}</p>
-                    <div className="mt-5">
-                      <div className="mb-2 text-xs font-semibold text-accent-green">典型任务</div>
-                      <ul className="space-y-2">
-                        {workflow.tasks.map((task) => (
-                          <li key={task} className="flex items-start gap-2 text-sm leading-6 text-white/55">
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent-green" aria-hidden="true" />
-                            {task}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
       </div>
 
       {/* Fullscreen video modal */}

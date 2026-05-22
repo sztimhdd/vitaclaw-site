@@ -99,13 +99,13 @@ export function AgentNews() {
           <div className="mb-12 max-w-3xl">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-1.5 text-sm text-white/50">
               <Newspaper className="h-4 w-4 text-accent-green" />
-              Agent 技术动态
+              知识库精选
             </div>
             <h2 className="text-[clamp(28px,3.5vw,42px)] font-bold tracking-tight text-white">
-              追踪 Agent 工程化、协议与企业落地信号
+              把 AI Agent 办公方法沉淀为公域内容入口
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-white/50">
-              从 OmniGraph 关注的 Layer 1 / Layer 2 来源中整理近期 Agent 技术趋势，帮助团队快速判断哪些能力正在进入可用阶段。
+              知识库后续会独立运营为网站和公众号。首页只精选少量内容，承接对 AI Agent 办公范式感兴趣的访问者。
             </p>
           </div>
         </ScrollReveal>
@@ -115,12 +115,12 @@ export function AgentNews() {
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.035] p-5">
               <div className="mb-4 flex items-center justify-between gap-4">
                 <span className="rounded-full border border-accent-green/20 bg-accent-green/[0.08] px-3 py-1 text-xs font-medium text-accent-green">
-                  5 条精选动态
+                  5 篇精选内容
                 </span>
                 <span className="text-xs font-medium text-white/35">默认收起</span>
               </div>
               <p className="text-sm leading-6 text-white/50">
-                先保留首页主线叙事，只在需要时展开查看 Agent 工程化、协议与企业落地动态。
+                首页主线聚焦产品转化，知识库精选放在最后，作为公域内容入口和后续独立运营的承接。
               </p>
               <button
                 type="button"
@@ -129,7 +129,7 @@ export function AgentNews() {
                 onClick={() => setIsMobileExpanded(true)}
                 className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/[0.1] bg-white/[0.06] px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:border-blue-400/30 hover:bg-blue-400/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                展开技术动态
+                展开知识库精选
                 <ChevronDown className="h-4 w-4" />
               </button>
             </div>
@@ -186,7 +186,7 @@ export function AgentNews() {
                   onClick={() => setIsMobileExpanded(false)}
                   className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-xl border border-white/[0.1] bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-white/80 transition-colors duration-200 hover:border-white/[0.18] hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  收起技术动态
+                  收起知识库精选
                   <ChevronUp className="h-4 w-4" />
                 </button>
               </ScrollReveal>

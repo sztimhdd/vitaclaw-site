@@ -61,7 +61,7 @@ function responseTone(type?: VitaClawAssistantResponseType) {
 }
 
 function ctaHref(cta: VitaClawAssistantResponse["cta"]) {
-  return cta ? "/trial/select" : "#cta";
+  return cta ? "/trial/select" : "#contact";
 }
 
 export function VitaClawAssistant() {

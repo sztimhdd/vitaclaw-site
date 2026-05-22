@@ -2,19 +2,19 @@ const footerLinks = [
   {
     title: "产品",
     links: [
-      { label: "核心能力", href: "#capabilities" },
-      { label: "业务场景", href: "#scenarios" },
-      { label: "试用入口", href: "#trial" },
-      { label: "可信证明", href: "#trust" },
+      { label: "场景截图", href: "#scenario-shots" },
+      { label: "场景视频", href: "#scenarios" },
+      { label: "定价", href: "#pricing" },
+      { label: "联系方式", href: "#contact" },
     ],
   },
   {
     title: "资源",
     links: [
-      { label: "技术知识库", href: "/kb/" },
-      { label: "技术文档", href: "#" },
-      { label: "部署指南", href: "#" },
-      { label: "客户案例", href: "#" },
+      { label: "知识库精选", href: "#agent-news" },
+      { label: "独立知识库", href: "/kb/" },
+      { label: "公众号内容", href: "#" },
+      { label: "客户案例", href: "#scenarios" },
     ],
   },
   {
@@ -27,8 +27,6 @@ const footerLinks = [
     ],
   },
 ];
-
-const badges = ["CMMI5", "ISO 27001", "ISO 20000", "信创适配"];
 
 export function Footer() {
   return (
@@ -49,9 +47,8 @@ export function Footer() {
               AI Agent 执行平台<br />
               从一个业务流程开始，验证可控自动执行
             </p>
-            {/* Certification badges */}
             <div className="flex gap-2 mt-5 flex-wrap">
-              {badges.map((b) => (
+              {["会议", "采购", "HR", "财务"].map((b) => (
                 <span key={b} className="text-[11px] px-2 py-1 rounded border border-white/[0.10] text-white/35">
                   {b}
                 </span>

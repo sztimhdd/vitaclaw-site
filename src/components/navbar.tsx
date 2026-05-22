@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { label: "适用团队", href: "#audiences" },
-  { label: "业务场景", href: "#scenarios" },
-  { label: "核心能力", href: "#capabilities" },
-  { label: "可信证明", href: "#trust-cases" },
-  { label: "试用入口", href: "#trial" },
+  { label: "场景截图", href: "#scenario-shots" },
+  { label: "场景视频", href: "#scenarios" },
+  { label: "定价", href: "#pricing" },
+  { label: "联系方式", href: "#contact" },
+  { label: "知识库", href: "#agent-news" },
 ];
 
 export function Navbar() {
@@ -70,10 +70,10 @@ export function Navbar() {
               </svg>
             </a>
             <a
-              href="#trial"
+              href="#pricing"
               className="hidden sm:inline-flex text-sm text-white/50 hover:text-white transition-colors duration-150"
             >
-              试用说明
+              定价
             </a>
             <a
               href="/trial/select"
@@ -83,6 +83,20 @@ export function Navbar() {
             </a>
           </div>
         </div>
+        <nav
+          className="flex gap-2 overflow-x-auto pb-3 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          aria-label="移动端主导航"
+        >
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="shrink-0 rounded-full border border-white/[0.10] bg-white/[0.05] px-3 py-1.5 text-xs font-medium text-white/58 transition-colors duration-150 hover:border-white/[0.20] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </header>
   );
