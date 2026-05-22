@@ -4,7 +4,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 
 export function Hero() {
   const [showVideoModal, setShowVideoModal] = useState(false);
-  const [heroVideoSrc, setHeroVideoSrc] = useState("/demo/hero.mp4");
+  const heroVideoSrc = "/demo/hero.mp4";
 
   const openVideoModal = useCallback(() => setShowVideoModal(true), []);
   const closeVideoModal = useCallback(() => setShowVideoModal(false), []);
@@ -111,10 +111,6 @@ export function Hero() {
                     muted 
                     playsInline
                     onError={(e) => {
-                      if (heroVideoSrc !== "/video-demo.mp4") {
-                        setHeroVideoSrc("/video-demo.mp4");
-                        return;
-                      }
                       e.currentTarget.style.display = "none";
                     }}
                   />
@@ -175,10 +171,8 @@ export function Hero() {
                 controls
                 autoPlay
                 playsInline
-                onError={() => {
-                  if (heroVideoSrc !== "/video-demo.mp4") {
-                    setHeroVideoSrc("/video-demo.mp4");
-                  }
+                onError={(e) => {
+                  e.currentTarget.style.display = "none";
                 }}
               />
             </div>
