@@ -1,280 +1,282 @@
 ---
-documentId: vitaclaw-kb
-title: VitaClaw Product Knowledge Base
-sourceType: markdown
-sourceFilename: VitaClaw-KB.md
-sourceDate: 2026-05-09
-reviewStatus: reviewed-with-risk-flags
-reviewedBy: codex-child-agent
-reviewedAt: 2026-05-10
-publicSafe: true
-contractVersion: 1
+documentId: vitaclaw-small-business-scenarios-v1
+title: VitaClaw 四大场景核心价值与问答知识库
+reviewStatus: reviewed
+publicAnswerSafe: true
+primaryAudience: 中国中小企业老板、业务负责人、团队主管
 ---
 
-# VitaClaw Product Knowledge Base
+# VitaClaw 四大场景核心价值与问答知识库
 
-This reviewed Markdown is derived from the user-provided `VitaClaw-KB.md`.
-It is the v1.2 homepage assistant knowledge source. Raw PDFs and local source
-paths are not committed.
+## 总体定位
 
-Public answer policy:
+VitaClaw 不是一个只会聊天的 AI 助手，而是一个能接收任务、拆解步骤、调用系统、整理结果，并在关键节点等待人工确认的 AI 执行平台。
 
-- Use `allowed` chunks for factual, high-level product Q&A.
-- Use `cta_only` chunks only to redirect visitors to `预约演示` or `获取方案`.
-- Do not send `internal_only` chunks to the model.
-- Do not present market sizing, ROI, compliance, legal, pricing, or deployment
-  timing as binding guarantees.
-- Do not answer customer-specific architecture, production access, credential,
-  legal, or regulatory guarantee questions from this document.
+它适合中小企业老板和团队负责人，用来处理每天反复出现、耗人、容易遗漏、但又不能完全放任出错的业务流程，比如会议纪要、采购比价、单据核对、客户跟进等。
 
-## 1. Product Positioning
+核心价值：
 
-OneClaw/VitaClaw is positioned as an enterprise AI execution platform for
-cross-system office and business automation. Its goal is to move beyond
-chat-style advice toward controlled, auditable execution of long-running
-business tasks.
+> 让 AI 不只是回答问题，而是把真实业务流程往前推进。
 
-The source describes three broad phases of AI capability:
+## 场景一：会议与协同推进
 
-- Prompt Engineering: AI helps with semantic understanding and conversation.
-- Context Engineering: retrieval and context improve reasoning and analysis.
-- Harness Engineering: agents are connected to tools and business systems so
-  workflows can be completed end to end.
+### 推荐默认问题
 
-The source attributes OneClaw/VitaClaw to Zhejiang Unitech and says the product
-is intended to address permission control, data leakage, and logic errors in AI
-execution.
+**开完会以后，VitaClaw 能帮我做什么？**
 
-## 2. High-Level Comparison
+### 标准回答
 
-The source contrasts general chatbots with execution-oriented platforms:
+VitaClaw 可以把会议内容自动整理成可执行的工作清单，而不是只生成一份普通会议纪要。
 
-| Dimension | General AI / chatbots | OneClaw / VitaClaw positioning |
-|---|---|---|
-| Core logic | Suggestions without execution closure | Long-running task closure |
-| IT integration | Often requires API work | Uses ChatKit for non-invasive integration patterns |
-| Security | Permission and audit gaps | Observability, sandboxing, and audit controls |
-| Business depth | Can drift without business anchors | CMA and knowledge graph concepts anchor decisions |
-| Development model | Custom code-heavy integration | Low-code/no-code skills and reusable assets |
+它可以从会议记录、录音转写或聊天内容中提取关键信息，自动识别：
 
-This table is positioning material, not a binding capability guarantee.
+- 会议结论
+- 决策事项
+- 待办任务
+- 负责人
+- 截止时间
+- 风险点
+- 后续需要跟进的事项
 
-## 3. Native Rust Execution Kernel
+对老板来说，最大的价值不是“省一份纪要”，而是防止会议开完以后没人推进、责任不清、事情不了了之。
 
-The source says OneClaw/VitaClaw uses a Native Rust execution kernel rather
-than a heavy Python runtime. The stated rationale is Rust's memory safety,
-ownership model, and predictable resource behavior.
+VitaClaw 可以让会议从“开了就忘”变成“开完就能推进”。
 
-Public-safe points:
+### 业务价值
 
-- Rust can help reduce runtime overhead from garbage collection.
-- Rust's ownership model can support memory safety in concurrent agent loops.
-- A native execution kernel is positioned as useful for responsive enterprise
-  automation.
+过去小团队开会后，很多事情都靠老板自己记、自己催、自己盯。时间一长，任务容易漏、负责人容易推、进度也不透明。
 
-Claims about exact cold-start speed, single-machine concurrency, or resource
-ratios require product confirmation and should be handled as CTA-only.
+VitaClaw 可以自动把会议内容转成任务清单，并把关键事项整理出来，方便老板快速知道：
 
-## 4. eBPF Sentinel And Audit Trail
+> 谁该做什么，什么时候完成，现在卡在哪里。
 
-The source describes an eBPF Sentinel mechanism for observing AI execution at
-the system-call level without modifying application code.
+### 适合哪些企业
 
-Public-safe points:
+适合经常开项目会、销售会、采购会、运营会的小型企业，尤其适合老板或主管经常需要跨部门催进度的团队。
 
-- eBPF can be used for low-level Linux observability.
-- The platform positions eBPF monitoring as part of runtime supervision.
-- The source links execution traces to tamper-evident audit ideas such as
-  Merkle Tree records and Immudb-style immutable storage.
+### 可放入按钮文案
 
-Claims that every instruction is always captured, cannot be modified, or fully
-satisfies financial audit requirements should be redirected to solution review.
+- 看 AI 怎么整理会议
+- 让会议自动变成待办
+- 不再手动整理会议纪要
 
-## 5. Lobster Box Isolation
+## 场景二：采购比价与供应链响应
 
-The source describes `Lobster Box` as the platform's isolation philosophy for
-limiting unintended AI operations.
+### 推荐默认问题
 
-The described layers are:
+**VitaClaw 怎么帮我做采购比价？**
 
-- Wasm sandboxing for restricted per-agent compute.
-- KVM or lightweight virtual-machine isolation for higher-sensitivity tasks.
-- Permission boundaries intended to prevent escape from the assigned execution
-  environment.
+### 标准回答
 
-Exact isolation configuration depends on deployment mode and customer
-environment, so production security design should be confirmed through a demo
-or architecture review.
+VitaClaw 可以帮助企业把采购过程中的信息收集、价格对比、供应商条件整理和采购建议生成自动化。
 
-## 6. CMA And OPAR
+它可以根据采购需求，整理库存情况、历史采购价格、供应商报价、交付周期、付款条件等信息，然后生成一份清晰的采购建议。
 
-CMA stands for Cognitive Memory Architecture. The source presents it as a
-component for reducing hallucination and improving execution precision.
+老板或采购负责人不需要再手动翻 Excel、查聊天记录、问供应商、对比报价，而是可以直接看到：
 
-The described OPAR loop is:
+- 哪个供应商价格更合适
+- 哪个供应商交期更稳
+- 当前采购是否高于历史价格
+- 是否存在异常报价
+- 建议采购哪一项
+- 哪些地方需要人工确认
 
-1. Observe: inspect current task state.
-2. Plan: create an execution plan.
-3. Act: execute controlled steps.
-4. Reflect: inspect outcomes and adjust.
+VitaClaw 的作用不是替老板做最终决定，而是先把复杂信息跑一遍，让人只看结果、做判断。
 
-The source describes three memory layers:
+### 业务价值
 
-- Short-term context for a single task flow.
-- Long-term business memory for reusable patterns and enterprise know-how.
-- Bi-temporal knowledge graph concepts for business relationships that change
-  over time.
+采购场景最容易浪费时间，也最容易因为信息不透明导致多花钱。
 
-For v1.2 homepage Q&A, these are product concepts only. The homepage assistant
-must not use persistent memory, LightRAG, Cognee, or knowledge-graph execution.
+VitaClaw 可以帮助企业减少重复沟通、降低比价成本、减少遗漏，并让采购决策更有依据。
 
-## 7. Skills, MCP, And ChatKit
+对小 B 企业来说，它的直接价值是：
 
-The source describes a skills ecosystem around standard tool contracts:
+> 少花冤枉钱，少靠人肉翻表，采购决策更快。
 
-- MCP is described as a standardized tool connection contract.
-- OpenSkills compatibility is described as a way to import reusable agent
-  skills.
-- ChatKit SDK is described as a non-invasive integration layer that can map
-  legacy ERP, CRM, or OA front-end interactions into agent-readable flows when
-  APIs are unavailable.
+### 适合哪些企业
 
-The source also describes skill asset management: business expertise can be
-packaged into AI skills, versioned, signed, distributed, and audited.
+适合有固定供应商、经常采购物料、设备、耗材、包装、零配件或服务的小型制造、贸易、电商、餐饮、门店和工程类企业。
 
-Specific connector coverage and legacy-system feasibility must be confirmed per
-customer system.
+### 可放入按钮文案
 
-## 8. Deployment And Implementation Path
+- 看 AI 怎么处理采购
+- 让 AI 先帮你比价
+- 采购不用再人肉翻表
 
-The source describes a four-stage implementation path:
+## 场景三：单据、合同与财务初审
 
-1. Research and preparation: threat modeling, non-human identity discovery, and
-   permission boundary definition.
-2. Pilot deployment: environment setup and one or two core scenario POCs.
-3. Scale-out: skill library construction and broader scenario rollout.
-4. Continuous optimization: use execution results to improve workflows.
+### 推荐默认问题
 
-The source includes example durations such as 2-4 weeks for preparation and
-4-6 weeks for a pilot. Treat all timing as CTA-only because actual timing
-depends on systems, approvals, data access, and customer constraints.
+**VitaClaw 能帮我审核合同、报销单或业务单据吗？**
 
-## 9. Scenario Library
+### 标准回答
 
-The source lists scenario examples across finance, insurance, regulatory
-technology, manufacturing, and government service.
+可以。VitaClaw 适合做单据、合同、报销、订单、付款申请等材料的初步检查。
 
-### Banking
+它可以按照企业预设规则，自动检查：
 
-- KYC / AML automation: gather account-opening materials across systems, compare
-  them with watchlists, and produce compliance analysis drafts.
-- Credit approval assistance: parse financial statements and invoices, combine
-  relationship analysis, and generate initial review suggestions.
-- Corporate counter automation: use ChatKit-style interaction automation to
-  handle complex data entry across windows.
+- 金额是否异常
+- 附件是否齐全
+- 发票、合同、订单是否匹配
+- 条款是否存在明显风险
+- 报销或付款是否超出标准
+- 是否缺少审批信息
+- 是否需要人工复核
 
-Effectiveness metrics such as exact time reduction or complete audit coverage
-are CTA-only.
+它不会替代老板、财务或法务做最终审批，而是先把明显问题和风险点标出来，让人工审核更快、更准。
 
-### Insurance
+对小企业来说，很多错误不是因为没人懂，而是因为材料太杂、太琐碎、太容易漏看。VitaClaw 的价值就是先帮人看一遍，把需要注意的地方挑出来。
 
-- Small-claim automation: coordinate image recognition, pricing checks, and
-  claims-flow assistance.
-- Underwriting support: read medical or claim-related materials and produce
-  risk-level suggestions.
+### 业务价值
 
-Exact cycle-time and cost-reduction claims are CTA-only.
+小企业的财务和行政人员往往同时处理很多杂事，报销、付款、合同、订单、发票混在一起，很容易出现漏审、错付、重复沟通。
 
-### Regulatory Technology
+VitaClaw 可以把初审流程标准化，减少低级错误，让老板不用每次从头翻材料。
 
-- Regulatory report support: help parse changing reporting requirements and
-  assemble report data with human review.
-- Compliance-risk monitoring: use observability and rules to identify abnormal
-  patterns.
+直接价值是：
 
-These are product scenarios, not legal or regulatory guarantees.
+> 单据先让 AI 查一遍，人只看异常和关键风险。
 
-### Manufacturing And Government Service
+### 适合哪些企业
 
-- Supply-chain procurement: monitor inventory, compare supplier quotes, and
-  assist ordering flows.
-- Government-service assistant: guide citizens through applications and support
-  backend material verification.
+适合经常处理合同、报销、付款申请、采购订单、发票、客户订单的小型企业，尤其适合财务人手少、审批流程靠微信群和表格推进的公司。
 
-Whether a specific process can be automated depends on the target systems,
-permissions, UI/API availability, and review requirements.
+### 可放入按钮文案
 
-## 10. Policy Alignment And Security Controls
+- 看 AI 怎么做初审
+- 合同单据先让 AI 查一遍
+- 报销付款减少漏看
 
-The source says OneClaw/VitaClaw can support localization-oriented enterprise
-technology environments and mentions China information-technology adaptation
-contexts.
+## 场景四：客户跟进与销售复盘
 
-The source describes five security-control layers:
+### 推荐默认问题
 
-1. Pre-execution admission: SPIFFE identity, NHI separation, OPA/Rego policy
-   checks, and Sigstore verification.
-2. Runtime monitoring: eBPF tracing, mTLS, runtime guardrails, and sandboxing.
-3. Decision review: OPAR plan review, multi-factor comparison, and human-in-the
-   loop for high-risk operations.
-4. Data protection: differential privacy concepts, memory-drift monitoring, and
-   sensitive-data masking.
-5. Post-execution audit: immutable logs and visual playback for review.
+**VitaClaw 能帮销售团队跟进客户吗？**
 
-Claims about satisfying a specific law, regulation, procurement requirement, or
-audit standard must be redirected to consultation.
+### 标准回答
 
-## 11. Public Q&A Anchors
+VitaClaw 可以帮助销售团队整理客户沟通内容，自动提取客户需求、报价状态、待办事项和下一步跟进动作。
 
-### Q01. What is A2A security?
+它可以从聊天记录、邮件、会议纪要或销售备注中整理出：
 
-A2A security covers identity spoofing and message interception risks when
-multiple agents collaborate. The source says OneClaw uses SPIFFE-style
-non-human identity and mTLS-secured communication.
+- 客户真正关心的问题
+- 已沟通的报价和方案
+- 下一步需要谁跟进
+- 哪些客户长时间没有回复
+- 哪些商机需要老板介入
+- 哪些事项还没有完成
 
-### Q02. How does the platform address prompt injection?
+对老板来说，它的价值不是替销售聊天，而是让客户跟进变得更清楚、更可控。
 
-The source says runtime guardrails are placed around the OPAR planning stage,
-and tool calls should follow MCP-defined schemas.
+很多小企业丢单，不是因为产品不行，而是因为跟进不及时、信息散在销售个人手里、老板看不到真实进展。
 
-### Q03. How can legacy ERP systems without APIs be integrated?
+VitaClaw 可以帮助老板快速知道：
 
-The source describes ChatKit SDK as a non-invasive middleware layer that maps UI
-interaction flows into agent-readable actions.
+> 哪些客户在推进，哪些客户卡住了，下一步应该做什么。
 
-### Q04. Why use a Rust execution kernel?
+### 业务价值
 
-The source says Rust provides memory safety and predictable performance
-characteristics that help large-scale agent execution avoid common runtime
-resource issues.
+销售管理最怕两件事：客户信息散、跟进靠记忆。
 
-### Q05. How does the platform avoid infinite execution loops?
+VitaClaw 可以把分散在聊天、邮件和会议里的客户信息整理成清晰的跟进视图，让销售少漏事，让老板少追问。
 
-The source describes instruction-depth tracking, loop-pattern detection, and
-automatic interruption with human escalation.
+直接价值是：
 
-### Q06. What is Lobster Box?
+> 客户不漏跟，商机不躺平，老板看得清进度。
 
-Lobster Box is described as a sandboxing and isolation model combining Wasm and
-KVM-style isolation patterns to limit agent execution boundaries.
+### 适合哪些企业
 
-### Q07. What is OPAR?
+适合有销售团队、客户经理、渠道经理、售前人员的小型企业，尤其适合客户沟通分散在微信、邮件、表格和会议里的团队。
 
-OPAR means Observe, Plan, Act, Reflect. It structures agent work as observation,
-planning, controlled action, and reflection.
+### 可放入按钮文案
 
-### Q08. What is NHI governance?
+- 看 AI 怎么跟进客户
+- 客户进度自动整理
+- 销售不漏跟，老板看得清
 
-NHI means Non-Human Identity. It covers lifecycle, permission scope, and
-accountability for automated agent identities.
+## 推荐放入问答机器人的默认问题
 
-### Q09. Does the platform support private deployment?
+### VitaClaw 和普通 AI 聊天机器人有什么区别？
 
-The source says private deployment is supported. Specific topology, data
-residency, and security responsibilities require architecture review.
+普通 AI 聊天机器人主要是回答问题、写文案、生成内容。VitaClaw 更强调“执行任务”。
 
-### Q10. What can visitors ask the homepage assistant?
+你可以把它理解成：普通 AI 是顾问，VitaClaw 更像能干活的助理。
 
-Visitors can ask high-level product, scenario, deployment-process, integration,
-and security-posture questions covered by reviewed product documentation. The
-assistant should redirect to CTA for customer-specific or binding answers.
+它不只是告诉你怎么做，而是可以按照企业流程去拆解任务、调用系统、整理材料、生成结果，并在关键动作前等待人工确认。
+
+### VitaClaw 适合什么样的企业？
+
+VitaClaw 适合已经有一定业务流程，但又没有足够人力做自动化的小型和成长型企业。
+
+比如：
+
+- 每天有大量会议、待办和协同事项
+- 采购、报价、供应商信息经常需要人工整理
+- 财务、合同、报销、付款审核容易占用大量时间
+- 销售客户跟进分散在聊天、邮件和表格里
+- 老板经常需要亲自催进度、查信息、盯流程
+
+如果企业的问题是“事情很多、人手有限、流程靠人盯”，VitaClaw 就有价值。
+
+### VitaClaw 会不会替代员工？
+
+VitaClaw 更适合替员工处理重复、琐碎、标准化的信息整理和流程推进工作，不是直接替代员工。
+
+它可以帮员工先把资料查好、表格整理好、风险点标出来、待办拆出来，让人把时间花在判断、沟通和决策上。
+
+简单说：
+
+> AI 先跑一遍，人来做确认和拍板。
+
+### VitaClaw 需要改造我现在的系统吗？
+
+VitaClaw 的核心卖点之一就是尽量降低系统改造成本。
+
+它可以围绕企业现有的表格、文件、网页系统、业务流程和常用工具进行接入，不要求企业一开始就大规模重做 ERP、OA 或 CRM。
+
+更适合的落地方式是：
+
+先选一个具体流程试点，比如会议整理、采购比价、单据初审或客户跟进；跑通后再逐步扩展到更多场景。
+
+### VitaClaw 为什么强调人工确认？
+
+因为企业真实业务不是简单聊天，很多动作涉及钱、客户、合同、审批和责任。
+
+VitaClaw 的设计不是让 AI 完全失控地自动操作，而是让 AI 先完成信息整理、流程推进和结果生成，在关键节点交给人确认。
+
+这样既能提高效率，又能保留企业需要的控制权。
+
+适合老板理解的一句话是：
+
+> 琐碎工作交给 AI，关键决定还是人来拍板。
+
+## 四大场景一句话总结
+
+| 场景 | 一句话价值 |
+| --- | --- |
+| 会议与协同推进 | 开完会自动生成纪要、待办、负责人和截止时间，让事情继续往前走。 |
+| 采购比价与供应链响应 | 自动汇总库存、历史价格和供应商条件，让采购决策更快、更省钱。 |
+| 单据、合同与财务初审 | 报销、合同、付款申请先让 AI 查一遍，人只看异常和风险。 |
+| 客户跟进与销售复盘 | 自动整理客户需求、报价状态和下一步动作，减少漏跟和丢单。 |
+
+## 给助手的回答口径
+
+你是 VitaClaw 官网的产品问答助手。
+
+你的回答对象主要是中国中小企业老板、业务负责人和团队主管。
+
+回答时不要过度使用技术术语，不要强调架构、模型、eBPF、沙箱、OPAR 等底层概念，除非用户主动询问技术细节。
+
+优先用业务语言解释 VitaClaw 的价值：省人、省时间、少出错、流程能推进、老板看得清。
+
+回答结构应尽量简单直接：先说明能做什么，再说明怎么产生价值，最后给出适合的使用场景。
+
+始终强调：VitaClaw 不是只会聊天的 AI，而是能在企业流程中接收任务、拆解步骤、整理材料、推进执行，并在关键节点等待人工确认的 AI 执行平台。
+
+## CTA 边界
+
+以下问题不作为确定事实直接回答，应引导预约演示或获取方案：
+
+- 具体价格、收费方式、采购合同、折扣、付款条件或商务条款
+- 某个客户现有系统能否接入、具体改造工作量、私有化部署、接口权限、上线周期或验收指标
+- 法律意见、合规保证、财务或法务最终审批责任

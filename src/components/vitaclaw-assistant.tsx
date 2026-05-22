@@ -30,10 +30,11 @@ type ChatMessage = {
 };
 
 const suggestedQuestions = [
-  "金融场景：零售信贷审核怎么做？",
-  "制造业：供应链采购如何自动化？",
-  "政务场景：入转调离审批怎么实现？",
-  "通用办公：会议助理能做什么？",
+  "开完会以后，VitaClaw 能帮我做什么？",
+  "VitaClaw 怎么帮我做采购比价？",
+  "VitaClaw 能帮我审核合同、报销单或业务单据吗？",
+  "VitaClaw 能帮销售团队跟进客户吗？",
+  "VitaClaw 和普通 AI 聊天机器人有什么区别？",
 ];
 
 const initialMessages: ChatMessage[] = [
@@ -41,7 +42,7 @@ const initialMessages: ChatMessage[] = [
     id: "welcome",
     role: "assistant",
     content:
-      "我是 VitaClaw 助手，可以基于已审核的产品文档回答高层产品、场景、集成和安全问题。涉及价格、合规保证或具体系统方案时，我会引导你预约演示或获取方案。",
+      "我是 VitaClaw 助手，可以用业务语言说明会议协同、采购比价、单据初审和客户跟进怎么用 AI 推进。涉及具体价格、合同条款或系统接入细节时，我会建议预约演示或获取方案。",
     responseType: "answer",
     sources: [],
     cta: null,
@@ -171,7 +172,7 @@ export function VitaClawAssistant() {
                 </div>
                 <div className="min-w-0">
                   <h2 className="text-sm font-semibold text-white">VitaClaw 助手</h2>
-                  <p className="mt-0.5 text-xs text-white/45">产品文档问答 · 场景顾问</p>
+                  <p className="mt-0.5 text-xs text-white/45">四大业务场景问答</p>
                 </div>
               </div>
               <button
@@ -186,7 +187,7 @@ export function VitaClawAssistant() {
             <div className="mt-4 flex items-start gap-2 rounded-xl border border-white/[0.07] bg-black/15 px-3 py-2 text-xs leading-5 text-white/48">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-accent-green" aria-hidden="true" />
               <p>
-                回答仅基于已审核产品文档。价格、合规保证、私有化拓扑和客户系统可行性会引导到方案沟通。
+                回答仅基于已审核产品文档。具体价格、合同条款和系统接入细节会引导到方案沟通。
               </p>
             </div>
           </div>
@@ -277,7 +278,7 @@ export function VitaClawAssistant() {
                   onChange={(event) => setInput(event.target.value)}
                   disabled={isSubmitting}
                   rows={2}
-                  placeholder="问一个产品、场景、集成或安全问题"
+                  placeholder="问一个业务场景问题"
                   className="min-h-12 flex-1 resize-none rounded-xl border border-white/[0.08] bg-white/[0.045] px-3 py-3 text-sm leading-5 text-white outline-none transition-colors duration-200 placeholder:text-white/28 focus:border-blue-400/45 focus:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-60"
                 />
                 <button
@@ -301,7 +302,7 @@ export function VitaClawAssistant() {
                 href="/trial/select"
                 className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.04] px-2 py-2 text-xs font-semibold text-white/62 transition-colors duration-200 hover:border-white/[0.18] hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
-                试用入口
+                预约演示
               </a>
               <a
                 href="/trial/select"
@@ -314,7 +315,7 @@ export function VitaClawAssistant() {
                 className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.04] px-2 py-2 text-xs font-semibold text-white/62 transition-colors duration-200 hover:border-white/[0.18] hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <Mail className="h-3.5 w-3.5" aria-hidden="true" />
-                试用
+                企业邮箱
               </a>
             </div>
           </div>
@@ -333,7 +334,7 @@ export function VitaClawAssistant() {
           </span>
           <span className="hidden flex-col sm:flex">
             <span className="text-sm font-semibold text-white">VitaClaw 助手</span>
-            <span className="text-xs text-white/45">产品文档问答</span>
+            <span className="text-xs text-white/45">业务场景问答</span>
           </span>
         </button>
       )}
