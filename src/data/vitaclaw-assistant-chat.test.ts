@@ -5,15 +5,15 @@ import { adaptVitaClawAssistantResponse } from "./vitaclaw-assistant-chat";
 assert.deepEqual(
   adaptVitaClawAssistantResponse({
     type: "answer",
-    answer: "ChatKit 可以适配老旧 ERP。",
-    sources: [{ chunkId: "vitaclaw-kb-034", headingPath: ["Public Q&A Anchors", "Legacy ERP integration"] }],
+    answer: "VitaClaw 可以把会议内容整理成待办和负责人。",
+    sources: [{ chunkId: "vitaclaw-kb-meeting", headingPath: ["场景一：会议与协同推进"] }],
     cta: null,
     usedModel: false,
   }),
   {
     type: "answer",
-    answer: "ChatKit 可以适配老旧 ERP。",
-    sources: [{ chunkId: "vitaclaw-kb-034", headingPath: ["Public Q&A Anchors", "Legacy ERP integration"] }],
+    answer: "VitaClaw 可以把会议内容整理成待办和负责人。",
+    sources: [{ chunkId: "vitaclaw-kb-meeting", headingPath: ["场景一：会议与协同推进"] }],
     cta: null,
     usedModel: false,
   },
