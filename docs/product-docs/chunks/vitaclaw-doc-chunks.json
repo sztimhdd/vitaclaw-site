@@ -1,346 +1,127 @@
 {
   "contractVersion": 1,
-  "generatedAt": "2026-05-10T00:00:00Z",
+  "generatedAt": "2026-05-22T00:00:00.000Z",
   "sourceDocument": {
-    "documentId": "vitaclaw-kb",
-    "title": "VitaClaw Product Knowledge Base",
-    "sourceFilename": "VitaClaw-KB.md",
-    "reviewedAt": "2026-05-10",
-    "publicSafe": true
+    "documentId": "vitaclaw-small-business-scenarios-v1",
+    "title": "VitaClaw 四大场景核心价值与问答知识库",
+    "sourcePath": "docs/product-docs/reviewed/vitaclaw-kb.md",
+    "reviewStatus": "reviewed"
   },
   "chunks": [
     {
-      "chunkId": "vitaclaw-kb-001",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Product Positioning"],
-      "content": "OneClaw/VitaClaw 定位为面向企业跨系统办公与业务自动化的可信 AI 执行平台。它的目标不是只提供聊天式建议，而是在受控、可审计的边界内支撑长流程业务任务的执行闭环。",
-      "keywords": ["VitaClaw", "OneClaw", "AI执行平台", "跨系统自动化", "企业办公"],
-      "answerUse": "allowed",
-      "ctaHint": null
+      "chunkId": "vitaclaw-kb-positioning",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["总体定位"],
+      "content": "VitaClaw 不是一个只会聊天的 AI 助手，而是一个能接收任务、拆解步骤、调用系统、整理结果，并在关键节点等待人工确认的 AI 执行平台。它适合中小企业老板和团队负责人，用来处理会议纪要、采购比价、单据核对、客户跟进等每天反复出现、耗人、容易遗漏、但又不能完全放任出错的业务流程。核心价值是：让 AI 不只是回答问题，而是把真实业务流程往前推进。",
+      "keywords": ["定位", "AI 执行平台", "聊天机器人", "业务流程", "中小企业", "老板", "团队负责人", "人工确认", "任务拆解"],
+      "answerUse": "allowed"
     },
     {
-      "chunkId": "vitaclaw-kb-002",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Product Positioning", "AI capability phases"],
-      "content": "产品文档把 AI 能力分为三个阶段：Prompt Engineering 侧重语义理解和对话；Context Engineering 通过检索和上下文增强推理；Harness Engineering 将 Agent 连接到工具和业务系统，使工作流具备端到端完成能力。",
-      "keywords": ["Prompt Engineering", "Context Engineering", "Harness Engineering", "端到端执行"],
-      "answerUse": "allowed",
-      "ctaHint": null
+      "chunkId": "vitaclaw-kb-meeting",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["场景一：会议与协同推进"],
+      "content": "VitaClaw 可以把会议内容自动整理成可执行的工作清单，而不是只生成一份普通会议纪要。它可以从会议记录、录音转写或聊天内容中提取会议结论、决策事项、待办任务、负责人、截止时间、风险点和后续需要跟进的事项。对老板来说，最大的价值不是省一份纪要，而是防止会议开完以后没人推进、责任不清、事情不了了之，让会议从开了就忘变成开完就能推进。",
+      "keywords": ["会议", "协同", "会议纪要", "待办", "负责人", "截止时间", "风险点", "跟进", "项目会", "销售会", "运营会"],
+      "answerUse": "allowed"
     },
     {
-      "chunkId": "vitaclaw-kb-003",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Product Positioning", "Company attribution"],
-      "content": "产品文档说明 OneClaw/VitaClaw 由浙江优创（Unitech）研发，目标是缓解 AI 执行过程中的权限失控、数据泄露和逻辑误判等问题。",
-      "keywords": ["浙江优创", "Unitech", "权限控制", "数据泄露", "逻辑误判"],
-      "answerUse": "allowed",
-      "ctaHint": null
+      "chunkId": "vitaclaw-kb-procurement",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["场景二：采购比价与供应链响应"],
+      "content": "VitaClaw 可以帮助企业把采购过程中的信息收集、价格对比、供应商条件整理和采购建议生成自动化。它可以根据采购需求，整理库存情况、历史采购价格、供应商报价、交付周期、付款条件等信息，然后生成清晰的采购建议。老板或采购负责人可以看到哪个供应商价格更合适、交期更稳、当前采购是否高于历史价格、是否存在异常报价、建议采购哪一项，以及哪些地方需要人工确认。VitaClaw 不替老板做最终决定，而是先把复杂信息跑一遍，让人只看结果、做判断。",
+      "keywords": ["采购", "比价", "供应链", "供应商", "库存", "历史价格", "报价", "交付周期", "付款条件", "采购建议", "异常报价"],
+      "answerUse": "allowed"
     },
     {
-      "chunkId": "vitaclaw-kb-004",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Risk Review", "Market sizing"],
-      "content": "源文档包含较强的市场规模判断，例如 2026 年自主 Agent 规模化、Agent 与人类员工比例 82:1、十万亿级数字员工市场等。这类判断未经产品负责人确认前，不适合作为公开确定答案。",
-      "keywords": ["82:1", "10万亿", "市场规模", "2026", "强市场主张"],
-      "answerUse": "internal_only",
-      "ctaHint": null
+      "chunkId": "vitaclaw-kb-document-review",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["场景三：单据、合同与财务初审"],
+      "content": "VitaClaw 适合做单据、合同、报销、订单、付款申请等材料的初步检查。它可以按照企业预设规则，自动检查金额是否异常、附件是否齐全、发票合同订单是否匹配、条款是否存在明显风险、报销或付款是否超出标准、是否缺少审批信息、是否需要人工复核。它不会替代老板、财务或法务做最终审批，而是先把明显问题和风险点标出来，让人工审核更快、更准。",
+      "keywords": ["单据", "合同", "财务", "初审", "报销", "订单", "付款申请", "发票", "审批", "风险点", "人工复核"],
+      "answerUse": "allowed"
     },
     {
-      "chunkId": "vitaclaw-kb-005",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["High-Level Comparison"],
-      "content": "产品文档将普通聊天机器人与执行型平台做了区分：普通聊天机器人主要提供建议；OneClaw/VitaClaw 更强调长程任务闭环、无侵入集成、可观测性、沙箱隔离、审计控制、CMA 概念和可复用技能资产。",
-      "keywords": ["对话机器人", "执行平台", "闭环执行", "审计", "技能复用"],
-      "answerUse": "allowed",
-      "ctaHint": null
+      "chunkId": "vitaclaw-kb-sales-followup",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["场景四：客户跟进与销售复盘"],
+      "content": "VitaClaw 可以帮助销售团队整理客户沟通内容，自动提取客户需求、报价状态、待办事项和下一步跟进动作。它可以从聊天记录、邮件、会议纪要或销售备注中整理客户真正关心的问题、已沟通的报价和方案、下一步需要谁跟进、哪些客户长时间没有回复、哪些商机需要老板介入、哪些事项还没有完成。它不是替销售聊天，而是让客户跟进更清楚、更可控，让老板知道哪些客户在推进、哪些客户卡住了、下一步应该做什么。",
+      "keywords": ["客户", "销售", "跟进", "复盘", "客户需求", "报价状态", "销售备注", "商机", "老板介入", "客户进度"],
+      "answerUse": "allowed"
     },
     {
-      "chunkId": "vitaclaw-kb-006",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Native Rust Execution Kernel"],
-      "content": "产品文档说明 OneClaw/VitaClaw 采用 Native Rust 执行内核，而不是重型 Python 运行时。其理由是 Rust 的内存安全、所有权模型和更可预测的资源行为适合企业级自动化执行。",
-      "keywords": ["Rust", "Native Rust", "执行内核", "内存安全", "所有权模型"],
-      "answerUse": "allowed",
-      "ctaHint": null
+      "chunkId": "vitaclaw-kb-chatbot-difference",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["推荐默认问题", "VitaClaw 和普通 AI 聊天机器人有什么区别？"],
+      "content": "普通 AI 聊天机器人主要是回答问题、写文案、生成内容。VitaClaw 更强调执行任务。你可以把它理解成：普通 AI 是顾问，VitaClaw 更像能干活的助理。它不只是告诉你怎么做，而是可以按照企业流程去拆解任务、调用系统、整理材料、生成结果，并在关键动作前等待人工确认。",
+      "keywords": ["普通 AI", "聊天机器人", "区别", "执行任务", "顾问", "能干活的助理", "人工确认"],
+      "answerUse": "allowed"
     },
     {
-      "chunkId": "vitaclaw-kb-007",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Native Rust Execution Kernel", "Performance claims"],
-      "content": "源文档包含冷启动速度、单机并发规模、资源消耗比例等精确性能类说法。这些内容需要产品或方案确认，首页助手不应把它们作为公开承诺。",
-      "keywords": ["冷启动", "高并发", "资源消耗", "性能指标", "产品确认"],
+      "chunkId": "vitaclaw-kb-suitable-company",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["推荐默认问题", "VitaClaw 适合什么样的企业？"],
+      "content": "VitaClaw 适合已经有一定业务流程，但又没有足够人力做自动化的小型和成长型企业。典型情况包括：每天有大量会议、待办和协同事项；采购、报价、供应商信息经常需要人工整理；财务、合同、报销、付款审核占用大量时间；销售客户跟进分散在聊天、邮件和表格里；老板经常需要亲自催进度、查信息、盯流程。如果企业的问题是事情很多、人手有限、流程靠人盯，VitaClaw 就有价值。",
+      "keywords": ["适合企业", "中小企业", "成长型企业", "小企业", "人手有限", "流程靠人盯", "老板", "自动化"],
+      "answerUse": "allowed"
+    },
+    {
+      "chunkId": "vitaclaw-kb-replace-employees",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["推荐默认问题", "VitaClaw 会不会替代员工？"],
+      "content": "VitaClaw 更适合替员工处理重复、琐碎、标准化的信息整理和流程推进工作，不是直接替代员工。它可以帮员工先把资料查好、表格整理好、风险点标出来、待办拆出来，让人把时间花在判断、沟通和决策上。简单说：AI 先跑一遍，人来做确认和拍板。",
+      "keywords": ["替代员工", "员工", "重复工作", "琐碎工作", "流程推进", "确认", "拍板"],
+      "answerUse": "allowed"
+    },
+    {
+      "chunkId": "vitaclaw-kb-system-integration",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["推荐默认问题", "VitaClaw 需要改造我现在的系统吗？"],
+      "content": "VitaClaw 的核心卖点之一是尽量降低系统改造成本。它可以围绕企业现有的表格、文件、网页系统、业务流程和常用工具进行接入，不要求企业一开始就大规模重做 ERP、OA 或 CRM。更适合的落地方式是先选一个具体流程试点，比如会议整理、采购比价、单据初审或客户跟进；跑通后再逐步扩展到更多场景。",
+      "keywords": ["系统改造", "接入", "表格", "文件", "网页系统", "ERP", "OA", "CRM", "试点", "降低改造成本"],
+      "answerUse": "allowed"
+    },
+    {
+      "chunkId": "vitaclaw-kb-human-confirmation",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["推荐默认问题", "VitaClaw 为什么强调人工确认？"],
+      "content": "VitaClaw 强调人工确认，是因为企业真实业务不是简单聊天，很多动作涉及钱、客户、合同、审批和责任。VitaClaw 的设计不是让 AI 完全失控地自动操作，而是让 AI 先完成信息整理、流程推进和结果生成，在关键节点交给人确认。这样既能提高效率，又能保留企业需要的控制权。适合老板理解的一句话是：琐碎工作交给 AI，关键决定还是人来拍板。",
+      "keywords": ["人工确认", "关键节点", "审批", "责任", "控制权", "老板", "关键决定", "拍板"],
+      "answerUse": "allowed"
+    },
+    {
+      "chunkId": "vitaclaw-kb-summary",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["四大场景一句话总结"],
+      "content": "会议与协同推进：开完会自动生成纪要、待办、负责人和截止时间，让事情继续往前走。采购比价与供应链响应：自动汇总库存、历史价格和供应商条件，让采购决策更快、更省钱。单据、合同与财务初审：报销、合同、付款申请先让 AI 查一遍，人只看异常和风险。客户跟进与销售复盘：自动整理客户需求、报价状态和下一步动作，减少漏跟和丢单。",
+      "keywords": ["四大场景", "一句话总结", "会议", "采购", "单据", "合同", "客户跟进", "销售复盘"],
+      "answerUse": "allowed"
+    },
+    {
+      "chunkId": "vitaclaw-kb-pricing-cta",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["CTA 边界", "价格与商务条件"],
+      "content": "涉及具体价格、收费方式、采购合同、折扣、付款条件或商务条款的问题，需要结合客户规模、试点场景、系统接入范围和服务内容确认，应引导用户预约演示或获取方案。",
+      "keywords": ["价格", "收费", "多少钱", "采购合同", "折扣", "付款条件", "商务条款", "获取方案"],
       "answerUse": "cta_only",
       "ctaHint": "获取方案"
     },
     {
-      "chunkId": "vitaclaw-kb-008",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["eBPF Sentinel And Audit Trail"],
-      "content": "产品文档描述了 eBPF Sentinel 机制，用于在不改动应用代码的前提下，从系统调用层观察 AI 执行动作。eBPF 监测被定位为运行时监督能力的一部分。",
-      "keywords": ["eBPF", "Sentinel", "系统调用", "运行时监控", "可观测性"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-009",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["eBPF Sentinel And Audit Trail", "Audit guarantees"],
-      "content": "产品文档将执行轨迹与 Merkle Tree、Immudb 风格不可篡改存储等防篡改审计思路关联。关于每条指令都能完整捕获、不可修改或完全满足金融审计要求的说法，应通过方案评审确认。",
-      "keywords": ["Merkle Tree", "Immudb", "审计", "不可篡改", "金融审计"],
+      "chunkId": "vitaclaw-kb-specific-deployment-cta",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["CTA 边界", "具体系统接入与部署"],
+      "content": "涉及某个客户现有系统能否接入、具体改造工作量、私有化部署、接口权限、上线周期或验收指标的问题，需要看实际系统和流程，应引导用户预约演示或获取方案。",
+      "keywords": ["具体系统", "私有化", "部署", "接口权限", "上线周期", "验收指标", "接入工作量", "预约演示"],
       "answerUse": "cta_only",
       "ctaHint": "预约演示"
     },
     {
-      "chunkId": "vitaclaw-kb-010",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Lobster Box Isolation"],
-      "content": "产品文档将 Lobster Box 描述为限制 AI 非预期操作的隔离执行理念。它包含用于受限计算的 Wasm 沙箱、面向敏感任务的 KVM 或轻量虚拟机隔离，以及防止越界访问的权限边界。",
-      "keywords": ["Lobster Box", "Wasm", "KVM", "沙箱", "隔离"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-011",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Lobster Box Isolation", "Deployment-specific security"],
-      "content": "具体隔离配置取决于部署模式和客户环境。生产安全设计需要通过演示或架构评审确认，不能作为通用保证直接回答。",
-      "keywords": ["安全架构", "部署模式", "客户环境", "架构评审"],
-      "answerUse": "cta_only",
-      "ctaHint": "预约演示"
-    },
-    {
-      "chunkId": "vitaclaw-kb-012",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["CMA And OPAR"],
-      "content": "CMA 指 Cognitive Memory Architecture（认知内存架构）。产品文档将其描述为减少幻觉、提升执行精度的组件。v1.2 中 CMA 只能作为产品概念回答，首页助手本身不使用持久记忆、LightRAG、Cognee 或知识图谱执行。",
-      "keywords": ["CMA", "Cognitive Memory Architecture", "幻觉", "执行精度", "产品概念"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-013",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["CMA And OPAR", "OPAR loop"],
-      "content": "OPAR 指 Observe、Plan、Act、Reflect，即观察、计划、行动、反思。产品文档把它描述为 Agent 工作循环：先观察当前任务状态，再制定执行计划，随后执行受控步骤，最后检查结果并调整。",
-      "keywords": ["OPAR", "Observe", "Plan", "Act", "Reflect", "执行循环"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-014",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["CMA And OPAR", "Memory layers"],
-      "content": "产品文档描述了 CMA 的三层记忆：面向单任务流的短期上下文、沉淀可复用模式和企业 Know-how 的长期业务记忆，以及用于表达随时间变化业务关系的双时序知识图谱概念。",
-      "keywords": ["短期上下文", "长期业务记忆", "双时序知识图谱", "业务关系"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-015",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["CMA And OPAR", "Precision metrics"],
-      "content": "源文档包含 98% 检索精准度、金融级报送零差错等说法。这些属于高风险性能和合规主张，未经验证不应作为直接公开答案。",
-      "keywords": ["98%", "检索精准度", "零差错", "金融报送", "指标"],
+      "chunkId": "vitaclaw-kb-legal-compliance-cta",
+      "documentId": "vitaclaw-small-business-scenarios-v1",
+      "headingPath": ["CTA 边界", "法律与合规保证"],
+      "content": "涉及法律意见、合规保证、财务或法务最终审批责任的问题，官网助手不能给确定承诺，应说明 VitaClaw 适合做初步整理和风险提示，最终仍需企业负责人、财务或法务确认，并引导用户获取方案。",
+      "keywords": ["法律", "合规", "保证", "法务", "财务责任", "最终审批", "获取方案"],
       "answerUse": "cta_only",
       "ctaHint": "获取方案"
-    },
-    {
-      "chunkId": "vitaclaw-kb-016",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Skills, MCP, And ChatKit"],
-      "content": "产品文档将 MCP 描述为标准化工具连接合约，将 OpenSkills 兼容描述为导入可复用 Agent 技能的方式，并将 ChatKit SDK 描述为无侵入集成层：当老旧 ERP、CRM 或 OA 没有开放 API 时，可把前端交互流程映射为 Agent 可理解的流程。",
-      "keywords": ["MCP", "OpenSkills", "ChatKit", "ERP", "CRM", "OA", "无侵入集成"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-017",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Skills, MCP, And ChatKit", "Skill asset management"],
-      "content": "产品文档描述了技能资产管理：业务专家经验可以封装为 AI 技能，进行版本管理、签名、分发和审计。这被定位为把专家 Know-how 转化为可复用数字资产的方式。",
-      "keywords": ["技能资产", "AI技能包", "版本控制", "Sigstore", "审计"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-018",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Skills, MCP, And ChatKit", "Connector feasibility"],
-      "content": "具体连接器覆盖范围和老旧系统可行性必须按客户系统确认。当访客询问某个 ERP、CRM、OA、身份系统或私有系统能否集成时，助手应引导预约演示或获取方案。",
-      "keywords": ["系统集成", "连接器", "ERP", "CRM", "OA", "客户系统"],
-      "answerUse": "cta_only",
-      "ctaHint": "预约演示"
-    },
-    {
-      "chunkId": "vitaclaw-kb-019",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Deployment And Implementation Path"],
-      "content": "产品文档描述了四阶段实施路径：调研准备、试点部署、规模化推广和持续优化。准备阶段包括威胁建模、非人类身份识别和权限边界定义。",
-      "keywords": ["实施路线", "调研准备", "试点部署", "规模化推广", "持续优化"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-020",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Deployment And Implementation Path", "Timelines"],
-      "content": "源文档包含示例周期，例如调研准备 2-4 周、试点部署 4-6 周、规模化推广 8-12 周。实际周期取决于系统、审批、数据访问和客户约束，因此只能作为 CTA 引导内容。",
-      "keywords": ["实施周期", "2-4周", "4-6周", "8-12周", "POC"],
-      "answerUse": "cta_only",
-      "ctaHint": "获取方案"
-    },
-    {
-      "chunkId": "vitaclaw-kb-021",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Deployment And Implementation Path", "ROI claims"],
-      "content": "源文档包含 ROI 和效率类说法，例如替代 3-5 名基础岗员工、综合人力投入降低 60%-80%、任务从小时级缩短到分钟级、吞吐量提升 70% 以上、落地成本降低 80%、简单场景最快 1 周。这些不能作为直接公开保证。",
-      "keywords": ["ROI", "3-5名", "60%-80%", "70%", "80%", "1周"],
-      "answerUse": "cta_only",
-      "ctaHint": "获取方案"
-    },
-    {
-      "chunkId": "vitaclaw-kb-022",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Scenario Library", "Banking"],
-      "content": "银行业场景包括 KYC/AML 自动化、信贷审批辅助和对公柜台自动化。这些示例涉及跨系统收集资料、比对信息、生成合规分析草稿、解析报表或发票，以及用 ChatKit 风格的交互自动化处理复杂录入。",
-      "keywords": ["银行", "KYC", "AML", "信贷审批", "对公柜台", "ChatKit"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-023",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Scenario Library", "Banking metrics"],
-      "content": "源文档包含银行场景的精确成效说法，例如核验时长降低 90%、审计轨迹 100% 留痕。这些是场景相关主张，公开使用前应通过方案评审确认。",
-      "keywords": ["银行成效", "90%", "100%", "审计留痕", "KYC"],
-      "answerUse": "cta_only",
-      "ctaHint": "预约演示"
-    },
-    {
-      "chunkId": "vitaclaw-kb-024",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Scenario Library", "Insurance"],
-      "content": "保险业场景包括小额快赔自动化和投保核保辅助。示例描述了多 Agent 协同进行图像识别、价格核对，以及读取文档或医疗报告后输出风险分级建议。",
-      "keywords": ["保险", "小额快赔", "核保", "图像识别", "风险分级"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-025",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Scenario Library", "Insurance metrics"],
-      "content": "源文档包含保险场景的精确成效说法，例如理赔周期由天缩短到分钟、落地成本降低 80%。实际结果取决于流程、数据、系统和审核规则，因此只能用于 CTA 引导。",
-      "keywords": ["理赔周期", "天到分钟", "80%", "保险成效"],
-      "answerUse": "cta_only",
-      "ctaHint": "获取方案"
-    },
-    {
-      "chunkId": "vitaclaw-kb-026",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Scenario Library", "RegTech"],
-      "content": "监管科技场景包括监管报表支持和合规风险监测。示例描述了规则变化解析、在人工复核下组装报表数据，以及结合可观测性和规则识别异常模式。",
-      "keywords": ["监管科技", "监管报表", "合规风险", "1104", "EAST", "异常监测"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-027",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Scenario Library", "Manufacturing And Government Service"],
-      "content": "制造业和政务服务场景包括供应链采购自动化和政务服务助手。这些示例涉及监控库存、比对供应商报价、辅助下单流程、引导群众填写申请，以及支持后台材料核验。",
-      "keywords": ["制造业", "供应链采购", "政务", "一网通办", "材料核验"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-028",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Scenario Library", "Feasibility boundary"],
-      "content": "某个具体流程能否自动化，取决于目标系统、权限、UI/API 可用性、数据质量和复核要求。针对访客自身系统的可行性问题，助手应引导到方案沟通。",
-      "keywords": ["可行性", "目标系统", "权限", "UI", "API", "数据质量"],
-      "answerUse": "cta_only",
-      "ctaHint": "预约演示"
-    },
-    {
-      "chunkId": "vitaclaw-kb-029",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Policy Alignment And Security Controls"],
-      "content": "产品文档提到 OneClaw/VitaClaw 可支持国产化、信创等企业技术环境。该内容应作为产品定位讨论，不能直接等同于满足某个采购、法律或合规要求的保证。",
-      "keywords": ["信创", "国产化", "政策适配", "采购", "法律要求"],
-      "answerUse": "cta_only",
-      "ctaHint": "获取方案"
-    },
-    {
-      "chunkId": "vitaclaw-kb-030",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Policy Alignment And Security Controls", "Five layers"],
-      "content": "产品文档描述了五层安全控制：事前准入、事中监控、决策审核、数据防护和事后审计。示例控制包括 SPIFFE 身份、NHI 隔离、OPA/Rego 策略校验、Sigstore 验证、eBPF 追踪、mTLS、运行时护栏、沙箱隔离、人工复核、数据脱敏、不可篡改日志和可视化回放。",
-      "keywords": ["五层防线", "SPIFFE", "NHI", "OPA", "Rego", "mTLS", "HITL", "数据脱敏"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-031",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Policy Alignment And Security Controls", "Legal and compliance guarantees"],
-      "content": "关于满足某部法律、某项监管要求、采购要求、审计标准、PIPL 数据本地化义务或金融合规要求的问题，必须引导到方案咨询。首页助手不能提供法律或合规保证。",
-      "keywords": ["合规保证", "PIPL", "个人信息保护法", "审计标准", "法律"],
-      "answerUse": "cta_only",
-      "ctaHint": "预约演示"
-    },
-    {
-      "chunkId": "vitaclaw-kb-032",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Public Q&A Anchors", "A2A security"],
-      "content": "A2A 安全关注多个 Agent 协作时的身份冒用和消息劫持风险。产品文档说明 OneClaw 使用 SPIFFE 风格的非人类身份和 mTLS 加密通信来降低这类风险。",
-      "keywords": ["A2A", "SPIFFE", "NHI", "mTLS", "身份冒用", "消息劫持"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-033",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Public Q&A Anchors", "Prompt injection"],
-      "content": "针对提示词注入，产品文档说明运行时护栏会围绕 OPAR 的计划阶段进行约束，工具调用也应遵循 MCP 定义的 Schema。",
-      "keywords": ["Prompt Injection", "提示词注入", "Runtime Guardrails", "OPAR", "MCP Schema"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-034",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Public Q&A Anchors", "Legacy ERP integration"],
-      "content": "对于没有开放 API 的老旧 ERP 系统，产品文档将 ChatKit SDK 描述为无侵入中间件层，可以把 UI 交互流程映射为 Agent 可理解的动作。具体可行性仍取决于实际系统和权限。",
-      "keywords": ["老旧ERP", "无API", "ChatKit", "UI自动化", "权限"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-035",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Public Q&A Anchors", "Execution loop safety"],
-      "content": "产品文档描述了指令深度追踪、循环模式检测、自动中断和人工升级等机制，用于降低 Agent 进入无限执行循环的风险。",
-      "keywords": ["无限循环", "指令深度", "循环检测", "熔断", "人工介入"],
-      "answerUse": "allowed",
-      "ctaHint": null
-    },
-    {
-      "chunkId": "vitaclaw-kb-036",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Public Q&A Anchors", "Private deployment"],
-      "content": "产品文档说明平台支持私有化部署。具体拓扑、数据驻留、安全责任和运维模式需要通过架构评审确认。",
-      "keywords": ["私有化部署", "数据驻留", "安全责任", "架构评审"],
-      "answerUse": "cta_only",
-      "ctaHint": "预约演示"
-    },
-    {
-      "chunkId": "vitaclaw-kb-037",
-      "documentId": "vitaclaw-kb",
-      "headingPath": ["Public Q&A Anchors", "Homepage assistant scope"],
-      "content": "访客可以询问已审核产品文档覆盖的高层产品、场景、实施流程、集成和安全能力问题。涉及客户自身系统、价格、合规保证或绑定承诺的问题，助手应引导到预约演示或获取方案。",
-      "keywords": ["VitaClaw 助手", "问答范围", "产品文档", "CTA", "边界"],
-      "answerUse": "allowed",
-      "ctaHint": null
     }
   ]
 }

@@ -11,27 +11,27 @@ const chunksPath = path.resolve("docs/product-docs/chunks/vitaclaw-doc-chunks.js
 
 const chunks = loadVitaClawChunks(chunksPath);
 
-assert.equal(chunks.allowed.length, 23);
-assert.equal(chunks.ctaOnly.length, 13);
-assert.equal(chunks.internalOnlyCount, 1);
-assert.equal(chunks.allowed.some((chunk) => chunk.chunkId === "vitaclaw-kb-004"), false);
+assert.equal(chunks.allowed.length, 11);
+assert.equal(chunks.ctaOnly.length, 3);
+assert.equal(chunks.internalOnlyCount, 0);
+assert.equal(chunks.allowed.some((chunk) => chunk.answerUse !== "allowed"), false);
 
 {
-  const result = retrieveVitaClawContext("Rust 执行内核有什么优势？", chunks);
+  const result = retrieveVitaClawContext("开完会以后，VitaClaw 能帮我做什么？", chunks);
   assert.equal(result.kind, "answer");
-  assert.ok(result.context.some((chunk) => chunk.chunkId === "vitaclaw-kb-006"));
+  assert.ok(result.context.some((chunk) => chunk.chunkId === "vitaclaw-kb-meeting"));
   assert.equal(result.context.some((chunk) => chunk.answerUse !== "allowed"), false);
 }
 
 {
-  const result = retrieveVitaClawContext("Lobster Box 安全沙箱是什么？", chunks);
+  const result = retrieveVitaClawContext("VitaClaw 怎么帮我做采购比价？", chunks);
   assert.equal(result.kind, "answer");
-  assert.ok(result.context.some((chunk) => chunk.chunkId === "vitaclaw-kb-010"));
+  assert.ok(result.context.some((chunk) => chunk.chunkId === "vitaclaw-kb-procurement"));
   assert.equal(result.context.some((chunk) => chunk.answerUse !== "allowed"), false);
 }
 
 {
-  const result = retrieveVitaClawContext("ROI 能降低 60%-80% 吗？", chunks);
+  const result = retrieveVitaClawContext("价格多少钱？能不能写进采购合同？", chunks);
   assert.equal(result.kind, "cta");
   assert.equal(result.cta, "获取方案");
   assert.deepEqual(result.context, []);
@@ -46,7 +46,7 @@ assert.equal(chunks.allowed.some((chunk) => chunk.chunkId === "vitaclaw-kb-004")
 
 {
   const response = await createVitaClawChatResponse(
-    { message: "Rust 执行内核有什么优势？" },
+    { message: "VitaClaw 和普通 AI 聊天机器人有什么区别？" },
     {
       chunksPath,
       env: {},
@@ -58,13 +58,13 @@ assert.equal(chunks.allowed.some((chunk) => chunk.chunkId === "vitaclaw-kb-004")
 
   assert.equal(response.type, "answer");
   assert.equal(response.usedModel, false);
-  assert.ok(response.answer.includes("Rust"));
-  assert.ok(response.sources.some((source) => source.chunkId === "vitaclaw-kb-006"));
+  assert.ok(response.answer.includes("能干活的助理"));
+  assert.ok(response.sources.some((source) => source.chunkId === "vitaclaw-kb-chatbot-difference"));
 }
 
 {
   const response = await createVitaClawChatResponse(
-    { message: "ChatKit 怎么适配没有 API 的 ERP？" },
+    { message: "VitaClaw 怎么帮我做采购比价？" },
     {
       chunksPath,
       env: {},
@@ -76,13 +76,13 @@ assert.equal(chunks.allowed.some((chunk) => chunk.chunkId === "vitaclaw-kb-004")
 
   assert.equal(response.type, "answer");
   assert.equal(response.usedModel, false);
-  assert.ok(response.answer.includes("无侵入"));
-  assert.equal(response.answer.includes("For legacy ERP systems"), false);
+  assert.ok(response.answer.includes("采购建议"));
+  assert.equal(response.answer.includes("For "), false);
 }
 
 {
   const response = await createVitaClawChatResponse(
-    { message: "ChatKit 怎么适配没有 API 的 ERP？" },
+    { message: "开完会以后，VitaClaw 能帮我做什么？" },
     {
       chunksPath,
       env: { DEEPSEEK_API_KEY: "test-key" },
@@ -92,7 +92,7 @@ assert.equal(chunks.allowed.some((chunk) => chunk.chunkId === "vitaclaw-kb-004")
             choices: [
               {
                 message: {
-                  content: "ChatKit 可以把前端交互流程映射为 Agent 可理解的动作。",
+                  content: "VitaClaw 可以把会议内容整理成待办、负责人、截止时间和风险点，让会议开完后继续推进。",
                 },
               },
             ],
@@ -104,12 +104,12 @@ assert.equal(chunks.allowed.some((chunk) => chunk.chunkId === "vitaclaw-kb-004")
 
   assert.equal(response.type, "answer");
   assert.equal(response.usedModel, true);
-  assert.equal(response.answer, "ChatKit 可以把前端交互流程映射为 Agent 可理解的动作。");
+  assert.equal(response.answer, "VitaClaw 可以把会议内容整理成待办、负责人、截止时间和风险点，让会议开完后继续推进。");
 }
 
 {
   const response = await createVitaClawChatResponse(
-    { message: "Rust 执行内核有什么优势？" },
+    { message: "VitaClaw 能帮销售团队跟进客户吗？" },
     {
       chunksPath,
       env: { DEEPSEEK_API_KEY: "test-key" },
@@ -120,7 +120,7 @@ assert.equal(chunks.allowed.some((chunk) => chunk.chunkId === "vitaclaw-kb-004")
   assert.equal(response.type, "answer");
   assert.equal(response.usedModel, false);
   assert.ok(response.answer.includes("根据已审核的 VitaClaw 产品文档"));
-  assert.ok(response.sources.some((source) => source.chunkId === "vitaclaw-kb-006"));
+  assert.ok(response.sources.some((source) => source.chunkId === "vitaclaw-kb-sales-followup"));
 }
 
 {
