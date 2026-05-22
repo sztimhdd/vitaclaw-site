@@ -39,14 +39,17 @@ export function Hero() {
               <div>
                 <h1 className="text-[clamp(28px,4vw,52px)] font-bold leading-[1.1] tracking-normal mb-4">
                   <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
-                    你的第一个 AI 业务助手
+                    你的第一个 AI 员工
                   </span>
                 </h1>
                 <p className="text-lg text-white/50 mt-4 leading-relaxed">
-                  VitaClaw 可以自动整理资料、处理流程、操作系统、生成结果，帮企业完成原本需要多人协作的日常工作。
+                  开会、采购、对账、客户跟进这些琐碎工作，不用再全靠人盯。
                 </p>
                 <p className="text-lg text-white/50 mt-3 leading-relaxed">
-                  从 Excel 到 ERP，从审批到跟单，让 AI 真正参与业务执行。
+                  你只要说清目标，企小勤就能整理资料、跑流程、生成结果，并在关键节点等你确认。
+                </p>
+                <p className="text-lg text-white/50 mt-3 leading-relaxed">
+                  让 AI 不只是写文案、回答问题，而是真的帮公司把事情往前推进。
                 </p>
               </div>
             </ScrollReveal>
@@ -54,29 +57,29 @@ export function Hero() {
             {/* Social proof badges */}
             <ScrollReveal delay={50}>
               <div className="text-sm text-white/50 flex flex-wrap items-center gap-x-1.5">
-                <span>适合中小企业快速落地</span>
+                <span>小团队也能快速试起来</span>
                 <span className="text-white/20" aria-hidden="true">&middot;</span>
-                <span>支持人工审核</span>
+                <span>关键动作人工确认</span>
                 <span className="text-white/20" aria-hidden="true">&middot;</span>
-                <span>本地 Demo 可试用</span>
+                <span>先跑一个真实流程</span>
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
               <div className="flex gap-3 flex-wrap">
-                <a
-                  href="/trial/select"
-                  className="px-7 py-3 rounded-lg bg-white text-[#0f172a] font-semibold text-[15px] hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                >
-                  立即体验
-                </a>
                 <button
                   type="button"
                   onClick={openVideoModal}
+                  className="px-7 py-3 rounded-lg bg-white text-[#0f172a] font-semibold text-[15px] hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                >
+                  看真实演示
+                </button>
+                <a
+                  href="#contact"
                   className="px-7 py-3 rounded-lg border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/40 hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  观看演示
-                </button>
+                  预约试点沟通
+                </a>
               </div>
             </ScrollReveal>
           </div>
@@ -92,7 +95,7 @@ export function Hero() {
                     <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
                   </div>
                   <div className="ml-4 text-[13px] font-medium text-white/40 tracking-wide font-mono">
-                    VitaClaw · Agent 执行流
+                    企小勤正在处理业务任务
                   </div>
                   {/* Expand hint */}
                   <svg className="ml-auto w-4 h-4 text-white/20 group-hover:text-white/50 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -124,7 +127,7 @@ export function Hero() {
                     </div>
                   </div>
                   <div className="absolute bottom-4 left-4 right-4 hidden rounded-lg border border-white/[0.08] bg-black/55 px-4 py-3 text-xs text-white/55 backdrop-blur-sm sm:block">
-                    示例：接收任务 → 拆解步骤 → 调用企业系统 → 生成结果 → 人工确认
+                    从一句话任务开始，AI 自动查资料、跑流程、整理结果，关键动作再交给人确认。
                   </div>
                 </div>
               </div>
@@ -153,7 +156,7 @@ export function Hero() {
                 <div className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-[#DEA123]" />
                 <div className="w-3 h-3 rounded-full bg-[#27C93F] border border-[#1AAB29]" />
               </div>
-              <div className="ml-3 text-sm text-white/50 font-mono tracking-wide">VitaClaw · Agent 执行流</div>
+              <div className="ml-3 text-sm text-white/50 font-mono tracking-wide">企小勤正在处理业务任务</div>
               <button
                 onClick={closeVideoModal}
                 className="ml-auto w-8 h-8 rounded-lg flex items-center justify-center text-white/40 hover:text-white hover:bg-white/[0.08] transition-all"

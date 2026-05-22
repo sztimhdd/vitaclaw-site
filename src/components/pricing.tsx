@@ -3,33 +3,33 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 
 const plans = [
   {
-    name: "本地试用",
-    price: "免费",
-    subtitle: "先看真实 demo",
-    description: "适合先验证会议、采购、HR、财务四个场景的产品体验。",
-    cta: "选择试用环境",
+    name: "演示体验",
+    price: "免费体验",
+    subtitle: "先看真实业务演示",
+    description: "适合先了解企小勤如何处理会议、采购、员工流程、财务对账等常见场景。",
+    cta: "查看演示",
     href: "/trial/select",
-    features: ["本地 PlanB M1 demo", "两个 tenant 入口", "不新增注册与计费"],
+    features: ["真实录屏演示", "四个典型业务场景", "可了解 AI 执行流程", "无需先接入企业系统"],
     highlighted: false,
   },
   {
     name: "团队试点",
     price: "按流程评估",
     subtitle: "从一个业务流程开始",
-    description: "适合运营、财务、采购、HR 等团队拿一个低风险流程做试点。",
-    cta: "联系试点顾问",
+    description: "适合从会议整理、采购比价、单据初审、财务对账等低风险流程开始，先验证效率提升和人工确认方式。",
+    cta: "预约试点沟通",
     href: "#contact",
-    features: ["流程范围梳理", "人工确认节点设计", "试点验收口径确认"],
+    features: ["梳理一个具体业务流程", "设计人工确认节点", "明确数据和系统边界", "确认试点验收标准"],
     highlighted: true,
   },
   {
     name: "私有化咨询",
     price: "定制",
-    subtitle: "面向本地或专属环境",
-    description: "适合对系统接入、权限边界、数据环境有明确要求的企业。",
+    subtitle: "面向有数据和系统边界要求的企业",
+    description: "适合对数据不出域、系统接入、权限控制、审计留痕有明确要求的企业。",
     cta: "预约方案沟通",
     href: "#contact",
-    features: ["系统接入方案", "权限与审计边界", "本地/私有化部署评估"],
+    features: ["系统接入方案评估", "权限与审计边界设计", "本地或专属环境部署评估", "试点到正式上线路径规划"],
     highlighted: false,
   },
 ];
@@ -44,13 +44,13 @@ export function Pricing() {
         <ScrollReveal>
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-5 inline-flex rounded-full border border-white/[0.10] bg-white/[0.04] px-4 py-1.5 text-sm font-semibold text-white/58">
-              定价与试点方式
+              试点方式
             </div>
             <h2 className="text-[clamp(34px,5vw,64px)] font-black leading-tight tracking-normal text-white">
               不先卖平台，先跑通一个流程
             </h2>
             <p className="mt-5 text-base leading-8 text-white/55 sm:text-lg">
-              当前官网不做在线开通和自动计费。先从本地 demo 或一个团队试点开始，确认流程价值、权限边界和人工确认方式。
+              不用一开始就改造全公司系统。先选一个具体流程，跑出效果、看清价值，再决定是否扩大试点。
             </p>
           </div>
         </ScrollReveal>

@@ -15,7 +15,7 @@ export type VitaClawAssistantResponse = {
 
 const FALLBACK_RESPONSE: VitaClawAssistantResponse = {
   type: "fallback",
-  answer: "VitaClaw 助手暂时无法读取产品文档，请稍后再试或预约演示。",
+  answer: "企小勤助手暂时无法读取产品文档，请稍后再试或预约演示。",
   sources: [],
   cta: "预约演示",
   usedModel: false,

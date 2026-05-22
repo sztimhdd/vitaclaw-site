@@ -4,33 +4,37 @@ const scenarioShots = [
   {
     id: "meeting",
     title: "开完会，纪要和待办自动出来",
-    users: "运营、行政、项目负责人",
-    description: "把会议内容、决策和待办整理成可确认的执行清单。",
-    tasks: ["会议纪要与待办拆解", "责任人和截止时间识别", "结果同步到协作流程"],
+    users: "老板、运营、行政、项目负责人",
+    description: "会议一结束，AI 自动整理结论、待办、负责人和截止时间，老板不用再翻记录、催进度。",
+    tasks: ["自动整理会议结论和待办", "标出负责人、截止时间和缺失信息", "生成可确认的会后执行清单"],
+    cta: "看 AI 怎么整理会议",
     image: "/screenshots/use-cases/meeting.png",
   },
   {
     id: "procurement",
     title: "采购比价，不用人肉翻表",
-    users: "采购、供应链、运营团队",
-    description: "汇总库存、历史价格和供应商条款，生成待确认建议。",
-    tasks: ["库存与采购记录读取", "供应商报价对比", "异常价格与条款标记"],
+    users: "老板、采购、供应链、运营团队",
+    description: "库存、历史价、供应商报价自动汇总，异常价格先标出来，采购建议一页看清。",
+    tasks: ["自动读取库存和历史采购记录", "对比供应商报价、账期和交付条件", "标出异常价格和需要确认的供应商"],
+    cta: "看 AI 怎么处理采购",
     image: "/screenshots/use-cases/supplychain.png",
   },
   {
     id: "hr",
     title: "合同单据，先让 AI 查一遍",
-    users: "法务、行政、业务负责人",
-    description: "先检查材料、条款和流程状态，把需要人工判断的点标出来。",
-    tasks: ["单据材料自动核对", "关键条款和缺口标记", "待确认动作集中呈现"],
+    users: "老板、财务、行政、业务负责人",
+    description: "报销、合同、付款申请先让 AI 过一遍，缺材料、金额异常、条款风险提前标出来。",
+    tasks: ["自动核对发票、合同、订单和附件", "标出金额异常、材料缺口和条款风险", "把需要人工判断的事项集中呈现"],
+    cta: "看 AI 怎么做初审",
     image: "/screenshots/use-cases/hr.png",
   },
   {
     id: "finance",
     title: "客户跟进，自动整理下一步",
-    users: "销售、运营、客户成功",
-    description: "读取记录、表格和沟通材料，整理风险、进展和下一步动作。",
-    tasks: ["客户记录自动汇总", "风险和异常优先标记", "跟进建议生成"],
+    users: "老板、销售、运营、客户负责人",
+    description: "从聊天、邮件、表格里整理客户需求、报价状态和下一步动作，减少漏跟和丢单。",
+    tasks: ["自动汇总客户沟通记录", "标出报价状态、未回复客户和风险事项", "生成下一步跟进建议"],
+    cta: "看 AI 怎么跟进客户",
     image: "/screenshots/use-cases/finance.png",
   },
 ];
@@ -46,18 +50,18 @@ export function ScenarioPortfolio() {
           <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <div className="mb-4 inline-flex rounded-full border border-accent-green/20 bg-accent-green/[0.08] px-3 py-1 text-xs font-semibold text-accent-green">
-                真实场景截图集
+                真实业务场景
               </div>
               <h2 className="max-w-5xl text-[clamp(34px,5vw,60px)] font-black leading-[1.05] tracking-normal text-white">
-                不聊概念，直接看 AI 上手干活
+                不讲概念，直接看 AI 怎么替你干活
               </h2>
               <p className="mt-4 max-w-3xl text-base leading-8 text-white/55 sm:text-lg">
-                我们把公司每天最烦的几件事做成了专职智能体：开会、采购、单据、客户跟进。点击卡片，直接看 AI 如何接任务、查资料、调用系统、整理 Word/PPT/Excel 文档。
+                我们把小公司每天最耗人的几件事做成了真实演示：开会、采购、单据、客户跟进。点开就能看到 AI 如何接任务、查资料、调用系统、整理结果。
               </p>
             </div>
             <div className="hidden text-right text-sm leading-6 text-white/38 lg:block">
-              横向滑动查看<br />
-              点击卡片进入场景视频
+              横向查看真实案例<br />
+              点击卡片，看完整执行过程
             </div>
           </div>
         </ScrollReveal>
@@ -85,7 +89,7 @@ export function ScenarioPortfolio() {
                         <div className="h-3 w-3 rounded-full bg-[#27C93F]" />
                       </div>
                       <div className="ml-2 truncate text-xs font-semibold text-white/45 sm:text-sm">
-                        VitaClaw / {scenario.title}
+                        企小勤 / {scenario.title}
                       </div>
                       <div className="ml-auto rounded-full border border-accent-green/20 bg-accent-green/[0.10] px-2.5 py-1 text-[11px] font-semibold text-accent-green">
                         0{index + 1}
@@ -111,14 +115,14 @@ export function ScenarioPortfolio() {
                           <p className="mt-2 max-w-xl text-sm leading-6 text-white/68">{scenario.description}</p>
                         </div>
                         <div className="shrink-0 rounded-full border border-white/15 bg-white/[0.08] px-3 py-1.5 text-xs font-semibold text-white/78 backdrop-blur">
-                          查看执行过程
+                          {scenario.cta}
                         </div>
                       </div>
                     </div>
 
                     <div className="grid gap-4 p-5 sm:grid-cols-[1fr_1.45fr] sm:p-6">
                       <div>
-                        <div className="text-xs font-semibold text-white/38">推荐用户</div>
+                        <div className="text-xs font-semibold text-white/38">适合</div>
                         <div className="mt-2 text-sm font-semibold text-white/72">{scenario.users}</div>
                       </div>
                       <div>

@@ -14,13 +14,13 @@ export function TrialSelectPage() {
 
         <div className="mt-6 mb-10">
           <div className="mb-4 inline-flex items-center rounded-full border border-accent-green/20 bg-accent-green/[0.08] px-4 py-1.5 text-sm text-accent-green">
-            本地 PlanB M1 demo
+            真实演示环境
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
-            选择试用环境
+            选择演示入口
           </h1>
           <p className="mt-3 text-white/55 text-base sm:text-lg max-w-3xl">
-            本页只连接本地演示租户，不创建账号、不连接 control plane、不自动开通正式服务。若 tenant runtime 未启动，可先确认链接地址。
+            这里保留两个演示入口，用于查看企小勤处理业务任务的效果。正式试点前，我们会先确认数据范围、系统权限和验收目标。
           </p>
         </div>
 
@@ -30,8 +30,8 @@ export function TrialSelectPage() {
               <h2 className="text-xl font-semibold text-white">tenantA</h2>
               <span className="rounded-full border border-white/[0.10] bg-white/[0.05] px-3 py-1 text-xs text-white/45">3101</span>
             </div>
-            <p className="mt-2 text-sm text-white/45">本地地址：http://localhost:3101</p>
-            <p className="mt-3 text-sm leading-6 text-white/50">用于演示一个标准租户环境下的 AI Agent 办公流程。</p>
+            <p className="mt-2 text-sm text-white/45">演示地址：http://localhost:3101</p>
+            <p className="mt-3 text-sm leading-6 text-white/50">用于演示一个标准租户环境下的 AI 办公流程。</p>
             <a
               href="http://localhost:3101"
               className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-white text-[#0f172a] px-4 py-2.5 text-sm font-semibold hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -45,8 +45,8 @@ export function TrialSelectPage() {
               <h2 className="text-xl font-semibold text-white">tenantB</h2>
               <span className="rounded-full border border-white/[0.10] bg-white/[0.05] px-3 py-1 text-xs text-white/45">3102</span>
             </div>
-            <p className="mt-2 text-sm text-white/45">本地地址：http://localhost:3102</p>
-            <p className="mt-3 text-sm leading-6 text-white/50">用于对比另一个本地租户入口，验证选择页功能不复杂化。</p>
+            <p className="mt-2 text-sm text-white/45">演示地址：http://localhost:3102</p>
+            <p className="mt-3 text-sm leading-6 text-white/50">用于对比另一个演示租户入口，确认多租户场景下的展示效果。</p>
             <a
               href="http://localhost:3102"
               className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-lg border border-white/20 text-white/80 px-4 py-2.5 text-sm font-semibold hover:border-white/40 hover:text-white transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
@@ -57,7 +57,7 @@ export function TrialSelectPage() {
         </div>
 
         <p className="mt-8 text-xs leading-6 text-white/35">
-          提醒：如果本地 tenant runtime 没有启动，点击后浏览器可能无法打开对应服务；本页只负责保留正确入口。
+          提醒：如果演示服务没有启动，点击后浏览器可能无法打开对应入口；本页只负责保留正确链接。
         </p>
       </main>
     </div>

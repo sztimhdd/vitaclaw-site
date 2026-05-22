@@ -3,10 +3,10 @@
 import { useState, useEffect } from "react";
 
 const navItems = [
-  { label: "场景截图", href: "#scenario-shots" },
-  { label: "场景视频", href: "#scenarios" },
-  { label: "定价", href: "#pricing" },
-  { label: "联系方式", href: "#contact" },
+  { label: "真实场景", href: "#scenario-shots" },
+  { label: "演示视频", href: "#scenarios" },
+  { label: "试点方式", href: "#pricing" },
+  { label: "联系我们", href: "#contact" },
   { label: "知识库", href: "#agent-news" },
 ];
 
@@ -37,6 +37,7 @@ export function Navbar() {
             <span className="font-semibold text-sm tracking-tight text-white">
               企小勤
             </span>
+            <span className="hidden text-xs text-white/35 lg:inline">会干活的 AI 数字员工</span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -70,10 +71,10 @@ export function Navbar() {
               </svg>
             </a>
             <a
-              href="#pricing"
+              href="#contact"
               className="hidden sm:inline-flex text-sm text-white/50 hover:text-white transition-colors duration-150"
             >
-              定价
+              预约演示
             </a>
             <a
               href="/trial/select"

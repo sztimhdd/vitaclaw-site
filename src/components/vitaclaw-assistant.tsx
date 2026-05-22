@@ -30,11 +30,11 @@ type ChatMessage = {
 };
 
 const suggestedQuestions = [
-  "开完会以后，VitaClaw 能帮我做什么？",
-  "VitaClaw 怎么帮我做采购比价？",
-  "VitaClaw 能帮我审核合同、报销单或业务单据吗？",
-  "VitaClaw 能帮销售团队跟进客户吗？",
-  "VitaClaw 和普通 AI 聊天机器人有什么区别？",
+  "开完会以后，企小勤能帮我做什么？",
+  "企小勤怎么帮我做采购比价？",
+  "企小勤能帮我审核合同、报销单或业务单据吗？",
+  "企小勤能帮销售团队跟进客户吗？",
+  "企小勤和普通 AI 聊天机器人有什么区别？",
 ];
 
 const initialMessages: ChatMessage[] = [
@@ -42,7 +42,7 @@ const initialMessages: ChatMessage[] = [
     id: "welcome",
     role: "assistant",
     content:
-      "我是 VitaClaw 助手，可以用业务语言说明会议协同、采购比价、单据初审和客户跟进怎么用 AI 推进。涉及具体价格、合同条款或系统接入细节时，我会建议预约演示或获取方案。",
+      "我是企小勤助手，可以用业务语言说明会议待办、采购比价、单据初审和客户跟进怎么用 AI 推进。涉及具体价格、合同条款或系统接入细节时，我会建议预约演示或获取方案。",
     responseType: "answer",
     sources: [],
     cta: null,
@@ -62,7 +62,7 @@ function responseTone(type?: VitaClawAssistantResponseType) {
 }
 
 function ctaHref(cta: VitaClawAssistantResponse["cta"]) {
-  return cta ? "/trial/select" : "#contact";
+  return cta ? "#contact" : "#contact";
 }
 
 export function VitaClawAssistant() {
@@ -133,13 +133,13 @@ export function VitaClawAssistant() {
 
       setMessages((current) => [...current, assistantMessage]);
     } catch {
-      setError("VitaClaw 助手暂时无法连接产品文档问答服务。你可以稍后重试，或直接预约演示。");
+      setError("企小勤助手暂时无法连接产品文档问答服务。你可以稍后重试，或直接预约演示。");
       setMessages((current) => [
         ...current,
         {
           id: `assistant-error-${Date.now()}`,
           role: "assistant",
-          content: "VitaClaw 助手暂时无法连接产品文档问答服务。你可以稍后重试，或直接预约演示。",
+          content: "企小勤助手暂时无法连接产品文档问答服务。你可以稍后重试，或直接预约演示。",
           responseType: "fallback",
           sources: [],
           cta: "预约演示",
@@ -161,7 +161,7 @@ export function VitaClawAssistant() {
         <section
           id="vitaclaw-assistant-panel"
           role="dialog"
-          aria-label="VitaClaw 助手"
+          aria-label="企小勤助手"
           className="fixed bottom-36 left-4 right-4 flex max-h-[min(680px,calc(100dvh-9rem))] min-h-[min(560px,calc(100dvh-9rem))] flex-col overflow-hidden rounded-2xl border border-white/[0.1] bg-[#080c14]/95 shadow-[0_28px_90px_-28px_rgba(59,130,246,0.55)] backdrop-blur-2xl md:bottom-24 md:left-auto md:right-6 md:w-[410px]"
         >
           <div className="border-b border-white/[0.08] bg-white/[0.035] px-4 py-4">
@@ -171,13 +171,13 @@ export function VitaClawAssistant() {
                   <Bot className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <div className="min-w-0">
-                  <h2 className="text-sm font-semibold text-white">VitaClaw 助手</h2>
+                  <h2 className="text-sm font-semibold text-white">企小勤助手</h2>
                   <p className="mt-0.5 text-xs text-white/45">四大业务场景问答</p>
                 </div>
               </div>
               <button
                 type="button"
-                aria-label="关闭 VitaClaw 助手"
+                aria-label="关闭企小勤助手"
                 onClick={() => setIsOpen(false)}
                 className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-white/45 transition-colors duration-200 hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
@@ -269,7 +269,7 @@ export function VitaClawAssistant() {
 
             <form onSubmit={handleSubmit} className="space-y-2">
               <label htmlFor={inputId} className="sr-only">
-                输入 VitaClaw 产品问题
+                输入企小勤产品问题
               </label>
               <div className="flex items-end gap-2">
                 <textarea
@@ -299,19 +299,19 @@ export function VitaClawAssistant() {
 
             <div className="mt-3 grid grid-cols-3 gap-2">
               <a
-                href="/trial/select"
+                href="#contact"
                 className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.04] px-2 py-2 text-xs font-semibold text-white/62 transition-colors duration-200 hover:border-white/[0.18] hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 预约演示
               </a>
               <a
-                href="/trial/select"
+                href="#contact"
                 className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-blue-400/20 bg-blue-400/[0.08] px-2 py-2 text-xs font-semibold text-blue-100 transition-colors duration-200 hover:border-blue-300/30 hover:bg-blue-400/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 获取方案
               </a>
               <a
-                href="/trial/select"
+                href="mailto:contact@vitaclaw.com"
                 className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-white/[0.08] bg-white/[0.04] px-2 py-2 text-xs font-semibold text-white/62 transition-colors duration-200 hover:border-white/[0.18] hover:bg-white/[0.06] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
               >
                 <Mail className="h-3.5 w-3.5" aria-hidden="true" />
@@ -323,7 +323,7 @@ export function VitaClawAssistant() {
       ) : (
         <button
           type="button"
-          aria-label="打开 VitaClaw 助手"
+          aria-label="打开企小勤助手"
           aria-controls="vitaclaw-assistant-panel"
           aria-expanded={isOpen}
           onClick={() => setIsOpen(true)}
@@ -333,7 +333,7 @@ export function VitaClawAssistant() {
             <Sparkles className="h-5 w-5" aria-hidden="true" />
           </span>
           <span className="hidden flex-col sm:flex">
-            <span className="text-sm font-semibold text-white">VitaClaw 助手</span>
+            <span className="text-sm font-semibold text-white">企小勤助手</span>
             <span className="text-xs text-white/45">业务场景问答</span>
           </span>
         </button>

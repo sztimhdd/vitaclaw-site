@@ -2,19 +2,19 @@ const footerLinks = [
   {
     title: "产品",
     links: [
-      { label: "场景截图", href: "#scenario-shots" },
-      { label: "场景视频", href: "#scenarios" },
-      { label: "定价", href: "#pricing" },
-      { label: "联系方式", href: "#contact" },
+      { label: "真实场景", href: "#scenario-shots" },
+      { label: "演示视频", href: "#scenarios" },
+      { label: "试点方式", href: "#pricing" },
+      { label: "预约沟通", href: "#contact" },
     ],
   },
   {
     title: "资源",
     links: [
-      { label: "知识库精选", href: "#agent-news" },
-      { label: "独立知识库", href: "/kb/" },
+      { label: "AI 办公方法", href: "#agent-news" },
+      { label: "知识库", href: "/kb/" },
       { label: "公众号内容", href: "#" },
-      { label: "客户案例", href: "#scenarios" },
+      { label: "场景案例", href: "#scenarios" },
     ],
   },
   {
@@ -41,14 +41,14 @@ export function Footer() {
               <div className="hidden w-7 h-7 rounded-md bg-accent items-center justify-center">
                 <span className="text-white font-bold text-sm">企</span>
               </div>
-              <span className="font-semibold text-white">VitaClaw 企小勤</span>
+              <span className="font-semibold text-white">企小勤 VitaClaw</span>
             </div>
             <p className="text-[13px] text-white/40 leading-relaxed max-w-[240px]">
-              AI Agent 执行平台<br />
-              从一个业务流程开始，验证可控自动执行
+              会干活的 AI 业务助手<br />
+              从一个真实业务流程开始，让 AI 帮你整理资料、推进流程、生成结果，关键动作由人确认。
             </p>
             <div className="flex gap-2 mt-5 flex-wrap">
-              {["会议", "采购", "HR", "财务"].map((b) => (
+              {["会议", "采购", "员工流程", "财务"].map((b) => (
                 <span key={b} className="text-[11px] px-2 py-1 rounded border border-white/[0.10] text-white/35">
                   {b}
                 </span>

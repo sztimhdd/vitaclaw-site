@@ -22,65 +22,65 @@ interface Scenario {
 const scenarios: Scenario[] = [
   {
     id: "meeting",
-    label: "会议协同",
+    label: "会议待办",
     kicker: "会后推进",
     headline: "会议开完，待办直接变成执行清单",
-    summary: "把沟通结果落到人、时间和下一步动作，减少会后重新整理和反复追问。",
-    users: "运营、行政、项目负责人",
-    capability: "VitaClaw 读取会议材料，自动整理决策、待办和风险点，生成一份可确认、可同步、可追踪的会后清单。",
-    tasks: ["会议纪要自动整理，关键结论单独列出", "责任人、截止时间和待补信息自动标记"],
+    summary: "把会议结论直接落到负责人、截止时间和下一步动作，减少会后补纪要、反复催进度。",
+    users: "老板、运营、行政、项目负责人",
+    capability: "企小勤读取会议材料后，自动整理决策、待办、风险点和待补信息，生成一份可以确认、同步和追踪的会后清单。",
+    tasks: ["自动整理会议纪要，关键结论单独列出", "自动标出责任人、截止时间和待补信息", "生成可复制、可同步、可追踪的执行清单"],
     before: "会后靠人翻录音、补纪要、催进度，任务常散在群聊和表格里。",
-    after: "开完会先得到可确认待办，再由负责人决定是否同步到协作流程。",
-    steps: ["听懂会议", "整理结论", "拆出待办", "等待确认"],
-    proof: [["人工整理", "半天"], ["AI 初稿", "几分钟"]],
+    after: "开完会先得到一份清楚的待办清单，负责人确认后再同步到团队流程。",
+    steps: ["读取材料", "提炼结论", "拆出待办", "等人确认"],
+    proof: [["人工整理", "半天"], ["AI 初稿", "几分钟"], ["人工只需", "复核确认"]],
     video: "/demo/demo-1-meeting.mp4",
     accent: "from-cyan-300 to-blue-400",
   },
   {
     id: "procurement",
     label: "采购比价",
-    kicker: "供应链响应",
-    headline: "采购需求一来，报价和风险先整理好",
-    summary: "库存、供应商、历史价格不用来回切换，先得到一页可复核的采购建议。",
-    users: "采购、供应链、运营团队",
-    capability: "VitaClaw 汇总库存、历史采购记录和供应商报价，先把重复查询和比价工作做成建议单，再交给采购确认。",
-    tasks: ["读取库存、历史采购价和供应商条款", "标出异常价格、账期差异和待确认供应商"],
-    before: "采购人员反复查系统、拉表、比报价，真正的判断被重复录入淹没。",
+    kicker: "采购决策",
+    headline: "采购需求一来，报价、库存和风险先整理好",
+    summary: "不用在库存表、报价单和聊天记录之间来回切换，先得到一页能复核的采购建议。",
+    users: "老板、采购、供应链、运营团队",
+    capability: "企小勤自动汇总库存、历史采购价、供应商报价和交付条件，把重复查询和比价工作先整理成建议单，再交给采购确认。",
+    tasks: ["自动读取库存、历史采购价和供应商报价", "对比价格、账期、交期和条款差异", "标出异常价格和需要确认的供应商"],
+    before: "采购人员反复查系统、拉表、问报价，大量时间花在重复查询和整理上。",
     after: "AI 先生成采购建议，价格、条款和异常项一眼可复核。",
     steps: ["读取需求", "查库存价", "对比报价", "生成建议"],
-    proof: [["人工查表", "2 小时"], ["AI 汇总", "几分钟"]],
+    proof: [["人工查表", "2 小时"], ["AI 汇总", "几分钟"], ["采购只需", "判断确认"]],
     video: "/demo/Demo-3-procurement.mp4",
     accent: "from-amber-300 to-orange-400",
   },
   {
     id: "hr",
-    label: "HR 流程",
-    kicker: "入转调离",
-    headline: "员工变动，流程自动按清单往前走",
-    summary: "让 HR、行政、IT 看同一张状态表，关键权限动作前保留人工确认。",
-    users: "HR、行政、IT 协同团队",
-    capability: "VitaClaw 按企业规则检查材料、匹配办理清单、推动 OA 和权限节点，并在关键权限变更前让人确认。",
-    tasks: ["入职、转岗、离职材料和步骤自动核对", "OA 状态、权限动作和确认记录集中留痕"],
+    label: "员工流程",
+    kicker: "入职离职",
+    headline: "入职离职，不再靠人手一项项追",
+    summary: "材料、账号、权限、设备、交接事项集中成一张清单，关键权限动作前必须人工确认。",
+    users: "老板、HR、行政、IT 协同团队",
+    capability: "企小勤按企业规则检查员工材料，匹配入职、转岗、离职办理清单，推动相关节点，并在权限变更前提醒人工确认。",
+    tasks: ["自动核对入职、转岗、离职材料", "检查账号、权限、设备和交接事项", "把状态、缺口和确认记录集中留痕"],
     before: "HR、行政、IT 各看一套表，漏一步就可能留下权限和资料风险。",
-    after: "流程状态、缺失材料、待确认动作集中呈现，跨部门协作更清楚。",
-    steps: ["识别类型", "匹配清单", "推动节点", "记录留痕"],
-    proof: [["人工追踪", "多部门"], ["AI 推进", "一张清单"]],
+    after: "流程状态、缺失材料和待确认动作集中呈现，谁还没处理一眼看清。",
+    steps: ["识别流程", "匹配清单", "提醒处理", "记录留痕"],
+    proof: [["人工追踪", "多部门反复问"], ["AI 协助", "一张清单看进度"]],
     video: "/demo/Demo-2-HR.mp4",
     accent: "from-emerald-300 to-teal-400",
   },
   {
     id: "finance",
     label: "财务对账",
-    kicker: "异常复核",
-    headline: "票据流水一对，异常项先浮出来",
+    kicker: "财务初筛",
+    headline: "发票流水一对，异常项先浮出来",
     summary: "发票、流水、Excel 和业务记录先自动对齐，财务只复核真正需要判断的项目。",
-    users: "财务、审计、运营支持",
-    capability: "VitaClaw 读取多来源材料，按规则核对金额、日期、供应商和审批状态，输出异常清单与复核建议。",
-    tasks: ["发票、银行流水和业务表格自动对齐", "差异项、重复项和缺失说明优先标记"],
+    users: "老板、财务、运营支持",
+    capability: "企小勤读取发票、银行流水、Excel 和业务记录，按规则核对金额、日期、供应商和审批状态，输出异常清单和复核建议。",
+    tasks: ["自动对齐发票、银行流水和业务表格", "标出金额差异、重复记录和缺失说明", "生成可复核的异常清单"],
     before: "财务在多份表和系统之间逐条核对，异常项靠人工标颜色、写备注。",
-    after: "先拿到可复核的异常初稿，再把判断时间留给真正有风险的项目。",
-    steps: ["读取材料", "建立规则", "标记差异", "输出说明"],
-    proof: [["逐条核对", "小时级"], ["AI 初筛", "分钟级"]],
+    after: "先拿到异常初稿，财务把时间花在真正需要判断的项目上。",
+    steps: ["读取材料", "按规则核对", "标记差异", "输出说明"],
+    proof: [["逐条核对", "小时级"], ["AI 初筛", "分钟级"], ["财务重点", "复核异常项"]],
     video: "/demo/Demo-4-finance.mp4",
     accent: "from-blue-300 to-indigo-400",
   },
@@ -151,7 +151,7 @@ export function ScenarioSelector() {
           <div className="mx-auto max-w-5xl text-center">
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/[0.10] bg-white/[0.05] px-4 py-1.5 text-sm font-semibold text-white/70">
               <Workflow className="h-4 w-4 text-accent-green" aria-hidden="true" />
-              全场景 AI Agent 工作搭子
+              会干活的 AI 数字员工
             </div>
             <h2 className="text-[clamp(36px,5vw,68px)] font-black leading-[1.04] tracking-normal text-white">
               一句话交给 AI，
@@ -160,7 +160,7 @@ export function ScenarioSelector() {
               </span>
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/58 sm:text-lg">
-              你只需要说清目标，AI 会自动拆解任务、查资料、跑流程、整理结果；老板不用盯每一步，只在关键节点拍板。
+              你只需要说清目标，AI 会自动拆任务、查资料、跑流程、整理结果。老板不用盯每一步，只在关键节点确认和拍板。
             </p>
           </div>
         </ScrollReveal>
@@ -207,7 +207,7 @@ export function ScenarioSelector() {
                     <div className="h-3 w-3 rounded-full bg-[#27C93F]" />
                   </div>
                   <div className="min-w-0 flex-1 truncate text-xs font-medium text-white/45 sm:text-sm">
-                    VitaClaw 场景演示 / {current.label}
+                    企小勤场景演示 / {current.label}
                   </div>
                   <button
                     type="button"
@@ -215,7 +215,7 @@ export function ScenarioSelector() {
                     className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-white/[0.12] bg-white/[0.05] px-3 text-xs font-semibold text-white/76 transition-colors duration-200 hover:border-white/[0.24] hover:bg-white/[0.09] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                   >
                     <Maximize2 className="h-3.5 w-3.5" aria-hidden="true" />
-                    <span className="hidden sm:inline">全屏观看</span>
+                    <span className="hidden sm:inline">全屏看演示</span>
                   </button>
                 </div>
 
@@ -234,7 +234,7 @@ export function ScenarioSelector() {
 
               <aside className="flex min-w-0 flex-col p-6 sm:p-8">
                 <div className="mb-4 inline-flex w-fit rounded-full border border-white/[0.10] bg-white/[0.04] px-3 py-1 text-xs font-semibold text-white/48">
-                  {current.kicker} · 推荐用户：{current.users}
+                  {current.kicker} · 适合{current.users}
                 </div>
                 <h3 className="text-3xl font-black leading-tight tracking-normal text-white sm:text-4xl">
                   {current.headline}
@@ -290,7 +290,7 @@ export function ScenarioSelector() {
                   试用边界
                 </div>
                 <p className="text-sm leading-6 text-white/62">
-                  当前连接本地 PlanB M1 demo，高风险动作保留人工确认，不承诺自动开通生产环境。
+                  演示环境用于展示流程效果。正式试点前，会先确认数据范围、系统权限和人工确认节点。
                 </p>
                 <div className="mt-4 grid grid-cols-2 gap-2">
                   {current.proof.map(([label, value]) => (
@@ -307,10 +307,10 @@ export function ScenarioSelector() {
 
         <div className="mt-8 flex justify-center">
           <a
-            href="/trial/select"
+            href="#contact"
             className="inline-flex min-h-11 items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#0f172a] transition-colors duration-200 hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
-            选择本地试用环境
+            申请试跑一个流程
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>

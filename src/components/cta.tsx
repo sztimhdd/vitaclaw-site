@@ -14,13 +14,13 @@ export function CTA() {
         <ScrollReveal>
           <div className="text-center">
             <span className="text-xs font-semibold tracking-widest text-white/40 uppercase">
-              联系方式
+              预约沟通
             </span>
             <h2 className="text-[clamp(32px,4.5vw,54px)] font-bold text-white mt-4 mb-4">
-              想验证一个流程，先和我们对齐边界
+              想先试一个流程？我们帮你一起选场景
             </h2>
             <p className="text-white/50 text-lg">
-              当前试用入口连接本地 PlanB M1 demo。正式试点前，我们会先确认流程范围、权限边界和人工确认节点。
+              你不需要一开始就想清楚所有系统改造。先告诉我们你最想省人的一个流程，我们会一起确认适合 AI 处理的部分、需要人工确认的节点，以及可以如何试点。
             </p>
           </div>
         </ScrollReveal>
@@ -28,10 +28,10 @@ export function CTA() {
         <ScrollReveal delay={100}>
           <div className="mt-12 flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href="/trial/select"
+              href="mailto:contact@vitaclaw.com?subject=预约企小勤试点沟通"
               className="inline-flex min-h-12 items-center justify-center rounded-lg bg-white px-7 py-3 text-[#0f172a] font-semibold whitespace-nowrap hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              进入试用环境选择
+              预约试点沟通
             </a>
             <a
               href="mailto:contact@vitaclaw.com"
@@ -41,15 +41,15 @@ export function CTA() {
             </a>
           </div>
           <p className="text-xs text-white/25 mt-4 text-center">
-            试用页只保留 tenantA / tenantB 两个本地入口，不新增注册、计费或自动开通。
+            当前以演示和试点沟通为主，正式接入前会先确认数据范围、系统权限和验收目标。
           </p>
         </ScrollReveal>
 
         <ScrollReveal delay={200}>
           <div className="mt-16 pt-12 border-t border-white/[0.08] text-center">
-            <p className="text-sm text-white/40 mb-6">正式落地前重点确认这些边界</p>
+            <p className="text-sm text-white/40 mb-6">正式落地前重点确认这些问题</p>
             <div className="flex items-center justify-center gap-6 flex-wrap">
-              {["数据是否出域", "哪些动作需人工确认", "审计日志如何留存", "是否需要本地/私有化环境"].map((item) => (
+              {["哪些数据可以用于试点", "哪些动作必须人工确认", "哪些系统需要接入", "是否需要本地或私有化环境"].map((item) => (
                 <span
                   key={item}
                   className="text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/50"
