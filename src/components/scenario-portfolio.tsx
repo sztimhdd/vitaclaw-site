@@ -3,34 +3,34 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 const scenarioShots = [
   {
     id: "meeting",
-    title: "会议与协同推进",
+    title: "开完会，纪要和待办自动出来",
     users: "运营、行政、项目负责人",
-    description: "把会议内容、决策和待办自动整理成可确认的执行清单。",
+    description: "把会议内容、决策和待办整理成可确认的执行清单。",
     tasks: ["会议纪要与待办拆解", "责任人和截止时间识别", "结果同步到协作流程"],
     image: "/screenshots/use-cases/meeting.png",
   },
   {
     id: "procurement",
-    title: "采购比价与供应链响应",
+    title: "采购比价，不用人肉翻表",
     users: "采购、供应链、运营团队",
-    description: "汇总库存、历史价格和供应商条款，生成待确认采购建议。",
+    description: "汇总库存、历史价格和供应商条款，生成待确认建议。",
     tasks: ["库存与采购记录读取", "供应商报价对比", "异常价格与条款标记"],
     image: "/screenshots/use-cases/supplychain.png",
   },
   {
     id: "hr",
-    title: "HR 入转调离流程",
-    users: "HR、行政、IT 协同团队",
-    description: "按企业 SOP 检查材料，推动跨系统录入，关键动作等待确认。",
-    tasks: ["入转调离清单匹配", "OA 与权限节点同步", "流程状态和操作留痕"],
+    title: "合同单据，先让 AI 查一遍",
+    users: "法务、行政、业务负责人",
+    description: "先检查材料、条款和流程状态，把需要人工判断的点标出来。",
+    tasks: ["单据材料自动核对", "关键条款和缺口标记", "待确认动作集中呈现"],
     image: "/screenshots/use-cases/hr.png",
   },
   {
     id: "finance",
-    title: "财务对账与异常复核",
-    users: "财务、审计、运营支持",
-    description: "读取票据、表格和流水记录，输出可复核的异常清单。",
-    tasks: ["发票与流水核对", "差异项自动标记", "复核说明生成"],
+    title: "客户跟进，自动整理下一步",
+    users: "销售、运营、客户成功",
+    description: "读取记录、表格和沟通材料，整理风险、进展和下一步动作。",
+    tasks: ["客户记录自动汇总", "风险和异常优先标记", "跟进建议生成"],
     image: "/screenshots/use-cases/finance.png",
   },
 ];
@@ -48,11 +48,11 @@ export function ScenarioPortfolio() {
               <div className="mb-4 inline-flex rounded-full border border-accent-green/20 bg-accent-green/[0.08] px-3 py-1 text-xs font-semibold text-accent-green">
                 真实场景截图集
               </div>
-              <h2 className="max-w-4xl text-[clamp(34px,5vw,60px)] font-black leading-[1.05] tracking-normal text-white">
-                先看真实界面，再看 AI 怎么干活
+              <h2 className="max-w-5xl text-[clamp(34px,5vw,60px)] font-black leading-[1.05] tracking-normal text-white">
+                不聊概念，直接看 AI 上手干活
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-white/55 sm:text-lg">
-                横向浏览 4 个真实办公流程截图。每张卡片都能进入对应 demo，查看完整执行过程。
+              <p className="mt-4 max-w-3xl text-base leading-8 text-white/55 sm:text-lg">
+                我们把公司每天最烦的几件事做成了专职智能体：开会、采购、单据、客户跟进。点击卡片，直接看 AI 如何接任务、查资料、调用系统、整理 Word/PPT/Excel 文档。
               </p>
             </div>
             <div className="hidden text-right text-sm leading-6 text-white/38 lg:block">

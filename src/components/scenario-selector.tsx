@@ -160,7 +160,7 @@ export function ScenarioSelector() {
               </span>
             </h2>
             <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/58 sm:text-lg">
-              直接看真实 demo：AI 如何接收任务、拆解步骤、调用系统、生成结果，并在关键动作前等待人工确认。
+              你只需要说清目标，AI 会自动拆解任务、查资料、跑流程、整理结果；老板不用盯每一步，只在关键节点拍板。
             </p>
           </div>
         </ScrollReveal>
