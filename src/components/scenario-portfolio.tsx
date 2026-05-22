@@ -37,18 +37,18 @@ const scenarioShots = [
 
 export function ScenarioPortfolio() {
   return (
-    <section id="scenario-shots" className="relative overflow-hidden bg-[#0f172a] py-24 sm:py-32">
+    <section id="scenario-shots" className="relative overflow-hidden bg-[#0f172a] py-16 sm:py-20">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="absolute left-1/2 top-20 h-[420px] w-[760px] -translate-x-1/2 rounded-full bg-accent-green/[0.07] blur-[130px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
-          <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+          <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <div className="mb-4 inline-flex rounded-full border border-accent-green/20 bg-accent-green/[0.08] px-3 py-1 text-xs font-semibold text-accent-green">
                 真实场景截图集
               </div>
-              <h2 className="max-w-4xl text-[clamp(36px,6vw,76px)] font-black leading-[1.02] tracking-normal text-white">
+              <h2 className="max-w-4xl text-[clamp(34px,5vw,60px)] font-black leading-[1.05] tracking-normal text-white">
                 先看真实界面，再看 AI 怎么干活
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-white/55 sm:text-lg">

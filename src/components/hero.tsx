@@ -39,11 +39,14 @@ export function Hero() {
               <div>
                 <h1 className="text-[clamp(28px,4vw,52px)] font-bold leading-[1.1] tracking-normal mb-4">
                   <span className="block text-transparent bg-clip-text bg-gradient-to-b from-white to-white/60">
-                    让 AI 真正替企业完成工作
+                    你的第一个 AI 业务助手
                   </span>
                 </h1>
                 <p className="text-lg text-white/50 mt-4 leading-relaxed">
-                  VitaClaw 让 AI Agent 安全操作企业系统、调用工具、执行流程并交付结果。从财务审核到供应链协同，在企业边界内完成可追溯的自动执行。
+                  VitaClaw 可以自动整理资料、处理流程、操作系统、生成结果，帮企业完成原本需要多人协作的日常工作。
+                </p>
+                <p className="text-lg text-white/50 mt-3 leading-relaxed">
+                  从 Excel 到 ERP，从审批到跟单，让 AI 真正参与业务执行。
                 </p>
               </div>
             </ScrollReveal>
@@ -51,11 +54,11 @@ export function Hero() {
             {/* Social proof badges */}
             <ScrollReveal delay={50}>
               <div className="text-sm text-white/50 flex flex-wrap items-center gap-x-1.5">
-                <span>面向中小企业与跨系统流程团队</span>
+                <span>适合中小企业快速落地</span>
                 <span className="text-white/20" aria-hidden="true">&middot;</span>
-                <span>人工确认关键节点</span>
+                <span>支持人工审核</span>
                 <span className="text-white/20" aria-hidden="true">&middot;</span>
-                <span>本地 PlanB M1 demo 可试用</span>
+                <span>本地 Demo 可试用</span>
               </div>
             </ScrollReveal>
 
@@ -65,14 +68,14 @@ export function Hero() {
                   href="/trial/select"
                   className="px-7 py-3 rounded-lg bg-white text-[#0f172a] font-semibold text-[15px] hover:bg-white/90 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  申请试用
+                  立即体验
                 </a>
                 <button
                   type="button"
                   onClick={openVideoModal}
                   className="px-7 py-3 rounded-lg border border-white/20 text-white/80 font-medium text-[15px] hover:border-white/40 hover:text-white transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                  观看真实 Demo
+                  观看演示
                 </button>
               </div>
             </ScrollReveal>

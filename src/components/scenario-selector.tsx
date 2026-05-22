@@ -141,7 +141,7 @@ export function ScenarioSelector() {
   }, [showModal]);
 
   return (
-    <section id="scenarios" className="relative overflow-hidden bg-[#111827] py-24 sm:py-32 scroll-mt-24">
+    <section id="scenarios" className="relative overflow-hidden bg-[#111827] py-16 sm:py-20 scroll-mt-24">
       <div className="absolute inset-0 grid-bg opacity-25" />
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-green/45 to-transparent" />
       <div className="absolute left-1/2 top-12 h-[560px] w-[980px] -translate-x-1/2 rounded-full bg-accent-green/[0.07] blur-[150px]" />
@@ -149,24 +149,24 @@ export function ScenarioSelector() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ScrollReveal>
           <div className="mx-auto max-w-5xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/[0.10] bg-white/[0.05] px-4 py-1.5 text-sm font-semibold text-white/70">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/[0.10] bg-white/[0.05] px-4 py-1.5 text-sm font-semibold text-white/70">
               <Workflow className="h-4 w-4 text-accent-green" aria-hidden="true" />
               全场景 AI Agent 工作搭子
             </div>
-            <h2 className="text-[clamp(38px,6vw,86px)] font-black leading-[1.02] tracking-normal text-white">
+            <h2 className="text-[clamp(36px,5vw,68px)] font-black leading-[1.04] tracking-normal text-white">
               一句话交给 AI，
               <span className="block bg-gradient-to-r from-accent-green via-cyan-200 to-blue-300 bg-clip-text text-transparent">
                 真实流程自己往前走
               </span>
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-white/58 sm:text-lg">
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-white/58 sm:text-lg">
               直接看真实 demo：AI 如何接收任务、拆解步骤、调用系统、生成结果，并在关键动作前等待人工确认。
             </p>
           </div>
         </ScrollReveal>
 
         <ScrollReveal delay={50}>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-8 flex justify-center">
             <div className="flex w-full max-w-3xl flex-wrap justify-center gap-2 rounded-2xl border border-white/[0.08] bg-white/[0.045] p-2" role="tablist" aria-label="业务场景演示">
               {scenarios.map((scenario) => (
                 <button
@@ -195,7 +195,7 @@ export function ScenarioSelector() {
             id={`panel-${current.id}`}
             role="tabpanel"
             aria-labelledby={`tab-${current.id}`}
-            className="mt-8 overflow-hidden rounded-[30px] border border-white/[0.10] bg-[#0a0f1e]/90 shadow-[0_34px_120px_-50px_rgba(34,211,160,0.58)]"
+            className="mt-6 overflow-hidden rounded-[30px] border border-white/[0.10] bg-[#0a0f1e]/90 shadow-[0_34px_120px_-50px_rgba(34,211,160,0.58)]"
           >
             <div className={`h-1 bg-gradient-to-r ${current.accent}`} />
             <div className="grid lg:grid-cols-[minmax(0,1fr)_380px] xl:grid-cols-[minmax(0,1fr)_420px]">
