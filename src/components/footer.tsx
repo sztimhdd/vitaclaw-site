@@ -36,12 +36,11 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
           {/* Brand column (spans 2) */}
           <div className="col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/VitaClaw-Logo-v0.png" alt="企小勤 Logo" className="h-8 w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex'; }} />
-              <div className="hidden w-7 h-7 rounded-md bg-accent items-center justify-center">
-                <span className="text-white font-bold text-sm">企</span>
-              </div>
-              <span className="font-semibold text-white">企小勤 VitaClaw</span>
+            <div className="mb-4 flex items-center gap-2.5">
+              <img src="/brand/vitaclaw-logo-dark.svg" alt="VitaClaw 企小勤" className="h-8 w-auto object-contain" />
+              <span className="rounded-md border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[11px] font-medium tracking-tight text-white/55">
+                企小勤
+              </span>
             </div>
             <p className="text-[13px] text-white/40 leading-relaxed max-w-[240px]">
               会干活的 AI 业务助手<br />

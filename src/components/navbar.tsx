@@ -29,12 +29,9 @@ export function Navbar() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <a href="#" className="flex items-center gap-2">
-            <img src="/VitaClaw-Logo-v0.png" alt="企小勤 Logo" className="h-8 w-auto object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex'; }} />
-            <div className="hidden items-center justify-center w-7 h-7 rounded-md bg-accent">
-              <span className="text-sm font-bold text-white">企</span>
-            </div>
-            <span className="font-semibold text-sm tracking-tight text-white">
+          <a href="#" className="flex items-center gap-2.5">
+            <img src="/brand/vitaclaw-logo-dark.svg" alt="VitaClaw 企小勤" className="h-7 w-auto object-contain sm:h-8" />
+            <span className="rounded-md border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[11px] font-medium tracking-tight text-white/55">
               企小勤
             </span>
             <span className="hidden text-xs text-white/35 lg:inline">会干活的 AI 数字员工</span>
