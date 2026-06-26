@@ -37,7 +37,7 @@ export function Footer() {
           {/* Brand column (spans 2) */}
           <div className="col-span-2">
             <div className="mb-4 flex items-center gap-2.5">
-              <img src="/brand/vitaclaw-logo-dark.svg" alt="VitaClaw 企小美" className="h-8 w-auto object-contain" />
+              <img src="/brand/vitaclaw-logo.png" alt="VitaClaw 企小美" className="h-8 w-auto object-contain" />
             </div>
             <p className="text-[13px] text-white/40 leading-relaxed max-w-[240px]">
               会干活的 AI 业务助手<br />

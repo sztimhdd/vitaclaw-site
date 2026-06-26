@@ -30,7 +30,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <a href="#" className="flex items-center gap-2.5">
-            <img src="/brand/vitaclaw-logo-dark.svg" alt="VitaClaw 企小美" className="h-7 w-auto object-contain sm:h-8" />
+            <img src="/brand/vitaclaw-logo.png" alt="VitaClaw 企小美" className="h-7 w-auto object-contain sm:h-8" />
             <span className="hidden text-xs text-white/35 lg:inline">会干活的 AI 数字员工</span>
           </a>
 
