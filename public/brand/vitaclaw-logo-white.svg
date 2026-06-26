@@ -1,9 +1,0 @@
-<svg width="520" height="96" viewBox="0 0 520 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">VitaClaw logo white</title>
-  <desc id="desc">White reversed VitaClaw 企小美 horizontal logo lockup for dark backgrounds.</desc>
-  <g id="vitaclaw-mark">
-    <path d="M18 16H42L66 76L51 92L18 16Z" fill="#FFFFFF"/>
-    <path d="M62 16H91L70 59L53 39L62 16Z" fill="#FFFFFF"/>
-  </g>
-  <text x="124" y="62" fill="#FFFFFF" font-family="Inter, Noto Sans SC, Microsoft YaHei, Manrope, Avenir Next, Helvetica Neue, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="-1.2">VitaClaw 企小美</text>
-</svg>
