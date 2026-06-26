@@ -11,7 +11,7 @@ const footerLinks = [
   {
     title: "资源",
     links: [
-      { label: "AI 办公方法", href: "#agent-news" },
+      { label: "AI 办公方法", href: "/kb/" },
       { label: "知识库", href: "/kb/" },
       { label: "公众号内容", href: "#" },
       { label: "场景案例", href: "#scenarios" },
@@ -37,10 +37,7 @@ export function Footer() {
           {/* Brand column (spans 2) */}
           <div className="col-span-2">
             <div className="mb-4 flex items-center gap-2.5">
-              <img src="/brand/vitaclaw-logo-dark.svg" alt="VitaClaw 企小勤" className="h-8 w-auto object-contain" />
-              <span className="rounded-md border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[11px] font-medium tracking-tight text-white/55">
-                企小勤
-              </span>
+              <img src="/brand/vitaclaw-logo-dark.svg" alt="VitaClaw 企小美" className="h-8 w-auto object-contain" />
             </div>
             <p className="text-[13px] text-white/40 leading-relaxed max-w-[240px]">
               会干活的 AI 业务助手<br />
@@ -75,7 +72,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/[0.08] pt-8 flex items-center justify-between flex-wrap gap-4">
           <span className="text-[12px] text-white/25">
-            &copy; {new Date().getFullYear()} VitaClaw (企小勤). All rights reserved.
+            &copy; {new Date().getFullYear()} VitaClaw (企小美). All rights reserved.
           </span>
           <div className="flex gap-5">
             {["隐私政策", "服务条款"].map((l) => (

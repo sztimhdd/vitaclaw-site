@@ -7,7 +7,7 @@ const navItems = [
   { label: "演示视频", href: "#scenarios" },
   { label: "试点方式", href: "#pricing" },
   { label: "联系我们", href: "#contact" },
-  { label: "知识库", href: "#agent-news" },
+  { label: "知识库", href: "/kb/" },
 ];
 
 export function Navbar() {
@@ -30,10 +30,7 @@ export function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <a href="#" className="flex items-center gap-2.5">
-            <img src="/brand/vitaclaw-logo-dark.svg" alt="VitaClaw 企小勤" className="h-7 w-auto object-contain sm:h-8" />
-            <span className="rounded-md border border-white/10 bg-white/[0.04] px-1.5 py-0.5 text-[11px] font-medium tracking-tight text-white/55">
-              企小勤
-            </span>
+            <img src="/brand/vitaclaw-logo-dark.svg" alt="VitaClaw 企小美" className="h-7 w-auto object-contain sm:h-8" />
             <span className="hidden text-xs text-white/35 lg:inline">会干活的 AI 数字员工</span>
           </a>
 
@@ -55,7 +52,7 @@ export function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center gap-1.5 text-sm text-white/60 hover:text-white border border-white/[0.12] hover:border-white/30 rounded-lg px-3 py-1.5 transition-all duration-200"
-              title="企小勤 AI 技术知识库"
+              title="企小美 AI 技术知识库"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="opacity-70">
                 <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
